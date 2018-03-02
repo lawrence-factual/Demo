@@ -1,0 +1,126 @@
+
+.fixed {
+    position: fixed;
+}
+
+#map {
+    width: 800px;
+    height: 420px;
+    left: 420px;
+    top: 160px;
+}
+
+.container {
+    background-color: #fff;
+}
+
+body {
+    background-color: #f6f6f6;
+    font-family: sans-serif;
+}
+
+#visFreqDiv {
+    top: 440px;
+    left: 40px;
+}
+
+.leftChart {
+    width: 330px;
+    height: 200px;
+}
+
+#peepObsDiv {
+    left: 40px;
+    top: 160px;
+}
+
+#dwellTimeDiv {
+    left: 40px;
+    top: 700px;
+}
+
+#ffByHrDiv {
+    left: 420px;
+    top: 640px;
+}
+
+.inline {
+    display: inline;
+}
+
+#tabs {
+    left: 40px;
+    top: 110px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#container {
+    background-color: #fff;
+    width: 1250px;
+    height: 880px;
+    left: 15px;
+    top: 80px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+h3 {
+    margin-top: 0;
+    padding-top: 0;
+    font-weight: 600;
+}
+
+#searchBar {
+    top: 15px;
+    left: 15px;
+    height: 40px;
+    width: 870px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    border-radius: 4px;
+}
+
+#ageDiv {
+     left: 40px;
+    top: 160px;  
+}
+
+#incomeDiv {
+    top: 440px;
+    left: 40px;
+}
+
+#homeRegionDiv {
+left: 420px;
+    top: 640px;
+}
+
+#sankey {
+    width: 1200px;
+    height: 420px;
+    left: 40px;
+    top: 160px;
+}
+
+#chBeforeDiv {
+    left: 40px;
+    top: 640px;
+}
+
+#chAfterDiv {
+    left: 620px;
+    top: 640px;
+}
+
+#chDiv {
+        left: 40px;
+    top: 640px;
+}
+
+#catDiv {
+        left: 620px;
+    top: 640px;
+}

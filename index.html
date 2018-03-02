@@ -1,0 +1,261 @@
+<! DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="style.css" rel="stylesheet" />
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
+    <script src='Highmaps-6/code/highmaps.js'></script>
+    <script src='jquery-3.3.1.js'></script>
+</head>
+
+<body style="background-color: #f6f6f6;">
+
+    <div id="searchBar" class="fixed"></div>
+
+    <div id="container" class="fixed">
+        <div id="tabs" class="fixed">
+            <a href="index.html" class="active"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
+            <a href="behavior.html"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
+            <a href="demo.html"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
+            <a href="user.html"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
+        </div>
+
+        <div id='map' class="fixed"></div>
+
+        <div id='peepObsDiv' class="fixed">
+            <h3>People Observed</h3>
+            <canvas id="peepObs" width="350" height="200"></canvas>
+        </div>
+
+        <div id='visFreqDiv' class="fixed leftChart">
+            <h3>Visitors by Frequency</h3>
+            <canvas id="visByFreq" width="400" height="200"></canvas>
+        </div>
+
+        <div id='dwellTimeDiv' class="fixed leftChart">
+            <h3>Dwell Time</h3>
+            <canvas id="dwellTime" width="400" height="200"></canvas>
+        </div>
+
+        <div id='ffByHrDiv' class="fixed" style="width: 800px; height: 280px;">
+            <h3>Footfall by Hour</h3>
+            <canvas id="ffByHr" width="800" height="280"></canvas>
+        </div>
+
+    </div>
+
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGF3cmVuY2UtZmFjdHVhbCIsImEiOiJjamQ2OWdseHQ0dHkxMndvMXh4cXF3c3g1In0.ycrRQ-DESrMwj6H_apu5Vw';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            center: [-120, 50],
+            zoom: 2
+        });
+
+
+
+
+
+        //People Observed
+        var pOb = document.getElementById("peepObs").getContext('2d');
+
+
+        // Generate random data to plot
+        var DATA_POINT_NUM = 58;
+        var data = {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: 'rgba(255, 170, 34, 0)',
+                borderColor: 'rgb(255, 170, 34)',
+                //lineTension: 0
+            }, ]
+        }
+        for (var i = 0; i < DATA_POINT_NUM; i++) {
+            data.datasets[0].data.push({
+                x: i,
+                y: Math.random() * 300
+            });
+            data.labels.push('');
+        }
+
+        function getXAxisLabel(value) {
+            try {
+                var xMin = peepObs.options.scales.xAxes[0].ticks.min;
+            } catch (e) {
+                var xMin = undefined;
+            }
+            if (xMin === value) {
+                return '';
+            } else {
+                return data.labels[value];
+            }
+        }
+
+        var peepObs = new Chart(pOb, {
+            type: 'line',
+            data: data,
+            options: {
+                animation: false,
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom',
+                        ticks: {
+                            min: 0,
+                            max: 10,
+                            callback: getXAxisLabel, // function(value) { return data.labels[value]; },
+                            autoSkip: false,
+                            maxRotation: 0,
+
+                        },
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+
+            }
+        });
+
+
+        var xMin = 0; // Starting minimum value for the x-axis
+        var xLength = 5; // Length of the x-axis
+        var animationDuration = 5000000000; // Duration of animation in ms
+
+        // Calculate animation properties
+        var framesPerSec = 30;
+        var frameTime = 5000 / framesPerSec;
+        var xStep = (DATA_POINT_NUM - xMin + xLength) / (animationDuration / 1000 * framesPerSec);
+
+        function nextFrame() {
+            var xMax = xMin + xLength;
+            if (xMax < DATA_POINT_NUM - 1) {
+                if (xMax + xStep > DATA_POINT_NUM - 1) {
+                    xMax = DATA_POINT_NUM - 1;
+                    xMin = xMax - xLength;
+                }
+                peepObs.options.scales.xAxes[0].ticks.min = xMin;
+                peepObs.options.scales.xAxes[0].ticks.max = xMax;
+                peepObs.update();
+                setTimeout(nextFrame, frameTime);
+                xMin += 0.1;
+            }
+        }
+
+        nextFrame();
+
+
+        //Visitors by Frequency
+        var vBF = document.getElementById("visByFreq").getContext('2d');
+        var visByFreq = new Chart(vBF, {
+            type: 'bar',
+            data: {
+                labels: ["Low", "Med", "High", ],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [37192, 89201, 60312],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, {
+                    label: 'Average',
+                    data: [50238, 73921, 49582],
+                    backgroundColor: 'rgba(187, 187, 187, 0.6)',
+                    borderColor: 'rgb(153, 153, 153)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+        //Dwell Time
+        var dT = document.getElementById("dwellTime").getContext('2d');
+        var visByFreq = new Chart(dT, {
+            type: 'bar',
+            data: {
+                labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [30, 22, 12, 12, 7, 7, 4, 2, 4, 1],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        //Footfall
+        var ffBH = document.getElementById("ffByHr").getContext('2d');
+        var ffByHr = new Chart(ffBH, {
+            type: 'bar',
+            data: {
+                labels: [
+                    ['12a', 'Monday'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Tuesday'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Wednesday'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Thursday'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Friday'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Saturday'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Sunday'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p'
+                ],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [419, 370, 285, 331, 564, 1163, 2428, 4083, 4652, 4354, 4498, 5406, 5518, 4998, 4885, 4933, 5214, 4837, 4081, 3237, 2395, 1591, 1010, 609, 338, 258, 190, 220, 368, 874, 1716, 2741, 3364, 3294, 3480, 4136, 3925, 3664, 3645, 3580, 4521, 4604, 3910, 3174, 2276, 1674, 1109, 623, 409, 330, 240, 261, 457, 1042, 2080, 3420, 4071, 3429, 3825, 4518, 4405, 4084, 3863, 4520, 5170, 5450, 4286, 3506, 2595, 1746, 1075, 639, 410, 317, 277, 292, 443, 1083, 2221, 3760, 4241, 3730, 3897, 4707, 4721, 4298, 4153, 4515, 5063, 4987, 4268, 3366, 2640, 1746, 1133, 706, 459, 343, 284, 284, 445, 1015, 2135, 3491, 3991, 3614, 3900, 4591, 4613, 4477, 4252, 4379, 5182, 4966, 4350, 3707, 2922, 2104, 1588, 1037, 853, 708, 397, 315, 373, 688, 1320, 2282, 3470, 4505, 5290, 5554, 5693, 5665, 5419, 5368, 5448, 5416, 4971, 4298, 3517, 2600, 1946, 1310, 881, 692, 460, 363, 389, 575, 1035, 1691, 2633, 3864, 4906, 5565, 5680, 5686, 5425, 5340, 5027, 4656, 4218, 3584, 2833, 1885, 1164, 711],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        time: {
+                            unit: 'hour',
+                            stepSize: 6,
+                            isoWeekday: true,
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+    </script>
+</body>

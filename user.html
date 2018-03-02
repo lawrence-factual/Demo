@@ -1,0 +1,170 @@
+<! DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="style.css" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
+    <script src="Highmaps-6/code/highcharts.js"></script>
+    <script src='Highmaps-6/code/js/modules/map.js'></script>
+    <script src="Highmaps-6/code/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+    <script src='jquery-3.3.1.js'></script>
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.js"></script>
+    <link href="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body style="background-color: #f6f6f6;">
+
+    <div id="searchBar" class="fixed"></div>
+
+    <div id="container" class="fixed">
+        <div id="tabs" class="fixed">
+            <a href="index.html" class="active"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
+            <a href="behavior.html"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
+            <a href="demo.html"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
+            <a href="user.html"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
+        </div>
+
+        <div id='sankey' class="fixed"></div>
+
+        <div id='chBeforeDiv' class="fixed" style="width: 580px; height: 280px;">
+            <h3>Chains Visited 6 Hours Before</h3>
+            <canvas id="chBefore" width="580" height="260"></canvas>
+        </div>
+
+        <div id='chAfterDiv' class="fixed" style="width: 580px; height: 280px;">
+            <h3>Chains Visited 6 Hours After</h3>
+            <canvas id="chAfter" width="580" height="260"></canvas>
+        </div>
+
+    </div>
+
+
+    <script>
+        //Sankey
+        var configSankey = {
+            margin: {
+                top: 10,
+                left: 10,
+                right: 10,
+                bottom: 10
+            },
+            nodes: {
+                dynamicSizeFontNode: {
+                    enabled: true,
+                    minSize: 14,
+                    maxSize: 30
+                },
+                draggableX: false,
+                draggableY: true,
+                colors: d3.scaleOrdinal(d3.schemeCategory10)
+            },
+            links: {
+                formatValue: function(val) {
+                    return d3.format(",.0f")(val) + ' TWh';
+                }
+            },
+            tooltip: {
+                infoDiv: true,
+                labelSource: 'Input:',
+                labelTarget: 'Output:'
+            }
+        }
+
+        var objSankey = {};
+        d3.json("energy.json", function(error, energy) {
+            if (error) throw error;
+            objSankey = sk.createSankey('#sankey', configSankey, energy);
+        });
+
+
+        //Chains Before
+        var chB = document.getElementById("chBefore").getContext('2d');
+        var chBef = new Chart(chB, {
+            type: 'bar',
+            data: {
+                labels: [
+                    "Natural Resources Conservation", "Philz Coffee", "Peet\'s Coffee and Tea", "CORT Furniture", "GapBody", "Veggie Grill", "Orchard Supply Hardware", "BevMo!", "Banfield The Pet Hospital", "Travelodge", "Wells Fargo Home Mortgage", "Safeway", "Shred Nations", "Better Homes and Gardens Real Estate"
+                ],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [77.15472605, 44.91882199, 22.7990929, 14.72859665, 14.4808458, 10.7887397, 9.861539322, 9.531151294, 9.327559402, 7.07700436, 6.397581142, 6.356592317, 6.234389153, 5.994545961],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, {
+                    label: 'Average',
+                    data: [77.15472605, 44.91882199, 22.7990929, 14.72859665, 14.4808458, 10.7887397, 9.861539322, 9.531151294, 9.327559402, 7.07700436, 6.397581142, 6.356592317, 6.234389153, 5.994545961],
+                    backgroundColor: 'rgba(187, 187, 187, 0.6)',
+                    borderColor: 'rgb(153, 153, 153)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        //Chains After
+        var chA = document.getElementById("chAfter").getContext('2d');
+        var chAf = new Chart(chA, {
+            type: 'bar',
+            data: {
+                labels: [
+                    "Philz Coffee", "Peet\'s Coffee and Tea", "CORT Furniture", "GapBody", "Better Homes and Gardens Real Estate", "Veggie Grill", "Banfield The Pet Hospital", "Orchard Supply Hardware", "BevMo!", "Safeway", "Travelodge", "Wells Fargo Home Mortgage", "The Habit Burger Grill", "Green Burrito"
+                ],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [41.6680093, 22.7990929, 15.94975935, 14.96165567, 13.72030326, 11.60524217, 10.52222978, 10.17417055, 9.978235849, 6.717507255, 6.560712089, 6.391136114, 6.237579713, 6.073172277],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, {
+                    label: 'Average',
+                    data: [41.6680093, 22.7990929, 15.94975935, 14.96165567, 13.72030326, 11.60524217, 10.52222978, 10.17417055, 9.978235849, 6.717507255, 6.560712089, 6.391136114, 6.237579713, 6.073172277],
+                    backgroundColor: 'rgba(187, 187, 187, 0.6)',
+                    borderColor: 'rgb(153, 153, 153)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+    </script>
+</body>
