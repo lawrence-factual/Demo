@@ -27,7 +27,7 @@
         <div id='map' class="fixed"></div>
 
         <div id='peepObsDiv' class="fixed">
-            <h3>People Observed</h3>
+            <h3>People Observed Realtime</h3>
             <canvas id="peepObs" width="350" height="200"></canvas>
         </div>
 
@@ -115,6 +115,12 @@
                             maxRotation: 0,
 
                         },
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of Visitors',
+                        }
                     }]
                 },
                 legend: {
@@ -177,6 +183,10 @@
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of Visitors',
                         }
                     }]
                 }
@@ -203,6 +213,10 @@
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time in Minutes',
                         }
                     }],
                     xAxes: [{
@@ -238,6 +252,10 @@
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of Visitors',
                         }
                     }],
                     xAxes: [{
