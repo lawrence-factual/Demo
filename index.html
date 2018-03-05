@@ -277,7 +277,7 @@
         var animationDuration = 5000000000; // Duration of animation in ms
 
         // Calculate animation properties
-        var framesPerSec = 30;
+        var framesPerSec = 5;
         var frameTime = 5000 / framesPerSec;
         var xStep = (DATA_POINT_NUM - xMin + xLength) / (animationDuration / 1000 * framesPerSec);
 
@@ -311,26 +311,23 @@
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
-                }, {
-                    label: 'Average',
-                    data: [50238, 73921, 49582],
-                    backgroundColor: 'rgba(187, 187, 187, 0.6)',
-                    borderColor: 'rgb(153, 153, 153)',
-                    borderWidth: 1
                 }, ]
             },
             options: {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
                         },
                         scaleLabel: {
                             display: true,
                             labelString: 'Number of Visitors',
                         }
                     }]
-                }
+                },
+                legend: {
+                    display: false
+                },
             }
         });
 
