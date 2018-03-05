@@ -40,15 +40,15 @@
             <h3>Most likely to visit if has been to...</h3>
         </div>
 
-        <div id='chDiv' class="fixed" style="width: 580px; height: 280px;">
+        <div id='chDiv' class="fixed" style="width: 1200px; height: 280px;">
 
             <h3>Chains</h3>
-            <canvas id="ch" width="580" height="260"></canvas>
+            <canvas id="ch" width="1200" height="260"></canvas>
         </div>
 
-        <div id='catDiv' class="fixed" style="width: 580px; height: 280px;">
+        <div id='catDiv' class="fixed" style="width: 1200px; height: 280px;">
             <h3>Categories</h3>
-            <canvas id="cat" width="580" height="260"></canvas>
+            <canvas id="cat" width="1200" height="260"></canvas>
         </div>
 
     </div>
@@ -69,13 +69,7 @@
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
-                }, {
-                    label: 'Average',
-                    data: [1.773108, 1.634918462, 1.549589498, 1.544565622, 1.535975702, 1.517965008, 1.488729267, 1.468422774, 1.443546843, 1.442860624],
-                    backgroundColor: 'rgba(187, 187, 187, 0.6)',
-                    borderColor: 'rgb(153, 153, 153)',
-                    borderWidth: 1
-                }]
+                }, ]
             },
             options: {
                 scales: {
@@ -131,13 +125,7 @@
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
-                }, {
-                    label: 'Average',
-                    data: [3.621318893, 3.309941718, 3.238725775, 2.689933176, 2.660154403, 2.599122612, 2.372253786, 2.199418286, 2.130711514, 2.123904053, 2.108087182, ],
-                    backgroundColor: 'rgba(187, 187, 187, 0.6)',
-                    borderColor: 'rgb(153, 153, 153)',
-                    borderWidth: 1
-                }]
+                }, ]
             },
             options: {
                 scales: {
@@ -158,7 +146,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 4) + '..'); //truncate
+                                return (value.substr(0, 12) + '..'); //truncate
                             },
                         }
                     }]
@@ -193,13 +181,7 @@
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
-                }, {
-                    label: 'Average',
-                    data: [3.40383121, 2.498100952, 2.367780831, 2.198091359, 2.06414619, 2.032381266, 1.994083094, 1.966820518, 1.940562958, 1.843012859, 1.830737648, ],
-                    backgroundColor: 'rgba(187, 187, 187, 0.6)',
-                    borderColor: 'rgb(153, 153, 153)',
-                    borderWidth: 1
-                }]
+                }, ]
             },
             options: {
                 scales: {
@@ -220,7 +202,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 4) + '..'); //truncate
+                                return (value.substr(0, 12) + '..'); //truncate
                             },
                         }
                     }]
