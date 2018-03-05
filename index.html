@@ -13,7 +13,6 @@
 </head>
 
 <body style="background-color: #f6f6f6;">
-
     <div id="searchBar" class="fixed">
         <p style="padding-left: 15px; margin-top: 13px;">Peet's Coffee and Tea</p>
     </div>
@@ -29,6 +28,8 @@
             <a href="user.html"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
         </div>
 
+        <div class="fixed" style="top: 160px; left:420px;">
+            <h3>Map of Observations</h3></div>
         <div id='map' class="fixed"></div>
 
         <div id='peepObsDiv' class="fixed">
@@ -63,12 +64,19 @@
             zoom: 2
         });
 
+        var framesPerSecond = 200;
+        var initialOpacity = 1
+        var opacity = initialOpacity;
+        var initialRadius = 8;
+        var radius = initialRadius;
+        var maxRadius = 18;
+
         map.on('load', function() {
             // Add a geojson point source.
             // Heatmap layers also work with a vector tile source.
             map.addSource('earthquakes', {
                 "type": "geojson",
-                "data": "/mapbox-gl-js/assets/earthquakes.geojson"
+                "data": "earthquakes.geojson"
             });
 
             map.addLayer({
@@ -98,12 +106,12 @@
                     "heatmap-color": [
                         "interpolate", ["linear"],
                         ["heatmap-density"],
-                        0, "rgba(33,102,172,0)",
-                        0.2, "rgb(103,169,207)",
-                        0.4, "rgb(209,229,240)",
+                        0, "rgba(248, 218, 125, .2)",
+                        0.2, "rgba(248, 204, 125, .5)",
+                        0.4, "rgba(255, 168, 95, 1)",
                         0.6, "rgb(253,219,199)",
-                        0.8, "rgb(239,138,98)",
-                        1, "rgb(178,24,43)"
+                        0.8, "rgba(242, 146, 69, 1)",
+                        1, "rgba(253, 127, 22, 1)"
                     ],
                     // Adjust the heatmap radius by zoom level
                     "heatmap-radius": [
@@ -150,8 +158,8 @@
                         "interpolate", ["linear"],
                         ["get", "mag"],
                         1, "rgba(33,102,172,0)",
-                        2, "rgb(103,169,207)",
-                        3, "rgb(209,229,240)",
+                        2, "rgba(248, 204, 125, .5)",
+                        3, "rgba(255, 168, 95, 1)",
                         4, "rgb(253,219,199)",
                         5, "rgb(239,138,98)",
                         6, "rgb(178,24,43)"
@@ -167,6 +175,31 @@
                     ]
                 }
             }, 'waterway-label');
+
+
+            function animateMarker(timestamp) {
+                setTimeout(function() {
+                    requestAnimationFrame(animateMarker);
+
+                    radius += (maxRadius - radius) / framesPerSecond;
+                    opacity -= (.9 / framesPerSecond);
+
+                    map.setPaintProperty('earthquakes-heat', 'heatmap-radius', radius);
+                    //map.setPaintProperty('earthquakes-heat', 'heatmap-opacity', opacity);
+                    map.setPaintProperty('earthquakes-point', 'circle-radius', radius);
+                    map.setPaintProperty('earthquakes-point', 'circle-opacity', opacity);
+
+                    if (radius >= 10) {
+                        radius = initialRadius;
+                        opacity = initialOpacity;
+                    }
+
+                }, 1000 / framesPerSecond);
+
+            }
+
+            // Start the animation.
+            animateMarker(0);
         });
 
 

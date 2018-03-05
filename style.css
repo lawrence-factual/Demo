@@ -7,7 +7,7 @@
     width: 800px;
     height: 420px;
     left: 420px;
-    top: 160px;
+    top: 190px;
 }
 
 .container {
@@ -17,6 +17,7 @@
 body {
     background-color: #f6f6f6;
     font-family: sans-serif;
+    overflow-y: scroll;
 }
 
 #visFreqDiv {
@@ -149,4 +150,12 @@ left: 40px;
 a {
     text-decoration: none;
     color: #333;
+}
+
+#scroller {
+    top:0;
+    left: 0;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
