@@ -16,29 +16,37 @@
 
 <body style="background-color: #f6f6f6;">
 
-    <div id="searchBar" class="fixed"></div>
+    <div id="searchBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Peet's Coffee and Tea</p>
+    </div>
+    <div id="dateBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Past 5 minutes</p>
+    </div>
 
     <div id="container" class="fixed">
         <div id="tabs" class="fixed">
-            <a href="index.html" class="active"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
-            <a href="behavior.html"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
+            <a href="index.html"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
+            <a href="behavior.html" class="active"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
             <a href="demo.html"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
             <a href="user.html"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
         </div>
 
-        <div id='sankey' class="fixed">
+        <div id='behavior' class="fixed">
             <h3>Behavioral Segments More Likely to Visit</h3>
-            <canvas id="profiles" width="580" height="260"></canvas>
+            <canvas id="profiles" width="580" height="180"></canvas>
+        </div>
+
+        <div class="fixed" style="left: 40px; top: 610px;">
+            <h3>Most likely to visit if has been to...</h3>
         </div>
 
         <div id='chDiv' class="fixed" style="width: 580px; height: 280px;">
-            <h3>Most likely to visit if has been to...</h3>
+
             <h3>Chains</h3>
             <canvas id="ch" width="580" height="260"></canvas>
         </div>
 
         <div id='catDiv' class="fixed" style="width: 580px; height: 280px;">
-            <h3></h3>
             <h3>Categories</h3>
             <canvas id="cat" width="580" height="260"></canvas>
         </div>
@@ -53,17 +61,17 @@
             type: 'bar',
             data: {
                 labels: [
-                    "NFL Enthusiasts (Pro Football Fan)", "Newlyweds", "Golfers", "Public Transportation Commuters (Daily Commuter)", "Live Sports Fans", "Luxury Hotel Loyalists", "New Home Owners", "Car Commuters (Daily Commuter)", "In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)", "In-Market Auto Intenders - Luxury Cars", "Activewear Shoppers", "Disney Enthusiasts", "Luxury Fashion Shoppers", "Frequent Travelers"
+                    "NFL Enthusiasts (Pro Football Fan)", "Newlyweds", "Golfers", "Public Transportation Commuters (Daily Commuter)", "Live Sports Fans", "Luxury Hotel Loyalists", "New Home Owners", "Car Commuters (Daily Commuter)", "In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)", "In-Market Auto Intenders - Luxury Cars"
                 ],
                 datasets: [{
                     label: 'Peet\'s',
-                    data: [1.773108, 1.634918462, 1.549589498, 1.544565622, 1.535975702, 1.517965008, 1.488729267, 1.468422774, 1.443546843, 1.442860624, 1.43824338, 1.414190273, 1.360342098, 1.352056622],
+                    data: [1.773108, 1.634918462, 1.549589498, 1.544565622, 1.535975702, 1.517965008, 1.488729267, 1.468422774, 1.443546843, 1.442860624],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
                 }, {
                     label: 'Average',
-                    data: [1.773108, 1.634918462, 1.549589498, 1.544565622, 1.535975702, 1.517965008, 1.488729267, 1.468422774, 1.443546843, 1.442860624, 1.43824338, 1.414190273, 1.360342098, 1.352056622],
+                    data: [1.773108, 1.634918462, 1.549589498, 1.544565622, 1.535975702, 1.517965008, 1.488729267, 1.468422774, 1.443546843, 1.442860624],
                     backgroundColor: 'rgba(187, 187, 187, 0.6)',
                     borderColor: 'rgb(153, 153, 153)',
                     borderWidth: 1
@@ -73,7 +81,7 @@
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
                         },
                         scaleLabel: {
                             display: true,
@@ -83,8 +91,25 @@
                     xAxes: [{
                         gridLines: {
                             offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 12) + '..'); //truncate
+                            },
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
                 },
                 legend: {
                     display: false
@@ -98,17 +123,17 @@
             type: 'bar',
             data: {
                 labels: [
-                    "Dior", "Marc Jacobs", "Peet\'s Coffee and Tea", "Omaha Steaks", "Tesla Service Center", "800 Degrees Neapolitan Pizzeria", "Maggiano's", "Pavilions", "Veggie Grill", "City National Bank", "Hopdoddy Burger Bar", "GapBody", "Pei Wei Asian Diner", "American Apparel"
+                    "Dior", "Marc Jacobs", "Peet\'s Coffee and Tea", "Omaha Steaks", "Tesla Service Center", "800 Degrees Neapolitan Pizzeria", "Maggiano's", "Pavilions", "Veggie Grill", "City National Bank", "Hopdoddy Burger Bar"
                 ],
                 datasets: [{
                     label: 'Peet\'s',
-                    data: [3.621318893, 3.309941718, 3.238725775, 2.689933176, 2.660154403, 2.599122612, 2.372253786, 2.199418286, 2.130711514, 2.123904053, 2.108087182, 2.058302057, 2.010944048, 1.996537042],
+                    data: [3.621318893, 3.309941718, 3.238725775, 2.689933176, 2.660154403, 2.599122612, 2.372253786, 2.199418286, 2.130711514, 2.123904053, 2.108087182, ],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
                 }, {
                     label: 'Average',
-                    data: [3.621318893, 3.309941718, 3.238725775, 2.689933176, 2.660154403, 2.599122612, 2.372253786, 2.199418286, 2.130711514, 2.123904053, 2.108087182, 2.058302057, 2.010944048, 1.996537042],
+                    data: [3.621318893, 3.309941718, 3.238725775, 2.689933176, 2.660154403, 2.599122612, 2.372253786, 2.199418286, 2.130711514, 2.123904053, 2.108087182, ],
                     backgroundColor: 'rgba(187, 187, 187, 0.6)',
                     borderColor: 'rgb(153, 153, 153)',
                     borderWidth: 1
@@ -128,8 +153,25 @@
                     xAxes: [{
                         gridLines: {
                             offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 4) + '..'); //truncate
+                            },
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
                 },
                 legend: {
                     display: false
@@ -143,17 +185,17 @@
             type: 'bar',
             data: {
                 labels: [
-                    "Paper", "Boarding Houses", "Swimwear", "Translation Services", "Stock Brokers", "Newsstands", "Embassies", "Adult Education", "Fashion", "Ambulance", "Costumes", "Country Clubs", "Management", "Synagogues"
+                    "Paper", "Boarding Houses", "Swimwear", "Translation Services", "Stock Brokers", "Newsstands", "Embassies", "Adult Education", "Fashion", "Ambulance", "Costumes"
                 ],
                 datasets: [{
                     label: 'Peet\'s',
-                    data: [3.40383121, 2.498100952, 2.367780831, 2.198091359, 2.06414619, 2.032381266, 1.994083094, 1.966820518, 1.940562958, 1.843012859, 1.830737648, 1.823142078, 1.817005244, 1.764917385],
+                    data: [3.40383121, 2.498100952, 2.367780831, 2.198091359, 2.06414619, 2.032381266, 1.994083094, 1.966820518, 1.940562958, 1.843012859, 1.830737648, ],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
                 }, {
                     label: 'Average',
-                    data: [3.40383121, 2.498100952, 2.367780831, 2.198091359, 2.06414619, 2.032381266, 1.994083094, 1.966820518, 1.940562958, 1.843012859, 1.830737648, 1.823142078, 1.817005244, 1.764917385],
+                    data: [3.40383121, 2.498100952, 2.367780831, 2.198091359, 2.06414619, 2.032381266, 1.994083094, 1.966820518, 1.940562958, 1.843012859, 1.830737648, ],
                     backgroundColor: 'rgba(187, 187, 187, 0.6)',
                     borderColor: 'rgb(153, 153, 153)',
                     borderWidth: 1
@@ -173,8 +215,25 @@
                     xAxes: [{
                         gridLines: {
                             offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 4) + '..'); //truncate
+                            },
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
                 },
                 legend: {
                     display: false

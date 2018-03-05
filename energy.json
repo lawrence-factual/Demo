@@ -1,100 +1,100 @@
 {
     "nodes": [{
-        "name": "Agricultural 'waste'"
+        "name": "Natural Resources Conservation"
     }, {
-        "name": "Bio-conversion"
+        "name": "Philz Coffee"
     }, {
-        "name": "Liquid"
+        "name": "CORT Furniture"
     }, {
-        "name": "Losses"
+        "name": "Chipotle Mexican Grill"
     }, {
-        "name": "Solid"
+        "name": "GapBody"
     }, {
-        "name": "Gas"
+        "name": "Veggie Grill"
     }, {
-        "name": "Biofuel imports"
+        "name": "Orchard Supply Hardware"
     }, {
-        "name": "Biomass imports"
+        "name": "BevMo!"
     }, {
-        "name": "Coal imports"
+        "name": "Banfield The Pet Hospital"
     }, {
-        "name": "Coal"
+        "name": "Travelodge"
     }, {
-        "name": "Coal reserves"
+        "name": "Safeway"
     }, {
-        "name": "District heating"
+        "name": "Shred Nations"
     }, {
-        "name": "Industry"
+        "name": "Better Homes and Gardens Real Estate"
     }, {
-        "name": "Heating and cooling - commercial"
+        "name": "Jamba Juice"
     }, {
-        "name": "Heating and cooling - homes"
+        "name": "Trader Joes"
     }, {
-        "name": "Electricity grid"
+        "name": "Scion Dealer"
     }, {
-        "name": "Over generation / exports"
+        "name": "Pavilions"
     }, {
-        "name": "H2 conversion"
+        "name": "76 Gas Station"
     }, {
-        "name": "Road transport"
+        "name": "Ramada Inn"
     }, {
-        "name": "Agriculture"
+        "name": "Whole Foods"
     }, {
-        "name": "Rail transport"
+        "name": "YMCA"
     }, {
-        "name": "Lighting & appliances - commercial"
+        "name": "Green Burrito"
     }, {
-        "name": "Lighting & appliances - homes"
+        "name": "Ralphs"
     }, {
-        "name": "Gas imports"
+        "name": "American Red Cross"
     }, {
-        "name": "Ngas"
+        "name": "BMW Dealer"
     }, {
-        "name": "Gas reserves"
+        "name": "800 Degrees Neapolitan Pizzeria"
     }, {
-        "name": "Thermal generation"
+        "name": "Citibank"
     }, {
-        "name": "Geothermal"
+        "name": "BMW Dealer"
     }, {
-        "name": "H2"
+        "name": "Comerica Bank"
     }, {
-        "name": "Hydro"
+        "name": "The Habit Burger Grill"
     }, {
-        "name": "International shipping"
+        "name": "United Oil"
     }, {
-        "name": "Domestic aviation"
+        "name": "The Habit Burger Grill"
     }, {
-        "name": "International aviation"
+        "name": "LSG Sky Chefs"
     }, {
-        "name": "National navigation"
+        "name": "Infiniti Dealer"
     }, {
-        "name": "Marine algae"
+        "name": "ARCO"
     }, {
-        "name": "Nuclear"
+        "name": "Fatburger"
     }, {
-        "name": "Oil imports"
+        "name": "The Coffee Bean and Tea Leaf"
     }, {
-        "name": "Oil"
+        "name": "Wells Fargo ATM"
     }, {
-        "name": "Oil reserves"
+        "name": "Citibank ATM"
     }, {
-        "name": "Other waste"
+        "name": "Dior"
     }, {
-        "name": "Pumped heat"
+        "name": "Coldwell Banker"
     }, {
-        "name": "Solar PV"
+        "name": "GapKids"
     }, {
-        "name": "Solar Thermal"
+        "name": "In-N-Out Burger"
     }, {
-        "name": "Solar"
+        "name": "National Car Rental"
     }, {
-        "name": "Tidal"
+        "name": "City National Bank"
     }, {
-        "name": "UK land based bioenergy"
+        "name": "Vons"
     }, {
-        "name": "Wave"
+        "name": "True Value"
     }, {
-        "name": "Wind"
+        "name": "SoulCycle"
     }],
     "links": [{
         "source": 0,

@@ -16,13 +16,18 @@
 
 <body style="background-color: #f6f6f6;">
 
-    <div id="searchBar" class="fixed"></div>
+    <div id="searchBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Peet's Coffee and Tea</p>
+    </div>
+    <div id="dateBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Past 5 minutes</p>
+    </div>
 
     <div id="container" class="fixed">
         <div id="tabs" class="fixed">
-            <a href="index.html" class="active"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
+            <a href="index.html"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
             <a href="behavior.html"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
-            <a href="demo.html"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
+            <a href="demo.html" class="active"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
             <a href="user.html"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
         </div>
 
@@ -38,9 +43,9 @@
             <canvas id="income" width="400" height="200"></canvas>
         </div>
 
-        <div id='homeRegionDiv' class="fixed" style="width: 800px; height: 280px;">
+        <div id='homeRegionDiv' class="fixed" style="width: 1200px; height: 280px;">
             <h3>Home Regions More Likely to Visit</h3>
-            <canvas id="homeRegion" width="800" height="260"></canvas>
+            <canvas id="homeRegion" width="1200" height="240"></canvas>
         </div>
 
     </div>
@@ -170,7 +175,7 @@
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
                         },
                         scaleLabel: {
                             display: true,
@@ -180,8 +185,25 @@
                     xAxes: [{
                         gridLines: {
                             offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 4) + '..'); //truncate
+                            },
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
                 },
                 legend: {
                     display: false
@@ -225,8 +247,25 @@
                     xAxes: [{
                         gridLines: {
                             offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 7) + '..'); //truncate
+                            },
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
                 },
                 legend: {
                     display: false

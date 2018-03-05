@@ -17,20 +17,37 @@
     <script src="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.js"></script>
     <link href="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.css" rel="stylesheet" type="text/css" />
 
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script>
+        var yellow = d3.interpolateYlGn(0), // "rgb(255, 255, 229)"
+            yellowGreen = d3.interpolateYlGn(0.5), // "rgb(120, 197, 120)"
+            green = d3.interpolateYlGn(1); // "rgb(0, 69, 41)"
+
+    </script>
+
 </head>
 
 <body style="background-color: #f6f6f6;">
 
-    <div id="searchBar" class="fixed"></div>
+    <div id="searchBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Peet's Coffee and Tea</p>
+    </div>
+    <div id="dateBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Past 5 minutes</p>
+    </div>
 
     <div id="container" class="fixed">
         <div id="tabs" class="fixed">
-            <a href="index.html" class="active"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
+            <a href="index.html"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
             <a href="behavior.html"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
             <a href="demo.html"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
-            <a href="user.html"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
+            <a href="user.html" class="active"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
         </div>
 
+        <div class="fixed" style="left: 40px; top: 160px;">
+            <h3>Chains Visited 6 Hours Before</h3></div>
         <div id='sankey' class="fixed"></div>
 
         <div id='chBeforeDiv' class="fixed" style="width: 580px; height: 280px;">
@@ -63,7 +80,7 @@
                 },
                 draggableX: false,
                 draggableY: true,
-                colors: d3.scaleOrdinal(d3.schemeCategory10)
+                colors: d3.scaleOrdinal(d3.schemeSet3),
             },
             links: {
                 formatValue: function(val) {
@@ -120,8 +137,25 @@
                     xAxes: [{
                         gridLines: {
                             offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 4) + '..'); //truncate
+                            },
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
                 },
                 legend: {
                     display: false
@@ -165,8 +199,25 @@
                     xAxes: [{
                         gridLines: {
                             offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 4) + '..'); //truncate
+                            },
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
                 },
                 legend: {
                     display: false

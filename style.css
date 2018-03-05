@@ -89,12 +89,12 @@ h3 {
 }
 
 #incomeDiv {
-    top: 440px;
+    top: 400px;
     left: 40px;
 }
 
 #homeRegionDiv {
-left: 420px;
+left: 40px;
     top: 640px;
 }
 
@@ -102,7 +102,7 @@ left: 420px;
     width: 1200px;
     height: 420px;
     left: 40px;
-    top: 160px;
+    top: 190px;
 }
 
 #chBeforeDiv {
@@ -123,4 +123,30 @@ left: 420px;
 #catDiv {
         left: 620px;
     top: 640px;
+}
+
+#behavior {
+    width: 1200px;
+    height: 320px;
+    left: 40px;
+    top: 160px;
+}
+
+#dateBar {
+    top: 15px;
+    left: 920px;
+    height: 40px;
+    width: 345px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    border-radius: 4px;
+}
+
+.active {
+    color: #4085E8;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
 }
