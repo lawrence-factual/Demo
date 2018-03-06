@@ -342,7 +342,7 @@
         var visByFreq = new Chart(dT, {
             type: 'bar',
             data: {
-                labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                labels: ['<10', '<20', '<30', '<40', '<50', '<60', '<70', '<80', '<90', '<100', '<110'],
                 datasets: [{
                     label: 'Peet\'s',
                     data: [30, 22, 12, 12, 7, 7, 4, 2, 4, 1],
@@ -364,14 +364,16 @@
                     }],
                     xAxes: [{
                         gridLines: {
-                            offsetGridLines: false
+                            offsetGridLines: true
                         },
                         ticks: {
-                            maxRotation: 0,
+                            maxRotation: 90,
+                            minRotation: 70,
+                            autoSkip: false
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'time in minutes',
+                            labelString: 'less than x minutes',
                         }
                     }]
                 },
@@ -387,7 +389,7 @@
             type: 'line',
             data: {
                 labels: [
-                    '12a', '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p',
+                    ['12a', 'AM'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', ['12p', 'PM'], '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p',
                 ],
                 datasets: [{
                     label: 'Monday',
@@ -457,6 +459,10 @@
                         },
                         ticks: {
                             maxRotation: 0,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time of Day',
                         }
                     }]
                 },
