@@ -104,7 +104,7 @@
         //Chains Before
         var chB = document.getElementById("chBefore").getContext('2d');
         var chBef = new Chart(chB, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: [
                     "Natural Resources Conservation", "Philz Coffee", "Peet\'s Coffee and Tea", "CORT Furniture", "GapBody", "Veggie Grill", "Orchard Supply Hardware", "BevMo!", "Banfield The Pet Hospital", "Travelodge", "Wells Fargo Home Mortgage", "Safeway", "Shred Nations", "Better Homes and Gardens Real Estate"
@@ -119,16 +119,16 @@
             },
             options: {
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero: true
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Odds Ratio in %',
+                            labelString: 'Over/under index',
                         }
                     }],
-                    xAxes: [{
+                    yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
@@ -136,7 +136,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 4) + '..'); //truncate
+                                return (value.substr(0, 12) + '..'); //truncate
                             },
                         }
                     }]
@@ -160,7 +160,7 @@
         //Chains After
         var chA = document.getElementById("chAfter").getContext('2d');
         var chAf = new Chart(chA, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: [
                     "Philz Coffee", "Peet\'s Coffee and Tea", "CORT Furniture", "GapBody", "Better Homes and Gardens Real Estate", "Veggie Grill", "Banfield The Pet Hospital", "Orchard Supply Hardware", "BevMo!", "Safeway", "Travelodge", "Wells Fargo Home Mortgage", "The Habit Burger Grill", "Green Burrito"
@@ -175,16 +175,16 @@
             },
             options: {
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero: true
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Odds Ratio in %',
+                            labelString: 'Over/under index',
                         }
                     }],
-                    xAxes: [{
+                    yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
@@ -192,7 +192,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 4) + '..'); //truncate
+                                return (value.substr(0, 12) + '..'); //truncate
                             },
                         }
                     }]

@@ -40,12 +40,12 @@
 
         <div id='incomeDiv' class="fixed leftChart">
             <h3>Visitor Income</h3>
-            <canvas id="income" width="400" height="200"></canvas>
+            <canvas id="income" width="400" height="600"></canvas>
         </div>
 
-        <div id='homeRegionDiv' class="fixed" style="width: 1200px; height: 280px;">
+        <div id='homeRegionDiv' class="fixed" style="width: 800px; height: 420px;">
             <h3>Home Regions More Likely to Visit</h3>
-            <canvas id="homeRegion" width="1200" height="240"></canvas>
+            <canvas id="homeRegion" width="1200" height="420"></canvas>
         </div>
 
     </div>
@@ -115,31 +115,21 @@
         //Visitor Age
         var a = document.getElementById("age").getContext('2d');
         var age = new Chart(a, {
-            type: 'bar',
+            type: 'doughnut',
             data: {
                 labels: ["18-24", "25-34", "35-44", "45-54", "55-64", "66+"],
                 datasets: [{
-                    label: 'Peet\'s',
                     data: [76915, 33565, 42929, 2925, 12349, 1018],
-                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
-                    borderColor: 'rgb(255, 170, 34)',
-                    borderWidth: 1
+                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)', ],
+                    borderColor: ['RGBA(251, 141, 43, 1.00)', 'RGBA(64, 133, 232, 1.00)', 'RGBA(108, 202, 213, 1.00)', 'RGBA(250, 82, 81, 1.00)', 'RGBA(103, 103, 241, 1.00)', 'RGBA(176, 116, 175, 1.00)', ],
+                    borderWidth: 2
                 }, ]
             },
             options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Number of Visitors',
-                        }
-                    }]
-                },
+
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'right',
                 },
             }
         });
@@ -148,20 +138,32 @@
         //Visitor Income
         var inc = document.getElementById("income").getContext('2d');
         var income = new Chart(inc, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: ["$0-25k", "$25-50k", "$50-75k", "$75-100k", "$100-125k", "$125-150k", "$150-175k", "$175-200k", "$200-225k"],
                 datasets: [{
                     label: 'Peet\'s',
                     data: [1960, 5381, 2115, 12186, 25339, 36412, 43505, 4706, 27507],
-                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
-                    borderColor: 'rgb(255, 170, 34)',
+                    backgroundColor: 'RGBA(251, 141, 43, 1.00)',
+                    borderColor: 'rgb(255,255,255)',
+                    borderWidth: 1
+                }, {
+                    label: 'Cafes, Coffee Shops, and Tea Houses',
+                    data: [1020, 3981, 4915, 11086, 24839, 31012, 41505, 3706, 25507],
+                    backgroundColor: 'RGBA(251, 141, 43, 0.7)',
+                    borderColor: 'rgb(255,255,255)',
+                    borderWidth: 1
+                }, {
+                    label: 'Average Population',
+                    data: [2160, 3481, 1215, 16186, 20339, 31412, 40505, 4706, 27507],
+                    backgroundColor: 'RGBA(251, 141, 43, 0.3)',
+                    borderColor: 'rgb(255,255,255)',
                     borderWidth: 1
                 }, ]
             },
             options: {
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero: true,
                         },
@@ -170,7 +172,7 @@
                             labelString: 'Number of Visitors',
                         }
                     }],
-                    xAxes: [{
+                    yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
@@ -178,7 +180,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 4) + '..'); //truncate
+                                return (value.substr(0, 10)); //truncate
                             },
                         }
                     }]
@@ -194,7 +196,7 @@
                     }
                 },
                 legend: {
-                    display: false
+                    display: true
                 },
             }
         });
@@ -202,14 +204,14 @@
         //Footfall
         var ffBH = document.getElementById("homeRegion").getContext('2d');
         var ffByHr = new Chart(ffBH, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: [
-                    'Virginia, US', 'Illinois, US', 'Washington, US', 'Massachusetts, US', 'Tennessee, US', 'Michigan, US', 'New York, US', 'Pennsylvania, US', 'Minnesota, US', 'Utah, US', 'Colorado, US', 'Florida, US', 'Texas, US', 'Ohio, US', 'California, US', 'Arizona, US', 'North Carolina, US', 'Georgia, US'
+                    'Virginia, US', 'Illinois, US', 'Washington, US', 'Massachusetts, US', 'Tennessee, US', 'Michigan, US', 'New York, US', 'Pennsylvania, US', 'Minnesota, US', 'Utah, US', 'Colorado, US', 'Florida, US', 'Texas, US', 'Ohio, US', 'California, US'
                 ],
                 datasets: [{
                     label: 'Peet\'s',
-                    data: [1.157159425, 1.123964543, 1.112147701, 1.079088305, 1.071666307, 1.068897666, 1.063356444, 1.053247826, 1.030666912, 1.02734554, 1.025694389, 1.003181631, 1.002958137, 1.002199274, 1.000495434, 0.9960720459, 0.985471638, 0.9721707637, 0.9201556068, 0.8709896028, 0.8421482932, 0.756394457, 0.7489278743, 0.564763018],
+                    data: [1.157159425, 1.123964543, 1.112147701, 1.079088305, 1.071666307, 1.068897666, 1.063356444, 1.053247826, 1.030666912, 1.02734554, 1.025694389, 1.003181631, 1.002958137, 1.002199274, 1.000495434, 0.9960720459, 0.985471638, 0.9721707637, 0.9201556068, 0.8709896028, 0.8421482932, ],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
@@ -217,16 +219,16 @@
             },
             options: {
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero: true
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Odds Ratio in %',
+                            labelString: 'Over/under index',
                         }
                     }],
-                    xAxes: [{
+                    yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
@@ -234,7 +236,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 7) + '..'); //truncate
+                                return (value.substr(0, 20)); //truncate
                             },
                         }
                     }]

@@ -33,22 +33,22 @@
 
         <div id='behavior' class="fixed">
             <h3>Behavioral Segments More Likely to Visit</h3>
-            <canvas id="profiles" width="580" height="180"></canvas>
+            <canvas id="profiles" width="580" height="600"></canvas>
         </div>
 
-        <div class="fixed" style="left: 40px; top: 610px;">
+        <div class="fixed" style="left: 660px; top: 160px;">
             <h3>Most likely to visit if has been to...</h3>
         </div>
 
-        <div id='chDiv' class="fixed" style="width: 1200px; height: 280px;">
+        <div id='chDiv' class="fixed" style="width: 560px; height: 280px;">
 
             <h3>Chains</h3>
-            <canvas id="ch" width="1200" height="260"></canvas>
+            <canvas id="ch" width="560" height="260"></canvas>
         </div>
 
-        <div id='catDiv' class="fixed" style="width: 1200px; height: 280px;">
+        <div id='catDiv' class="fixed" style="width: 560px; height: 280px;">
             <h3>Categories</h3>
-            <canvas id="cat" width="1200" height="260"></canvas>
+            <canvas id="cat" width="560" height="260"></canvas>
         </div>
 
     </div>
@@ -58,7 +58,7 @@
         //Chains Before
         var chB = document.getElementById("profiles").getContext('2d');
         var chBef = new Chart(chB, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: [
                     "NFL Enthusiasts (Pro Football Fan)", "Newlyweds", "Golfers", "Public Transportation Commuters (Daily Commuter)", "Live Sports Fans", "Luxury Hotel Loyalists", "New Home Owners", "Car Commuters (Daily Commuter)", "In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)", "In-Market Auto Intenders - Luxury Cars"
@@ -73,16 +73,16 @@
             },
             options: {
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero: true,
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Odds Ratio in %',
+                            labelString: 'Over/under index',
                         }
                     }],
-                    xAxes: [{
+                    yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
@@ -90,7 +90,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 12) + '..'); //truncate
+                                return (value.substr(0, 14) + '..'); //truncate
                             },
                         }
                     }]
@@ -114,7 +114,7 @@
         //Chains Before
         var ch = document.getElementById("ch").getContext('2d');
         var cha = new Chart(ch, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: [
                     "Dior", "Marc Jacobs", "Peet\'s Coffee and Tea", "Omaha Steaks", "Tesla Service Center", "800 Degrees Neapolitan Pizzeria", "Maggiano's", "Pavilions", "Veggie Grill", "City National Bank", "Hopdoddy Burger Bar"
@@ -129,16 +129,16 @@
             },
             options: {
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero: true
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Odds Ratio in %',
+                            labelString: 'Over/under index',
                         }
                     }],
-                    xAxes: [{
+                    yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
@@ -146,7 +146,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 12) + '..'); //truncate
+                                return (value.substr(0, 16) + '..'); //truncate
                             },
                         }
                     }]
@@ -170,7 +170,7 @@
         //Chains After
         var ca = document.getElementById("cat").getContext('2d');
         var cat = new Chart(ca, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: [
                     "Paper", "Boarding Houses", "Swimwear", "Translation Services", "Stock Brokers", "Newsstands", "Embassies", "Adult Education", "Fashion", "Ambulance", "Costumes"
@@ -185,16 +185,16 @@
             },
             options: {
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero: true
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Odds Ratio in %',
+                            labelString: 'Over/under index',
                         }
                     }],
-                    xAxes: [{
+                    yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
@@ -202,7 +202,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 12) + '..'); //truncate
+                                return (value.substr(0, 16) + '..'); //truncate
                             },
                         }
                     }]

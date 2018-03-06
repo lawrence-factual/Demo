@@ -95,7 +95,7 @@ h3 {
 }
 
 #homeRegionDiv {
-left: 40px;
+left: 420px;
     top: 640px;
 }
 
@@ -117,17 +117,17 @@ left: 40px;
 }
 
 #chDiv {
-        left: 40px;
-    top: 640px;
+        left: 660px;
+    top: 200px;
 }
 
 #catDiv {
-        left: 40px;
-    top: 960px;
+        left: 660px;
+    top: 500px;
 }
 
 #behavior {
-    width: 1200px;
+    width: 580px;
     height: 320px;
     left: 40px;
     top: 160px;

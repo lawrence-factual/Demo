@@ -33,7 +33,7 @@
         <div id='map' class="fixed"></div>
 
         <div id='peepObsDiv' class="fixed">
-            <h3>People Observed Realtime</h3>
+            <h3>People Observed</h3>
             <canvas id="peepObs" width="350" height="200"></canvas>
         </div>
 
@@ -47,9 +47,9 @@
             <canvas id="dwellTime" width="400" height="200"></canvas>
         </div>
 
-        <div id='ffByHrDiv' class="fixed" style="width: 800px; height: 280px;">
+        <div id='ffByHrDiv' class="fixed" style="width: 800px; height: 270px;">
             <h3>Footfall by Hour</h3>
-            <canvas id="ffByHr" width="800" height="280"></canvas>
+            <canvas id="ffByHr" width="800" height="270"></canvas>
         </div>
 
     </div>
@@ -61,8 +61,11 @@
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [-120, 50],
-            zoom: 2
+            zoom: 2,
+            zoomControl: true,
         });
+
+        map.addControl(new mapboxgl.NavigationControl());
 
         var framesPerSecond = 200;
         var initialOpacity = 1
@@ -199,7 +202,7 @@
             }
 
             // Start the animation.
-            animateMarker(0);
+            //animateMarker(0);
         });
 
 
@@ -241,7 +244,26 @@
 
         var peepObs = new Chart(pOb, {
             type: 'line',
-            data: data,
+            data: {
+                labels: [
+                    'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'
+                ],
+                datasets: [{
+                    label: 'This Week',
+                    data: [2428, 4083, 4652, 4354, 4498, 5406, 5518, ],
+                    backgroundColor: 'RGBA(251, 141, 43, 0)',
+                    borderColor: 'RGBA(251, 141, 43, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Last Week',
+                    data: [
+                        1716, 2741, 3364, 3294, 3480, 4136, 3925,
+                    ],
+                    backgroundColor: 'RGBA(64, 133, 232, 0)',
+                    borderColor: 'RGBA(64, 133, 232, 1.00)',
+                    borderWidth: 1
+                }, ]
+            },
             options: {
                 animation: false,
                 scales: {
@@ -262,41 +284,24 @@
                             display: true,
                             labelString: 'Number of Visitors',
                         }
-                    }]
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'this week',
+                        }
+                    }],
+
                 },
                 legend: {
-                    display: false
+                    display: true
                 },
 
             }
         });
 
 
-        var xMin = 0; // Starting minimum value for the x-axis
-        var xLength = 5; // Length of the x-axis
-        var animationDuration = 5000000000; // Duration of animation in ms
 
-        // Calculate animation properties
-        var framesPerSec = 5;
-        var frameTime = 5000 / framesPerSec;
-        var xStep = (DATA_POINT_NUM - xMin + xLength) / (animationDuration / 1000 * framesPerSec);
-
-        function nextFrame() {
-            var xMax = xMin + xLength;
-            if (xMax < DATA_POINT_NUM - 1) {
-                if (xMax + xStep > DATA_POINT_NUM - 1) {
-                    xMax = DATA_POINT_NUM - 1;
-                    xMin = xMax - xLength;
-                }
-                peepObs.options.scales.xAxes[0].ticks.min = xMin;
-                peepObs.options.scales.xAxes[0].ticks.max = xMax;
-                peepObs.update();
-                setTimeout(nextFrame, frameTime);
-                xMin += 0.1;
-            }
-        }
-
-        nextFrame();
 
 
         //Visitors by Frequency
@@ -354,7 +359,7 @@
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Time in Minutes',
+                            labelString: '% of visitors',
                         }
                     }],
                     xAxes: [{
@@ -363,6 +368,10 @@
                         },
                         ticks: {
                             maxRotation: 0,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'time in minutes',
                         }
                     }]
                 },
@@ -375,18 +384,56 @@
         //Footfall
         var ffBH = document.getElementById("ffByHr").getContext('2d');
         var ffByHr = new Chart(ffBH, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: [
-                    ['12a', 'Mon'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Tue'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Wed'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Thurs'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Fri'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Sat'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p', ['12a', 'Sun'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p'
+                    '12a', '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p',
                 ],
                 datasets: [{
-                    label: 'Peet\'s',
-                    data: [419, 370, 285, 331, 564, 1163, 2428, 4083, 4652, 4354, 4498, 5406, 5518, 4998, 4885, 4933, 5214, 4837, 4081, 3237, 2395, 1591, 1010, 609, 338, 258, 190, 220, 368, 874, 1716, 2741, 3364, 3294, 3480, 4136, 3925, 3664, 3645, 3580, 4521, 4604, 3910, 3174, 2276, 1674, 1109, 623, 409, 330, 240, 261, 457, 1042, 2080, 3420, 4071, 3429, 3825, 4518, 4405, 4084, 3863, 4520, 5170, 5450, 4286, 3506, 2595, 1746, 1075, 639, 410, 317, 277, 292, 443, 1083, 2221, 3760, 4241, 3730, 3897, 4707, 4721, 4298, 4153, 4515, 5063, 4987, 4268, 3366, 2640, 1746, 1133, 706, 459, 343, 284, 284, 445, 1015, 2135, 3491, 3991, 3614, 3900, 4591, 4613, 4477, 4252, 4379, 5182, 4966, 4350, 3707, 2922, 2104, 1588, 1037, 853, 708, 397, 315, 373, 688, 1320, 2282, 3470, 4505, 5290, 5554, 5693, 5665, 5419, 5368, 5448, 5416, 4971, 4298, 3517, 2600, 1946, 1310, 881, 692, 460, 363, 389, 575, 1035, 1691, 2633, 3864, 4906, 5565, 5680, 5686, 5425, 5340, 5027, 4656, 4218, 3584, 2833, 1885, 1164, 711],
-                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
-                    borderColor: 'rgb(255, 170, 34)',
+                    label: 'Monday',
+                    data: [419, 370, 285, 331, 564, 1163, 2428, 4083, 4652, 4354, 4498, 5406, 5518, 4998, 4885, 4933, 5214, 4837, 4081, 3237, 2395, 1591, 1010, 609],
+                    backgroundColor: 'RGBA(251, 141, 43, 0)',
+                    borderColor: 'RGBA(251, 141, 43, 1.00)',
                     borderWidth: 1
-                }]
+                }, {
+                    label: 'Tuesday',
+                    data: [
+                        338, 258, 190, 220, 368, 874, 1716, 2741, 3364, 3294, 3480, 4136, 3925, 3664, 3645, 3580, 4521, 4604, 3910, 3174, 2276, 1674, 1109, 623,
+                    ],
+                    backgroundColor: 'RGBA(64, 133, 232, 0)',
+                    borderColor: 'RGBA(64, 133, 232, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Wednesday',
+                    data: [409, 330, 240, 261, 457, 1042, 2080, 3420, 4071, 3429, 3825, 4518, 4405, 4084, 3863, 4520, 5170, 5450, 4286, 3506, 2595, 1746, 1075, 639, ],
+                    backgroundColor: 'RGBA(108, 202, 213, 0)',
+                    borderColor: 'RGBA(108, 202, 213, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Thursday',
+                    data: [410, 317, 277, 292, 443, 1083, 2221, 3760, 4241, 3730, 3897, 4707, 4721, 4298, 4153, 4515, 5063, 4987, 4268, 3366, 2640, 1746, 1133, 706, ],
+                    backgroundColor: 'RGBA(250, 82, 81, 0)',
+                    borderColor: 'RGBA(250, 82, 81, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Friday',
+                    data: [459, 343, 284, 284, 445, 1015, 2135, 3491, 3991, 3614, 3900, 4591, 4613, 4477, 4252, 4379, 5182, 4966, 4350, 3707, 2922, 2104, 1588, 1037, 853, 708, ],
+                    backgroundColor: 'RGBA(103, 103, 241, 0)',
+                    borderColor: 'RGBA(103, 103, 241, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Saturday',
+                    data: [397, 315, 373, 688, 1320, 2282, 3470, 4505, 5290, 5554, 5693, 5665, 5419, 5368, 5448, 5416, 4971, 4298, 3517, 2600, 1946, 1310, 881, 692, ],
+                    backgroundColor: 'RGBA(176, 116, 175, 0)',
+                    borderColor: 'RGBA(176, 116, 175, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Sunday',
+                    data: [460, 363, 389, 575, 1035, 1691, 2633, 3864, 4906, 5565, 5680, 5686, 5425, 5340, 5027, 4656, 4218, 3584, 2833, 1885, 1164, 711, 601, 320],
+                    backgroundColor: 'RGBA(95, 165, 214, 0)',
+                    borderColor: 'RGBA(95, 165, 214, 1.00)',
+                    borderWidth: 1
+                }, ]
             },
             options: {
                 scales: {
@@ -414,7 +461,8 @@
                     }]
                 },
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'right'
                 },
             }
         });
