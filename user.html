@@ -47,9 +47,9 @@
         </div>
 
         <div class="fixed" style="left: 40px; top: 160px;">
-            <h3>Top 10 Chains Visited 6 Hours Before</h3></div>
+            <h3>Top 20 Chains Visited 6 Hours Before</h3></div>
         <div class="fixed" style="left: 910px; top: 160px;">
-            <h3>Top 10 Chains Visited 6 Hours After</h3></div>
+            <h3>Top 20 Chains Visited 6 Hours After</h3></div>
         <div id='sankey' class="fixed"></div>
 
         <div id='chBeforeDiv' class="fixed" style="width: 580px; height: 280px;">
@@ -97,7 +97,7 @@
         }
 
         var objSankey = {};
-        d3.json("journey-2.json", function(error, energy) {
+        d3.json("journey.json", function(error, energy) {
             if (error) throw error;
             objSankey = sk.createSankey('#sankey', configSankey, energy);
         });
@@ -109,11 +109,11 @@
             type: 'horizontalBar',
             data: {
                 labels: [
-                    "Natural Resources Conservation", "Philz Coffee", "Peet\'s Coffee and Tea", "CORT Furniture", "GapBody", "Veggie Grill", "Orchard Supply Hardware", "BevMo!", "Banfield The Pet Hospital", "Travelodge", "Wells Fargo Home Mortgage", "Safeway", "Shred Nations", "Better Homes and Gardens Real Estate"
+                    'Pilot Flying J', 'Casey\'s General Store', 'Giant Eagle', 'Tim Hortons', 'Caribou Coffee', 'Hardee\'s', 'Speedway', 'Meijer', 'Marathon', 'Sears Hometown Store', 'Long John Silver\'s', 'Phillips 66', 'Waffle House', 'Dollar General', 'Papa Murphys Take n Bake'
                 ],
                 datasets: [{
-                    label: 'Peet\'s',
-                    data: [77.15472605, 44.91882199, 22.7990929, 14.72859665, 14.4808458, 10.7887397, 9.861539322, 9.531151294, 9.327559402, 7.07700436, 6.397581142, 6.356592317, 6.234389153, 5.994545961],
+                    label: 'Arby\'s',
+                    data: [3.670987998, 2.694583313, 2.505281517, 2.405050891, 2.310318698, 2.283916614, 2.270674715, 2.194350952, 2.180105059, 2.092448504, 2.089546849, 2.059241251, 1.926513093, 1.911261741, 1.811991334],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
@@ -165,11 +165,11 @@
             type: 'horizontalBar',
             data: {
                 labels: [
-                    "Philz Coffee", "Peet\'s Coffee and Tea", "CORT Furniture", "GapBody", "Better Homes and Gardens Real Estate", "Veggie Grill", "Banfield The Pet Hospital", "Orchard Supply Hardware", "BevMo!", "Safeway", "Travelodge", "Wells Fargo Home Mortgage", "The Habit Burger Grill", "Green Burrito"
+                    'Pilot Flying J', 'Casey\'s General Store', 'Giant Eagle', 'Tim Hortons', 'Hardee\'s', 'Speedway', 'Meijer', 'Sears Hometown Store', 'Marathon', 'Phillips 66', 'Long John Silver\'s', 'Econo Lodge', 'Waffle House', 'Caribou Coffee', 'Dollar General'
                 ],
                 datasets: [{
-                    label: 'Peet\'s',
-                    data: [41.6680093, 22.7990929, 15.94975935, 14.96165567, 13.72030326, 11.60524217, 10.52222978, 10.17417055, 9.978235849, 6.717507255, 6.560712089, 6.391136114, 6.237579713, 6.073172277],
+                    label: 'Arby\'s',
+                    data: [3.070910545, 2.614280585, 2.528117503, 2.358181652, 2.330158514, 2.272482337, 2.21269601, 2.203789969, 2.197990156, 2.032440395, 2.000905307, 1.981057424, 1.953011485, 1.909152607, 1.903011488],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
