@@ -140,59 +140,23 @@
         var income = new Chart(inc, {
             type: 'horizontalBar',
             data: {
-                labels: ["Peet\'s Coffee and Tea", "Cafes, Coffee Shops, and Tea Houses", "US Population"],
+                labels: ["$0-25k", "$25-50k", "$50-75k", "$75-100k", "$100-125k", "$125-150k", "$150-175k", "$175-200k", "$200-225k"],
                 datasets: [{
-                    label: '$0-25k',
-                    data: [1960 / 159111, 1020 / 147571, 2160 / 147511],
-                    backgroundColor: 'RGBA(251, 141, 43, .8)',
+                    label: 'Peet\'s',
+                    data: [1960, 5381, 2115, 12186, 25339, 36412, 43505, 4706, 27507],
+                    backgroundColor: 'RGBA(251, 141, 43, 1.00)',
                     borderColor: 'rgb(255,255,255)',
                     borderWidth: 1
                 }, {
-                    label: '$25-50k',
-                    data: [5381 / 159111, 3981 / 147571, 3481 / 147511],
-                    backgroundColor: 'RGBA(64, 133, 232, .8)',
+                    label: 'Cafes, Coffee Shops, and Tea Houses',
+                    data: [1020, 3981, 4915, 11086, 24839, 31012, 41505, 3706, 25507],
+                    backgroundColor: 'RGBA(251, 141, 43, 0.7)',
                     borderColor: 'rgb(255,255,255)',
                     borderWidth: 1
                 }, {
-                    label: '$50-75k',
-                    data: [2115 / 159111, 4915 / 147571, 1215 / 147511],
-                    backgroundColor: 'RGBA(108, 202, 213, .8)',
-                    borderColor: 'rgb(255,255,255)',
-                    borderWidth: 1
-                }, {
-                    label: '$75-100k',
-                    data: [12186 / 159111, 11086 / 147571, 16186 / 147511],
-                    backgroundColor: 'RGBA(250, 82, 81, .8)',
-                    borderColor: 'rgb(255,255,255)',
-                    borderWidth: 1
-                }, {
-                    label: '$100-125k',
-                    data: [25339 / 159111, 24839 / 147571, 20339 / 147511],
-                    backgroundColor: 'RGBA(103, 103, 241, .8)',
-                    borderColor: 'rgb(255,255,255)',
-                    borderWidth: 1
-                }, {
-                    label: '$125-150k',
-                    data: [36412 / 159111, 31012 / 147571, 31412 / 147511],
-                    backgroundColor: 'RGBA(176, 116, 175, .8)',
-                    borderColor: 'rgb(255,255,255)',
-                    borderWidth: 1
-                }, {
-                    label: '$150-175k',
-                    data: [43505 / 159111, 41505 / 147571, 40505 / 147511],
-                    backgroundColor: 'RGBA(254, 106, 117, .8)',
-                    borderColor: 'rgb(255,255,255)',
-                    borderWidth: 1
-                }, {
-                    label: '$175-200k',
-                    data: [4706 / 159111, 3706 / 147571, 4706 / 147511],
-                    backgroundColor: 'RGBA(95, 165, 214, .80)',
-                    borderColor: 'rgb(255,255,255)',
-                    borderWidth: 1
-                }, {
-                    label: '$200k+',
-                    data: [27507 / 159111, 25507 / 147571, 27507 / 147511],
-                    backgroundColor: 'RGBA(162, 237, 220, .80)',
+                    label: 'Average Population',
+                    data: [2160, 3481, 1215, 16186, 20339, 31412, 40505, 4706, 27507],
+                    backgroundColor: 'RGBA(251, 141, 43, 0.3)',
                     borderColor: 'rgb(255,255,255)',
                     borderWidth: 1
                 }, ]
@@ -203,22 +167,20 @@
                         ticks: {
                             beginAtZero: true,
                         },
-                        stacked: true,
                         scaleLabel: {
                             display: true,
-                            labelString: '% of Visitors',
+                            labelString: 'Number of Visitors',
                         }
                     }],
                     yAxes: [{
                         gridLines: {
                             offsetGridLines: false
                         },
-                        stacked: true,
                         ticks: {
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 12) + '...'); //truncate
+                                return (value.substr(0, 10)); //truncate
                             },
                         }
                     }]
@@ -234,9 +196,7 @@
                     }
                 },
                 legend: {
-                    display: true,
-                    position: 'bottom'
-
+                    display: true
                 },
             }
         });
