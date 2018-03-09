@@ -31,6 +31,12 @@
 
 <body style="background-color: #f6f6f6;">
 
+    <div id="logoDiv" class="fixed">
+        <img id="logo" src="arbys.png">
+        <h1>Arby's</h1>
+        <h3>Past week</h3>
+    </div>
+    <!--
     <div id="searchBar" class="fixed">
         <p style="padding-left: 15px; margin-top: 13px;">Arby's</p>
     </div>
@@ -38,17 +44,39 @@
         <p style="padding-left: 15px; margin-top: 13px;">past week</p>
     </div>
 
+-->
     <div id="container" class="fixed">
         <div id="tabs" class="fixed">
-            <a href="index.html"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
-            <a href="behavior.html"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
-            <a href="demo.html"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
-            <a href="user.html" class="active"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
+            <a href="index.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
+            <a href="behavior.html"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
+            <a href="demo.html" class="active"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
+            <a href="user.html"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
         </div>
 
-        <div class="fixed" style="left: 40px; top: 160px;">
+        <div class="fixed" id="container" style="top: 50px; height: 100px;">
+            <table>
+                <tr>
+                    <td class="td1">Top Age Group</td>
+                    <td class="td1">Top Income Bracket</td>
+                    <td class="td1">Top Home Region</td>
+                </tr>
+                <tr>
+                    <td class="td2">35-44 year olds</td>
+                    <td class="td2">$25-50k</td>
+                    <td class="td2">Ohio</td>
+                </tr>
+                <tr>
+                    <td class="td3">1,098,293 visitors</td>
+                    <td class="td3">870,139 visitors</td>
+                    <td class="td3">528,395 visitors</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="fixed" style="left: 220px; top: 180px;">
             <h3>Top 20 Chains Visited 6 Hours Before</h3></div>
-        <div class="fixed" style="left: 910px; top: 160px;">
+        <div class="fixed" style="left: 910px; top: 180px;">
             <h3>Top 20 Chains Visited 6 Hours After</h3></div>
         <div id='sankey' class="fixed"></div>
 

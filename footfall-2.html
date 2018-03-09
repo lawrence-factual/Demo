@@ -18,6 +18,7 @@
         <img id="logo" src="arbys.png">
         <h1>Arby's</h1>
         <h3>Past week</h3>
+        <p>Locality: Los Angeles</p>
     </div>
     <!--
     <div id="searchBar" class="fixed">
@@ -95,8 +96,8 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
-            center: [-97.4954506496801, 39.248342470676164],
-            zoom: 3,
+            center: [-118.22285090075121, 34.00453868389836],
+            zoom: 8,
             zoomControl: true,
         });
 
@@ -215,13 +216,6 @@
                     ]
                 }
             }, 'waterway-label');
-            map.on('moveend', function() {
-                if ((map.getBounds().getNorthEast().lat < 34.997486284120924) && (map.getBounds().getNorthEast().lng < -115.53929752120165) && (map.getBounds().getSouthWest().lat > 32.57484297563741) && (map.getBounds().getSouthWest().lng > -121.09230695800564)) {
-                    document.getElementById("reload").style.opacity = "1";
-                }
-
-            });
-
 
             function animateMarker(timestamp) {
                 setTimeout(function() {

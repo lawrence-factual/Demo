@@ -16,6 +16,12 @@
 
 <body style="background-color: #f6f6f6;">
 
+    <div id="logoDiv" class="fixed">
+        <img id="logo" src="arbys.png">
+        <h1>Arby's</h1>
+        <h3>Past week</h3>
+    </div>
+    <!--
     <div id="searchBar" class="fixed">
         <p style="padding-left: 15px; margin-top: 13px;">Arby's</p>
     </div>
@@ -23,20 +29,45 @@
         <p style="padding-left: 15px; margin-top: 13px;">past week</p>
     </div>
 
+-->
     <div id="container" class="fixed">
         <div id="tabs" class="fixed">
-            <a href="index.html"><h2 style="margin-right: 10px;" class="inline">Footfall</h2></a>
-            <a href="behavior.html" class="active"><h2 style="margin-right: 10px;"  class="inline">Behavior</h2></a>
-            <a href="demo.html"><h2 style="margin-right: 10px;"  class="inline">Demographics</h2></a>
-            <a href="user.html"><h2 style="margin-right: 10px;"  class="inline">User Journey</h2></a>
+            <a href="index.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
+            <a href="behavior.html" class="active"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
+            <a href="demo.html"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
+            <a href="user.html"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
         </div>
+
+        <div class="fixed" id="container" style="top: 50px; height: 100px;">
+            <table>
+                <tr>
+                    <td class="td1">Top Behavior Affinity</td>
+                    <td class="td1">Top Chain Affinity</td>
+                    <td class="td1">Top Category Affinity</td>
+                </tr>
+                <tr>
+                    <td class="td2">NFL Enthusiasts (Pro Football Fan)
+
+                    </td>
+                    <td class="td2">Just Brakes</td>
+                    <td class="td2">Swimming Pool and Maintenance Centers</td>
+                </tr>
+                <tr>
+                    <td class="td3">687,553 visitors</td>
+                    <td class="td3">22,557 visitors</td>
+                    <td class="td3">63,605 visitors</td>
+                </tr>
+            </table>
+
+        </div>
+
 
         <div id='behavior' class="fixed">
             <h3>Behavioral Segments More Likely to Visit</h3>
             <canvas id="profiles" width="580" height="600"></canvas>
         </div>
 
-        <div class="fixed" style="left: 660px; top: 160px;">
+        <div class="fixed" style="left: 860px; top: 200px;">
             <h3>Most likely to visit if has been to...</h3>
         </div>
 
@@ -90,7 +121,7 @@
                             maxRotation: 0,
                             autoSkip: false,
                             callback: function(value) {
-                                return (value.substr(0, 14) + '..'); //truncate
+                                return (value.substr(0, 35) + '..'); //truncate
                             },
                         }
                     }]
@@ -117,11 +148,11 @@
             type: 'horizontalBar',
             data: {
                 labels: [
-                    'Just Brakes', 'Northwest Savings Bank', 'Tutor Time', 'Leslie\'s Swimming Pool Supplies', 'The Learning Experience', 'Green Burrito', 'Childtime Learning Centers', 'Boston Market', 'Direct Auto Insurance', 'AAMCO Transmissions and Total Car Care', 'Batteries Plus'
+                    'Just Brakes', 'Leslie\'s Swimming Pool Supplies', 'Green Burrito', 'Boston Market', 'Direct Auto Insurance', 'AAMCO Transmissions and Total Car Care', 'Batteries Plus', 'Weight Watchers', 'Meineke Car Care Center', 'Firestone Complete Auto Care', 'Les Schwab Tire Centers', 'Liberty Travel', 'Merle Norman Cosmetic Studio', 'Del Taco', 'Safelite Auto Glass'
                 ],
                 datasets: [{
-                    label: 'Peet\'s',
-                    data: [1.523730524, 1.500217388, 1.399092567, 1.386884948, 1.359657719, 1.326578491, 1.322258956, 1.319492986, 1.288482722, 1.28061146, 1.280546701],
+                    label: 'Arby\'s',
+                    data: [1.523730524, 1.386884948, 1.326578491, 1.319492986, 1.288482722, 1.28061146, 1.280546701, 1.270280153, 1.269950023, 1.258891357, 1.250655872, 1.24914277, 1.246931058, 1.244732429, 1.240226665],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
@@ -145,9 +176,9 @@
                         ticks: {
                             maxRotation: 0,
                             autoSkip: false,
-                            callback: function(value) {
-                                return (value.substr(0, 16) + '..'); //truncate
-                            },
+                            //callback: function(value) {
+                            //  return (value.substr(0, 16) + '..'); //truncate
+                            //},
                         }
                     }]
                 },
@@ -173,11 +204,11 @@
             type: 'horizontalBar',
             data: {
                 labels: [
-                    'Blood Banks and Centers', 'Swimming Pool Maintenance and Services', 'Motorcycles, Mopeds and Scooters', 'Other Healthcare Professionals', 'Pools and Spas', 'Swimming', 'Deck and Patio', 'Fences, Fireplaces and Garage Doors', 'Military', 'RVs and Motor Homes', 'Gun Ranges'
+                    'Swimming Pool Maintenance and Services', 'Motorcycles, Mopeds and Scooters', 'Pools and Spas', 'Swimming', 'Deck and Patio', 'Fences, Fireplaces and Garage Doors', 'Military', 'RVs and Motor Homes', 'Gun Ranges', 'Piercing', 'Equipment Rental', 'Promotional Items', 'Smog Check', 'Pawn Shops', 'Automotive'
                 ],
                 datasets: [{
-                    label: 'Peet\'s',
-                    data: [1.675288214, 1.61712039, 1.489348957, 1.483426073, 1.464282186, 1.440060252, 1.4304284, 1.419952955, 1.418271532, 1.414769082, 1.413782375],
+                    label: 'Arby\'s',
+                    data: [1.61712039, 1.489348957, 1.464282186, 1.440060252, 1.4304284, 1.419952955, 1.418271532, 1.414769082, 1.413782375, 1.413374962, 1.400070831, 1.397900473, 1.396925619, 1.387498444, 1.385840252],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
@@ -201,9 +232,9 @@
                         ticks: {
                             maxRotation: 0,
                             autoSkip: false,
-                            callback: function(value) {
-                                return (value.substr(0, 16) + '..'); //truncate
-                            },
+                            //callback: function(value) {
+                            //  return (value.substr(0, 16) + '..'); //truncate
+                            //},
                         }
                     }]
                 },
