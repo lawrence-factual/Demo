@@ -203,3 +203,19 @@ a {
 table {
     margin: 15px;
 }
+
+.tag {
+    background-color: #fff;
+    padding:5px 10px;
+    width: 140px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+
+
+.trash {
+    position: fixed;
+    left: 150px;
+    cursor: pointer;
+}
