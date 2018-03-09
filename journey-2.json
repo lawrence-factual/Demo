@@ -1,126 +1,248 @@
 {
-  "nodes": [{
-    "name": "Walgreens"
+    "nodes": [{
+        "name": "CVS Pharmacy"
   }, {
-    "name": "McDonald's"
+        "name": "McDonald's"
   }, {
-    "name": "Walmart"
+        "name": "Walmart"
   }, {
-    "name": "CVS Pharmacy"
+        "name": "Walgreens"
   }, {
-    "name": "Subway"
+        "name": "Lowe's"
   }, {
-    "name": "Starbucks"
+        "name": "Starbucks"
   }, {
-    "name": "Shell"
+        "name": "Shell"
   }, {
-    "name": "Redbox"
+        "name": "Rite Aid"
   }, {
-    "name": "Taco Bell"
+        "name": "Wendy's"
   }, {
-    "name": "Wendy's"
+        "name": "Subway"
   }, {
-    "name": "Arby's"
+        "name": "Redbox"
   }, {
-    "name": "Walgreens"
+        "name": "Wells Fargo Bank"
   }, {
-    "name": "Walmart"
+        "name": "Taco Bell"
   }, {
-    "name": "McDonald's"
+        "name": "Target"
   }, {
-    "name": "CVS Pharmacy"
+        "name": "Office Depot"
   }, {
-    "name": "Starbucks"
+        "name": "Ace Hardware"
   }, {
-    "name": "Subway"
+        "name": "Chick-Fil-A"
   }, {
-    "name": "Redbox"
+        "name": "KFC"
   }, {
-    "name": "Shell"
+        "name": "Advance Auto Parts"
   }, {
-    "name": "Lowe's"
+        "name": "Big Lots"
   }, {
-    "name": "Taco Bell"
-  }],
-  "links": [{
-    "source": 0,
-    "target": 10,
-    "value": 576709
+        "name": "Arby's"
   }, {
-    "source": 1,
-    "target": 10,
-    "value": 470412
+        "name": "Walgreens"
   }, {
-    "source": 2,
-    "target": 10,
-    "value": 391171
+        "name": "McDonald's"
   }, {
-    "source": 3,
-    "target": 10,
-    "value": 367538
+        "name": "CVS Pharmacy"
   }, {
-    "source": 4,
-    "target": 10,
-    "value": 297133
+        "name": "Starbucks"
   }, {
-    "source": 5,
-    "target": 10,
-    "value": 286430
+        "name": "Subway"
   }, {
-    "source": 6,
-    "target": 10,
-    "value": 241071
+        "name": "Walmart"
   }, {
-    "source": 7,
-    "target": 10,
-    "value": 231593
+        "name": "Lowe's"
   }, {
-    "source": 8,
-    "target": 10,
-    "value": 200301
+        "name": "Shell"
   }, {
-    "source": 9,
-    "target": 10,
-    "value": 199249
+        "name": "Redbox"
   }, {
-    "source": 10,
-    "target": 11,
-    "value": 199249
+        "name": "Taco Bell"
   }, {
-    "source": 10,
-    "target": 12,
-    "value": 690663
+        "name": "Wendy's"
   }, {
-    "source": 10,
-    "target": 13,
-    "value": 508471
+        "name": "Target"
   }, {
-    "source": 10,
-    "target": 14,
-    "value": 471357
+        "name": "Dunkin' Donuts"
   }, {
-    "source": 10,
-    "target": 15,
-    "value": 423834
+        "name": "KFC"
   }, {
-    "source": 10,
-    "target": 16,
-    "value": 303502
+        "name": "Burger King"
   }, {
-    "source": 10,
-    "target": 17,
-    "value": 298869
+        "name": "Kohl's"
   }, {
-    "source": 10,
-    "target": 18,
-    "value": 243823
+        "name": "Chevron"
   }, {
-    "source": 10,
-    "target": 19,
-    "value": 234990
+        "name": "Ace Hardware"
   }, {
-    "source": 10,
-    "target": 20,
-    "value": 226531
-  }]
+        "name": "Exxon"
+  }, {
+        "name": "Michaels"
+    }],
+    "links": [{
+            "source": 0,
+            "target": 20,
+            "value": 6201
+  }, {
+            "source": 1,
+            "target": 20,
+            "value": 5534
+  }, {
+            "source": 2,
+            "target": 20,
+            "value": 5352
+  }, {
+            "source": 3,
+            "target": 20,
+            "value": 4620
+  }, {
+            "source": 4,
+            "target": 20,
+            "value": 4077
+  }, {
+            "source": 5,
+            "target": 20,
+            "value": 4072
+  }, {
+            "source": 6,
+            "target": 20,
+            "value": 3804
+  }, {
+            "source": 7,
+            "target": 20,
+            "value": 3779
+  }, {
+            "source": 8,
+            "target": 20,
+            "value": 3585
+  }, {
+            "source": 9,
+            "target": 20,
+            "value": 3380
+  }, {
+            "source": 10,
+            "target": 20,
+            "value": 3304
+  }, {
+            "source": 11,
+            "target": 20,
+            "value": 3223
+  }, {
+            "source": 12,
+            "target": 20,
+            "value": 3119
+  }, {
+            "source": 13,
+            "target": 20,
+            "value": 2694
+  }, {
+            "source": 14,
+            "target": 20,
+            "value": 2175
+  }, {
+            "source": 15,
+            "target": 20,
+            "value": 2119
+  }, {
+            "source": 16,
+            "target": 20,
+            "value": 2108
+  }, {
+            "source": 17,
+            "target": 20,
+            "value": 2067
+  }, {
+            "source": 18,
+            "target": 20,
+            "value": 2052
+  }, {
+            "source": 19,
+            "target": 20,
+            "value": 1821
+  },
+        {
+            "source": 20,
+            "target": 21,
+            "value": 15023
+        },
+        {
+            "source": 20,
+            "target": 22,
+            "value": 9470
+        }, {
+            "source": 20,
+            "target": 23,
+            "value": 7608
+        }, {
+            "source": 20,
+            "target": 24,
+            "value": 7084
+        }, {
+            "source": 20,
+            "target": 25,
+            "value": 6520
+        }, {
+            "source": 20,
+            "target": 26,
+            "value": 5303
+        }, {
+            "source": 20,
+            "target": 27,
+            "value": 5020
+        }, {
+            "source": 20,
+            "target": 28,
+            "value": 4900
+        }, {
+            "source": 20,
+            "target": 29,
+            "value": 4337
+        }, {
+            "source": 20,
+            "target": 30,
+            "value": 4240
+        }, {
+            "source": 20,
+            "target": 31,
+            "value": 4197
+        }, {
+            "source": 20,
+            "target": 32,
+            "value": 3085
+        }, {
+            "source": 20,
+            "target": 33,
+            "value": 2477
+        }, {
+            "source": 20,
+            "target": 34,
+            "value": 2388
+        }, {
+            "source": 20,
+            "target": 35,
+            "value": 2342
+        }, {
+            "source": 20,
+            "target": 36,
+            "value": 2153
+        }, {
+            "source": 20,
+            "target": 37,
+            "value": 2137
+        }, {
+            "source": 20,
+            "target": 38,
+            "value": 2124
+        }, {
+            "source": 20,
+            "target": 39,
+            "value": 2120
+        }, {
+            "source": 20,
+            "target": 40,
+            "value": 2088
+        }]
 }

@@ -36,6 +36,7 @@
         <h1>Arby's</h1>
         <h3>Past week</h3>
         <p>Locality: Los Angeles</p>
+        <p>Profile: New Home Owner</p>
     </div>
     <!--
     <div id="searchBar" class="fixed">
@@ -48,10 +49,10 @@
 -->
     <div id="container" class="fixed">
         <div id="tabs" class="fixed">
-            <a href="footfall-2.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
-            <a href="behavior-2.html"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
-            <a href="demo-2.html"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
-            <a href="user-2.html" class="active"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
+            <a href="footfall-3.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
+            <a href="behavior-3.html"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
+            <a href="demo-3.html"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
+            <a href="user-3.html" class="active"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
         </div>
 
         <div class="fixed" id="container" style="top: 50px; height: 100px;">
@@ -65,23 +66,23 @@
                 <tr>
                     <td class="td2">CVS Pharmacy</td>
                     <td class="td2">Walgreens</td>
-                    <td class="td2">Hardee's</td>
-                    <td class="td2">Marathon</td>
+                    <td class="td2">Lowe's</td>
+                    <td class="td2">Taco Bell</td>
                 </tr>
                 <tr>
-                    <td class="td3">6,201 visitors</td>
-                    <td class="td3">15,023 visitors</td>
-                    <td class="td3">1,277 visitors</td>
-                    <td class="td3">1,678 visitors</td>
+                    <td class="td3">2,502 visitors</td>
+                    <td class="td3">6,033 visitors</td>
+                    <td class="td3">1,314 visitors</td>
+                    <td class="td3">1,560 visitors</td>
                 </tr>
             </table>
 
         </div>
 
         <div class="fixed" style="left: 220px; top: 180px;">
-            <h3>Top 20 Chains Visited 6 Hours Before</h3></div>
+            <h3>Top 12 Chains Visited 6 Hours Before</h3></div>
         <div class="fixed" style="left: 1100px; top: 180px;">
-            <h3>Top 20 Chains Visited 6 Hours After</h3></div>
+            <h3>Top 12 Chains Visited 6 Hours After</h3></div>
         <div id='sankey' class="fixed"></div>
 
         <div id='chBeforeDiv' class="fixed" style="width: 580px; height: 280px;">
@@ -129,7 +130,7 @@
         }
 
         var objSankey = {};
-        d3.json("journey-2.json", function(error, energy) {
+        d3.json("journey-3.json", function(error, energy) {
             if (error) throw error;
             objSankey = sk.createSankey('#sankey', configSankey, energy);
         });
@@ -141,11 +142,23 @@
             type: 'horizontalBar',
             data: {
                 labels: [
-                    "Hardee\'s", "Marathon", "Waffle House", "Ace Hardware", "Big Lots", "O'Reilly Auto Parts", "Advance Auto Parts", "Sam\'s Club", "Lowe\'s", "PNC Bank", "Office Depot", "Wendy\'s", "Applebee\'s", "Sonic Drive-In", "Pizza Hut"
+                    "Lowe\'s", "Wendy\'s", "Rite Aid", "Walmart", "Wells Fargo Bank", "CVS Pharmacy", "Redbox", "Shell", "McDonald\'s", "Subway", "Walgreens", "Starbucks"
                 ],
                 datasets: [{
                     label: 'Arby\'s',
-                    data: [3.568765368, 3.460864808, 2.984353028, 2.348793673, 2.320158424, 2.211037721, 2.14873184, 2.1283209, 2.127029078, 2.045917195, 1.953643826, 1.91754947, 1.877432302, 1.856581094, 1.842628348],
+                    data: [1.84392984,
+                        1.56547172,
+                        1.554494784,
+                        1.284569098,
+                        1.265740523,
+                        1.23035949,
+                        1.13417145,
+                        1.085371178,
+                        1.009626976,
+                        1.00580221,
+                        0.7021702516,
+                        0.6724596436
+                    ],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1
@@ -197,11 +210,23 @@
             type: 'horizontalBar',
             data: {
                 labels: [
-                    "Marathon", "Anytime Fitness", "Little Caesars Pizza", "Lowe\'s", "Ace Hardware", "Wendy\'s", "Taco Bell", "Papa John\'s Pizza", "KFC", "Dairy Queen", "Kmart", "Jimmy John\'s", "Big Lots", "Walgreens", "Olive Garden"
+                    "Taco Bell", "Walgreens", "McDonald\'s", "Wendy\'s", "Subway", "Lowe\'s", "Shell", "Redbox", "Starbucks", "Walmart", "CVS Pharmacy", "Target"
                 ],
                 datasets: [{
                     label: 'Arby\'s',
-                    data: [3.476114675, 2.557296936, 2.201125458, 2.193753305, 2.191820875, 2.186016682, 2.133703359, 2.092429566, 2.08120885, 2.028042692, 2.005494282, 1.989803704, 1.950902318, 1.905283144, 1.855765041],
+                    data: [2.111974489,
+                        2.057356871,
+                        1.913658598,
+                        1.867016732,
+                        1.860308545,
+                        1.832199525,
+                        1.672197459,
+                        1.476880208,
+                        1.177899294,
+                        1.133309852,
+                        1.130486875,
+                        0.9763498284
+                    ],
                     backgroundColor: 'rgba(255, 170, 34, 0.6)',
                     borderColor: 'rgb(255, 170, 34)',
                     borderWidth: 1

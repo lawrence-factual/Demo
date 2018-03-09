@@ -1,0 +1,304 @@
+<! DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="style.css" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="Highmaps-6/code/highcharts.js"></script>
+    <script src='Highmaps-6/code/js/modules/map.js'></script>
+    <script src="Highmaps-6/code/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+    <script src='jquery-3.3.1.js'></script>
+</head>
+
+<body style="background-color: #f6f6f6;">
+
+    <div id="logoDiv" class="fixed">
+        <img id="logo" src="arbys.png">
+        <h1>Arby's</h1>
+        <h3>Past week</h3>
+        <p>Locality: Los Angeles</p>
+        <p>Profile: New Home Owner</p>
+    </div>
+    <!--
+    <div id="searchBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Arby's</p>
+    </div>
+    <div id="dateBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">past week</p>
+    </div>
+
+-->
+    <div id="container" class="fixed">
+        <div id="tabs" class="fixed">
+            <a href="footfall-3.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
+            <a href="behavior-3.html" class="active"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
+            <a href="demo-3.html"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
+            <a href="user-3.html"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
+        </div>
+
+        <div class="fixed" id="container" style="top: 50px; height: 100px;">
+            <table>
+                <tr>
+                    <td class="td1">Top Behavior Affinity</td>
+                    <td class="td1">Top Chain Affinity</td>
+                    <td class="td1">Top Category Affinity</td>
+                </tr>
+                <tr>
+                    <td class="td2">Family Travelers
+                    </td>
+                    <td class="td2">Firestone Complete Auto Care</td>
+                    <td class="td2">Sales</td>
+                </tr>
+                <tr>
+                    <td class="td3">10,259 visitors</td>
+                    <td class="td3">2,187 visitors</td>
+                    <td class="td3">2,034 visitors</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <div id='behavior' class="fixed">
+            <h3>Behavioral Segments More Likely to Visit</h3>
+            <canvas id="profiles" width="580" height="600"></canvas>
+        </div>
+
+        <div class="fixed" style="left: 860px; top: 200px;">
+            <h3>Most likely to visit if has been to...</h3>
+        </div>
+
+        <div id='chDiv' class="fixed" style="width: 560px; height: 280px;">
+
+            <h3>Chains</h3>
+            <canvas id="ch" width="560" height="260"></canvas>
+        </div>
+
+        <div id='catDiv' class="fixed" style="width: 560px; height: 280px;">
+            <h3>Categories</h3>
+            <canvas id="cat" width="560" height="260"></canvas>
+        </div>
+
+    </div>
+
+
+    <script>
+        //Chains Before
+        var chB = document.getElementById("profiles").getContext('2d');
+        var chBef = new Chart(chB, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    "Family Travelers", "NFL Enthusiasts (Pro Football Fan)", "In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)", "Newlyweds", "Luxury Goods Shoppers (Affluent Consumer)", "Gym and Fitness Lifestyle", "In-Market Auto Intenders - SUVs and Crossovers", "Live Sports Fans", "Luxury Fashion Shoppers", "Business Travelers", "Outdoor Enthusiasts", "Leisure Travelers", "Pet Owners and Pet Store Shoppers", "Disney Enthusiasts", "Luxury Lifestyle"
+                ],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [2.208053291,
+                        1.885039054,
+                        1.82689919,
+                        1.758277746,
+                        1.690780059,
+                        1.658352874,
+                        1.617388005,
+                        1.548809586,
+                        1.49386517,
+                        1.452547259,
+                        1.420010366,
+                        1.365138433,
+                        1.363365938,
+                        1.33343775,
+                        1.32715779,
+                    ],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Over/under index',
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 35) + '..'); //truncate
+                            },
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        //Chains Before
+        var ch = document.getElementById("ch").getContext('2d');
+        var cha = new Chart(ch, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    "Firestone Complete Auto Care", "Sherwin-Williams", "Domino\'s Pizza", "Olive Garden", "Long John Silver\'s", "State Farm Insurance", "H&R Block", "Jiffy Lube", "RadioShack", "Papa John\'s Pizza", "T.J.Maxx", "Staples", "Wells Fargo Bank", "Days Inn", "Applebee\'s"
+                ],
+                datasets: [{
+                    label: 'Arby\'s',
+                    data: [2.034679759,
+                        1.838712617,
+                        1.82252746,
+                        1.822219186,
+                        1.818091473,
+                        1.755386717,
+                        1.651546589,
+                        1.6322852,
+                        1.59985423,
+                        1.593556718,
+                        1.535651219,
+                        1.525350863,
+                        1.511785506,
+                        1.505248752,
+                        1.495458941,
+                    ],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Over/under index',
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            //callback: function(value) {
+                            //  return (value.substr(0, 16) + '..'); //truncate
+                            //},
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        //Chains After
+        var ca = document.getElementById("cat").getContext('2d');
+        var cat = new Chart(ca, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    "Sales", "Personal Care", "Vintage and Thrift", "Financial Planning and Investments", "Tattooing", "Warehouses and Wholesale Stores", "Community and Government", "Real Estate Agents", "Transmissions", "Funeral Services", "Party Supplies", "Indian", "Office Supplies", "Oil and Lube", "Shipping, Freight, and Material Transportation"
+                ],
+                datasets: [{
+                    label: 'Arby\'s',
+                    data: [2.234042981,
+                        1.997388453,
+                        1.953735898,
+                        1.953135584,
+                        1.939774499,
+                        1.907672243,
+                        1.893791923,
+                        1.874479848,
+                        1.851779331,
+                        1.826016276,
+                        1.779333221,
+                        1.772948243,
+                        1.766801584,
+                        1.744668562,
+                        1.719459692,
+                    ],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Over/under index',
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            //callback: function(value) {
+                            //  return (value.substr(0, 16) + '..'); //truncate
+                            //},
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+    </script>
+</body>
