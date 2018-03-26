@@ -1,0 +1,250 @@
+<! DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="style.css" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="Highmaps-6/code/highcharts.js"></script>
+    <script src='Highmaps-6/code/js/modules/map.js'></script>
+    <script src="Highmaps-6/code/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+    <script src='jquery-3.3.1.js'></script>
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.js"></script>
+    <link href="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script>
+        var yellow = d3.interpolateYlGn(0), // "rgb(255, 255, 229)"
+            yellowGreen = d3.interpolateYlGn(0.5), // "rgb(120, 197, 120)"
+            green = d3.interpolateYlGn(1); // "rgb(0, 69, 41)"
+
+    </script>
+
+</head>
+
+<body style="background-color: #f6f6f6;">
+
+    <div id="logoDiv" class="fixed">
+        <img id="logo" src="arbys.png">
+        <h1>Arby's</h1>
+        <h3>Past week</h3>
+    </div>
+    <!--
+    <div id="searchBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Arby's</p>
+    </div>
+    <div id="dateBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">past week</p>
+    </div>
+
+-->
+    <div id="container" class="fixed">
+        <div id="tabs" class="fixed">
+            <a href="index.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
+            <a href="behavior.html"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
+            <a href="demo.html"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
+            <a href="user.html" class="active"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
+        </div>
+
+        <div class="fixed" id="container" style="top: 50px; height: 100px;">
+            <table>
+                <tr>
+                    <td class="td1">Top Chain Visited Before</td>
+                    <td class="td1">Top Chain Visited After</td>
+                    <td class="td1">Top Chain Before Affinity</td>
+                    <td class="td1">Top Chain After Affinity</td>
+                </tr>
+                <tr>
+                    <td class="td2">Walgreens</td>
+                    <td class="td2">Walgreens</td>
+                    <td class="td2">Pilot Flying J</td>
+                    <td class="td2">Pilot Flying J</td>
+                </tr>
+                <tr>
+                    <td class="td3">576,709 visitors</td>
+                    <td class="td3">690,663 visitors</td>
+                    <td class="td3">41,428 visitors</td>
+                    <td class="td3">37,905 visitors</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="fixed" style="left: 220px; top: 180px;">
+            <h3>Top 20 Chains Visited 6 Hours Before</h3></div>
+        <div class="fixed" style="left: 1100px; top: 180px;">
+            <h3>Top 20 Chains Visited 6 Hours After</h3></div>
+        <div id='sankey' class="fixed"></div>
+
+        <div id='chBeforeDiv' class="fixed" style="width: 580px; height: 280px;">
+            <h3>More likely to visit Arby's if visited [x] less than 6 Hours Before</h3>
+            <canvas id="chBefore" width="580" height="260"></canvas>
+        </div>
+
+        <div id='chAfterDiv' class="fixed" style="width: 580px; height: 280px;">
+            <h3>More likely to visit [x] less than 6 Hours After Arby's</h3>
+            <canvas id="chAfter" width="580" height="260"></canvas>
+        </div>
+
+    </div>
+
+
+    <script>
+        //Sankey
+        var configSankey = {
+            margin: {
+                top: 10,
+                left: 10,
+                right: 10,
+                bottom: 10
+            },
+            nodes: {
+                dynamicSizeFontNode: {
+                    enabled: true,
+                    minSize: 14,
+                    maxSize: 30
+                },
+                draggableX: false,
+                draggableY: true,
+                colors: d3.scaleOrdinal(d3.schemeSet3),
+            },
+            links: {
+                formatValue: function(val) {
+                    return d3.format(",.0f")(val);
+                }
+            },
+            tooltip: {
+                infoDiv: true,
+                labelSource: 'Input:',
+                labelTarget: 'Output:'
+            }
+        }
+
+        var objSankey = {};
+        d3.json("journey.json", function(error, energy) {
+            if (error) throw error;
+            objSankey = sk.createSankey('#sankey', configSankey, energy);
+        });
+
+
+        //Chains Before
+        var chB = document.getElementById("chBefore").getContext('2d');
+        var chBef = new Chart(chB, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    'Pilot Flying J', 'Casey\'s General Store', 'Giant Eagle', 'Tim Hortons', 'Caribou Coffee', 'Hardee\'s', 'Speedway', 'Meijer', 'Marathon', 'Sears Hometown Store', 'Long John Silver\'s', 'Phillips 66', 'Waffle House', 'Dollar General', 'Papa Murphys Take n Bake'
+                ],
+                datasets: [{
+                    label: 'Arby\'s',
+                    data: [3.670987998, 2.694583313, 2.505281517, 2.405050891, 2.310318698, 2.283916614, 2.270674715, 2.194350952, 2.180105059, 2.092448504, 2.089546849, 2.059241251, 1.926513093, 1.911261741, 1.811991334],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Over/under index',
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 12) + '..'); //truncate
+                            },
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        //Chains After
+        var chA = document.getElementById("chAfter").getContext('2d');
+        var chAf = new Chart(chA, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    'Pilot Flying J', 'Casey\'s General Store', 'Giant Eagle', 'Tim Hortons', 'Hardee\'s', 'Speedway', 'Meijer', 'Sears Hometown Store', 'Marathon', 'Phillips 66', 'Long John Silver\'s', 'Econo Lodge', 'Waffle House', 'Caribou Coffee', 'Dollar General'
+                ],
+                datasets: [{
+                    label: 'Arby\'s',
+                    data: [3.070910545, 2.614280585, 2.528117503, 2.358181652, 2.330158514, 2.272482337, 2.21269601, 2.203789969, 2.197990156, 2.032440395, 2.000905307, 1.981057424, 1.953011485, 1.909152607, 1.903011488],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Over/under index',
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 12) + '..'); //truncate
+                            },
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+    </script>
+</body>

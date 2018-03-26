@@ -1,0 +1,223 @@
+
+.fixed {
+    position: fixed;
+}
+
+#map {
+    left: 605px;
+    top: 200px;
+    width: 800px;
+    height: 420px;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.container {
+    background-color: #fff;
+}
+
+body {
+    background-color: #f6f6f6;
+    font-family: sans-serif;
+    overflow-y: scroll;
+}
+
+#visFreqDiv {
+    top: 440px;
+    left: 225px;
+}
+
+.leftChart {
+    width: 330px;
+    height: 200px;
+}
+
+#peepObsDiv {
+    left: 225px;
+    top: 180px;
+}
+
+#dwellTimeDiv {
+    left: 225px;
+    top: 700px;
+}
+
+#ffByHrDiv {
+    left: 605px;
+    top: 640px;
+}
+
+.inline {
+    display: inline;
+}
+
+#tabs {
+    left: 200px;
+    top: 20px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#container {
+    background-color: #fff;
+    width: 1250px;
+    height: 820px;
+    left: 200px;
+    top: 160px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+h3 {
+    margin-top: 0;
+    padding-top: 0;
+    font-weight: 600;
+}
+
+#searchBar {
+    top: 15px;
+    left: 200px;
+    height: 40px;
+    width: 870px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    border-radius: 4px;
+}
+
+#ageDiv {
+     left: 220px;
+    top: 200px;  
+}
+
+#incomeDiv {
+    top: 460px;
+    left: 220px;
+}
+
+#homeRegionDiv {
+    left: 605px;
+    top: 650px;
+}
+
+#sankey {
+    width: 1200px;
+    height: 420px;
+    left: 220px;
+    top: 200px;
+}
+
+#chBeforeDiv {
+    left: 220px;
+    top: 660px;
+}
+
+#chAfterDiv {
+    left: 850px;
+    top: 660px;
+}
+
+#chDiv {
+        left: 860px;
+    top: 240px;
+}
+
+#catDiv {
+        left: 860px;
+    top: 550px;
+}
+
+#behavior {
+    width: 580px;
+    height: 320px;
+    left: 220px;
+    top: 200px;
+}
+
+#dateBar {
+    top: 15px;
+    left: 1100px;
+    height: 40px;
+    width: 345px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    border-radius: 4px;
+}
+
+.active {
+    color: #4085E8;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+#scroller {
+    top:0;
+    left: 0;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#reload {
+    opacity: 0;
+    color: RGBA(64, 133, 232, 1.00);
+}
+
+#logoDiv {
+    top: 15px;
+    left: 20px;
+    background-color: #fff;
+     width: 100px;
+    height: 100px;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.td1 {
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 4px;
+    text-transform: capitalize;
+    padding-right: 80px;
+}
+.td2 {
+    font-size: 24px;
+    font-weight: 500;
+    padding-right: 80px;
+}
+.td3 {
+    font-size: 12px;
+    padding-right: 80px;
+    padding-top: 5px;
+}
+
+table {
+    margin: 15px;
+}
+
+.tag {
+    background-color: #fff;
+    padding:5px 10px;
+    width: 140px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+
+
+.trash {
+    position: fixed;
+    left: 150px;
+    cursor: pointer;
+}

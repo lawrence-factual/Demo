@@ -1,0 +1,297 @@
+<! DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="style.css" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="Highmaps-6/code/highcharts.js"></script>
+    <script src='Highmaps-6/code/js/modules/map.js'></script>
+    <script src="Highmaps-6/code/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+    <script src='jquery-3.3.1.js'></script>
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.js"></script>
+    <link href="https://rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script>
+        var yellow = d3.interpolateYlGn(0), // "rgb(255, 255, 229)"
+            yellowGreen = d3.interpolateYlGn(0.5), // "rgb(120, 197, 120)"
+            green = d3.interpolateYlGn(1); // "rgb(0, 69, 41)"
+
+    </script>
+
+</head>
+
+<body style="background-color: #f6f6f6;">
+
+    <div id="logoDiv" class="fixed">
+        <img id="logo" src="arbys.png">
+        <h1>Arby's</h1>
+        <h3>Past week</h3>
+        <div class="tag">
+            <p>Locality:
+                <br>Los Angeles</p>
+            <div id="trash-1" class="trash" style="top: 255px;">
+                <a>
+                    <svg width="16" height="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 16h2V8H7v8zm4 0h2V8h-2v8zm-6 2h10V6H5v12zM7 4h6V2H7v2zm8 0V0H5v4H0v2h3v14h14V6h3V4h-5z" fill="RGBA(64, 133, 232, 1)" fill-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="tag">
+            <p>Profile: New
+                <br>Home Owner</p>
+            <div id="trash-1" class="trash" style="top: 350px;">
+                <a href="user-2.html">
+                    <svg width="16" height="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 16h2V8H7v8zm4 0h2V8h-2v8zm-6 2h10V6H5v12zM7 4h6V2H7v2zm8 0V0H5v4H0v2h3v14h14V6h3V4h-5z" fill="RGBA(64, 133, 232, 1)" fill-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div id="searchBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">Arby's</p>
+    </div>
+    <div id="dateBar" class="fixed">
+        <p style="padding-left: 15px; margin-top: 13px;">past week</p>
+    </div>
+
+-->
+    <div id="container" class="fixed">
+        <div id="tabs" class="fixed">
+            <a href="footfall-3.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
+            <a href="behavior-3.html"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
+            <a href="demo-3.html"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
+            <a href="user-3.html" class="active"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
+        </div>
+
+        <div class="fixed" id="container" style="top: 50px; height: 100px;">
+            <table>
+                <tr>
+                    <td class="td1">Top Chain Visited Before</td>
+                    <td class="td1">Top Chain Visited After</td>
+                    <td class="td1">Top Chain Before Affinity</td>
+                    <td class="td1">Top Chain After Affinity</td>
+                </tr>
+                <tr>
+                    <td class="td2">CVS Pharmacy</td>
+                    <td class="td2">Walgreens</td>
+                    <td class="td2">Lowe's</td>
+                    <td class="td2">Taco Bell</td>
+                </tr>
+                <tr>
+                    <td class="td3">2,502 visitors</td>
+                    <td class="td3">6,033 visitors</td>
+                    <td class="td3">1,314 visitors</td>
+                    <td class="td3">1,560 visitors</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="fixed" style="left: 220px; top: 180px;">
+            <h3>Top 12 Chains Visited 6 Hours Before</h3></div>
+        <div class="fixed" style="left: 1100px; top: 180px;">
+            <h3>Top 12 Chains Visited 6 Hours After</h3></div>
+        <div id='sankey' class="fixed"></div>
+
+        <div id='chBeforeDiv' class="fixed" style="width: 580px; height: 280px;">
+            <h3>More likely to visit Arby's if visited [x] less than 6 Hours Before</h3>
+            <canvas id="chBefore" width="580" height="260"></canvas>
+        </div>
+
+        <div id='chAfterDiv' class="fixed" style="width: 580px; height: 280px;">
+            <h3>More likely to visit [x] less than 6 Hours After Arby's</h3>
+            <canvas id="chAfter" width="580" height="260"></canvas>
+        </div>
+
+    </div>
+
+
+    <script>
+        //Sankey
+        var configSankey = {
+            margin: {
+                top: 10,
+                left: 10,
+                right: 10,
+                bottom: 10
+            },
+            nodes: {
+                dynamicSizeFontNode: {
+                    enabled: true,
+                    minSize: 14,
+                    maxSize: 30
+                },
+                draggableX: false,
+                draggableY: true,
+                colors: d3.scaleOrdinal(d3.schemeSet3),
+            },
+            links: {
+                formatValue: function(val) {
+                    return d3.format(",.0f")(val);
+                }
+            },
+            tooltip: {
+                infoDiv: true,
+                labelSource: 'Input:',
+                labelTarget: 'Output:'
+            }
+        }
+
+        var objSankey = {};
+        d3.json("journey-3.json", function(error, energy) {
+            if (error) throw error;
+            objSankey = sk.createSankey('#sankey', configSankey, energy);
+        });
+
+
+        //Chains Before
+        var chB = document.getElementById("chBefore").getContext('2d');
+        var chBef = new Chart(chB, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    "Lowe\'s", "Wendy\'s", "Rite Aid", "Walmart", "Wells Fargo Bank", "CVS Pharmacy", "Redbox", "Shell", "McDonald\'s", "Subway", "Walgreens", "Starbucks"
+                ],
+                datasets: [{
+                    label: 'Arby\'s',
+                    data: [1.84392984,
+                        1.56547172,
+                        1.554494784,
+                        1.284569098,
+                        1.265740523,
+                        1.23035949,
+                        1.13417145,
+                        1.085371178,
+                        1.009626976,
+                        1.00580221,
+                        0.7021702516,
+                        0.6724596436
+                    ],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Over/under index',
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 12) + '..'); //truncate
+                            },
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        //Chains After
+        var chA = document.getElementById("chAfter").getContext('2d');
+        var chAf = new Chart(chA, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    "Taco Bell", "Walgreens", "McDonald\'s", "Wendy\'s", "Subway", "Lowe\'s", "Shell", "Redbox", "Starbucks", "Walmart", "CVS Pharmacy", "Target"
+                ],
+                datasets: [{
+                    label: 'Arby\'s',
+                    data: [2.111974489,
+                        2.057356871,
+                        1.913658598,
+                        1.867016732,
+                        1.860308545,
+                        1.832199525,
+                        1.672197459,
+                        1.476880208,
+                        1.177899294,
+                        1.133309852,
+                        1.130486875,
+                        0.9763498284
+                    ],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Over/under index',
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            autoSkip: false,
+                            callback: function(value) {
+                                return (value.substr(0, 12) + '..'); //truncate
+                            },
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'label',
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            var idx = tooltipItems[0].index;
+                            return data.labels[idx]; //do something with title
+                        },
+                    }
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+    </script>
+</body>
