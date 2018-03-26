@@ -255,6 +255,9 @@
     <script>
         $(window).on("load", function() {
             console.log(window.scrollY);
+            $('html, body').animate({
+                scrollTop: $('#demographics').offset().top
+            }, 'none');
             if (window.scrollY > 800) {
                 document.getElementById("filters").style.opacity = "1";
             } else {
