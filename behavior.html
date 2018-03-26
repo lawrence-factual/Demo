@@ -14,245 +14,590 @@
     <script src='jquery-3.3.1.js'></script>
 </head>
 
-<body style="background-color: #f6f6f6;">
-
-    <div id="logoDiv" class="fixed">
-        <img id="logo" src="arbys.png">
-        <h1>Arby's</h1>
-        <h3>Past week</h3>
+<body>
+    <div id="factual">
+        <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual-color.png">
     </div>
-    <!--
-    <div id="searchBar" class="fixed">
-        <p style="padding-left: 15px; margin-top: 13px;">Arby's</p>
-    </div>
-    <div id="dateBar" class="fixed">
-        <p style="padding-left: 15px; margin-top: 13px;">past week</p>
-    </div>
-
--->
-    <div id="container" class="fixed">
-        <div id="tabs" class="fixed">
-            <a href="index.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
-            <a href="behavior.html" class="active"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
-            <a href="demo.html"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
-            <a href="user.html"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
+    <div id="filters">
+        <div style="position: absolute; left: 100px; top: 15px;">
+            <img src="arbys.png" id="logo-small" class="small">
         </div>
-
-        <div class="fixed" id="container" style="top: 50px; height: 100px;">
+        <div style="position: absolute; left: 160px; top: 5px;">
+            <h2>Arby's</h2>
+        </div>
+        <div style="position: absolute; left: 280px; top: 10px; height: 70%; width: 2px; background-color: rgba(0,0,0,.05);"></div>
+        <div style="display: none; position: absolute; left: 300px; top: 14px;">
             <table>
                 <tr>
-                    <td class="td1">Top Behavior Affinity</td>
-                    <td class="td1">Top Chain Affinity</td>
-                    <td class="td1">Top Category Affinity</td>
+                    <td style="font-size:.8em; font-weight: 700; padding-bottom: 4px;">Region</td>
                 </tr>
                 <tr>
-                    <td class="td2">NFL Enthusiasts (Pro Football Fan)
-
-                    </td>
-                    <td class="td2">Just Brakes</td>
-                    <td class="td2">Swimming Pool and Maintenance Centers</td>
-                </tr>
-                <tr>
-                    <td class="td3">687,553 visitors</td>
-                    <td class="td3">22,557 visitors</td>
-                    <td class="td3">63,605 visitors</td>
+                    <td>Los Angeles</td>
+                    <td style="padding-left: 10px;"><a href="">x</a></td>
                 </tr>
             </table>
-
         </div>
 
-
-        <div id='behavior' class="fixed">
-            <h3>Behavioral Segments More Likely to Visit</h3>
-            <canvas id="profiles" width="580" height="600"></canvas>
+        <div style="position: absolute; right: 0; height: 70px; border: 2px solid RGBA(251, 141, 43, 1.00); box-sizing: border-box; padding: 27px 20px; cursor: pointer;">
+            <b>BUY AUDIENCE</b>
         </div>
-
-        <div class="fixed" style="left: 860px; top: 200px;">
-            <h3>Most likely to visit if has been to...</h3>
-        </div>
-
-        <div id='chDiv' class="fixed" style="width: 560px; height: 280px;">
-
-            <h3>Chains</h3>
-            <canvas id="ch" width="560" height="260"></canvas>
-        </div>
-
-        <div id='catDiv' class="fixed" style="width: 560px; height: 280px;">
-            <h3>Categories</h3>
-            <canvas id="cat" width="560" height="260"></canvas>
-        </div>
-
     </div>
+    <div class="hero">
+        <div id='map' style="width:100%; height: 800px;"></div>
+        <div id='overlay'></div>
+        <div id="overlay-content">
+            <img src="arbys.png" id="logo">
+            <div style="position: absolute; left: 30%; top: 34%;">
+                <h1 style="font-size: 4em; text-transform: none; letter-spacing: 0px;">Arby's</h1>
+                <p>Fast Food > American</p>
+            </div>
+            <div id="stats-1">
+                <table>
+                    <tr>
+                        <td class="td1">5,796,862</td>
+                        <td class="td1">#13</td>
+                        <td class="td1">0.91%</td>
+                    </tr>
+                    <tr>
+                        <td class="td2">Visitors Observed</td>
+                        <td class="td2">Rank in Category</td>
+                        <td class="td2">Category Visit Share</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div id="userJourney">
+        <div class="content">
+            <div style="height: 160px;"></div>
+            <a href="index.html"><h1 class="tabs">Footfall</h1></a>
+            <a href="user.html"><h1 class="tabs">User Journey</h1></a>
+            <a href="demo.html"><h1 class="tabs">Demographics</h1></a>
+            <a href="behavior.html"><h1 class="tabs active">Behavior</h1></a>
+            <div style="height: 60px;"></div>
+            <div class="stats">
+                <table style="width: 100%;">
+                    <tr>
+                        <th>Most Visitors Go To...</th>
+                        <th style="padding-left: 20px;">Likely to Go To...</th>
+                        <th style="padding-left: 20px;">Top Profiles</th>
+                        <th style="padding-left: 20px; border-right: none;">Profile Likely to Visit</th>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid;">
+                            <table class="td-table">
+                                <tr>
+                                    <td>McDonald's</td>
+                                    <td>72.6%</td>
+                                </tr>
+                                <tr>
+                                    <td>Gas Stations</td>
+                                    <td>90.8%</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid; padding-left: 20px;">
+                            <table class="td-table">
+                                <tr>
+                                    <td>Just Brakes</td>
+                                    <td class="green">+52.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Swimming Pool a...</td>
+                                    <td class="green">+61.7%</td>
+                                </tr>
+                            </table>
+                        </td>
+
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid; padding-left: 20px;">
+
+                            <table class="td-table">
+                                <tr>
+                                    <td>Value Conscious Sh...</td>
+                                    <td>71.0%</td>
+
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td style=" padding-left: 20px;">
+                            <table class="td-table">
+                                <tr>
+                                    <td>NFL Enthusiasts</td>
+                                    <td class="green">+86.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="height: 60px;"></div>
+            <div style="width: 100%;">
+                <div>
+                    <div style="width: 45%; display: inline-block; vertical-align: top;">
+                        <h2>Most Visitors Go To...</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent">72.6%</td>
+                                    <td class="subtext">go to McDonald's.</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="" width="350" height="200"></canvas>
+                    </div>
+                    <div style="width: 5%; display:inline-block;"></div>
+                    <div style="width: 45%; display: inline-block;">
+                        <h2>&nbsp;</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent">90.8%</td>
+                                    <td class="subtext">go to Gas Stations.
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="" width="350" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div style="height: 60px;"></div>
+
+                <div>
+                    <div style="width: 45%; display: inline-block; vertical-align: top;">
+                        <h2>Likely to Go To...</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent green">+52.4%</td>
+                                    <td class="subtext">more likely to go to Just Brakes.</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="ch" width="350" height="200"></canvas>
+                    </div>
+                    <div style="width: 5%; display:inline-block;"></div>
+                    <div style="width: 45%; display: inline-block;">
+                        <h2>&nbsp;</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent green">+61.7%</td>
+                                    <td class="subtext">more likely to go to Swimming Pool and Maintenance stores.
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="cat" width="350" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div style="margin-top: 80px;">
+                    <div style="width: 45%; display: inline-block; vertical-align: top;">
+                        <h2>Top Profiles</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent ">71.0%</td>
+                                    <td class="subtext">of visitors are Value Conscious Shoppers.
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="likelyChBefore" width="350" height="200"></canvas>
+                    </div>
+                    <div style="width: 5%; display:inline-block;"></div>
+                    <div style="width: 45%; display: inline-block;">
+                        <h2>Profiles Likely to Visit</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent green">+267%</td>
+                                    <td class="subtext">more likely to visit if NFL Enthusiast.
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="profiles" width="350" height="200"></canvas>
+                    </div>
+                </div>
+
+            </div>
 
 
-    <script>
-        //Chains Before
-        var chB = document.getElementById("profiles").getContext('2d');
-        var chBef = new Chart(chB, {
-            type: 'horizontalBar',
-            data: {
-                labels: [
-                    'NFL Enthusiasts (Pro Football Fan)', 'New Home Owners', 'In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)', 'In-Market Auto Intenders - Luxury Cars', 'Newlyweds', 'Car Commuters (Daily Commuter)', 'Golfers', 'Public Transportation Commuters (Daily Commuter)', 'In-Market Auto Intenders - SUVs and Crossovers', 'Disney Enthusiasts'
-                ],
-                datasets: [{
-                    label: 'Peet\'s',
-                    data: [1.868517464, 1.492017252, 1.481572066, 1.42806739, 1.382622533, 1.381716154, 1.359896308, 1.347066074, 1.334632622, 1.305432487],
-                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
-                    borderColor: 'rgb(255, 170, 34)',
-                    borderWidth: 1
-                }, ]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Over/under index',
+        </div>
+
+
+        <script>
+            $(window).on("load", function() {
+                console.log(window.scrollY);
+                $('html, body').animate({
+                    scrollTop: $('#userJourney').offset().top
+                }, 'none');
+                if (window.scrollY > 800) {
+                    document.getElementById("filters").style.opacity = "1";
+                } else {
+                    document.getElementById("filters").style.opacity = "0";
+                }
+            });
+
+            $(window).on("scroll", function() {
+                console.log(window.scrollY);
+                if (window.scrollY > 800) {
+                    document.getElementById("filters").style.opacity = "1";
+                } else {
+                    document.getElementById("filters").style.opacity = "0";
+                }
+            });
+
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoibGF3cmVuY2UtZmFjdHVhbCIsImEiOiJjamQ2OWdseHQ0dHkxMndvMXh4cXF3c3g1In0.ycrRQ-DESrMwj6H_apu5Vw';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/light-v9',
+                center: [-97.4954506496801, 39.248342470676164],
+                zoom: 3.5,
+                zoomControl: false,
+                interactive: false,
+            });
+
+            //map.addControl(new mapboxgl.NavigationControl());
+
+            var framesPerSecond = 600;
+            var initialOpacity = 1
+            var opacity = initialOpacity;
+            var initialRadius = 8;
+            var radius = initialRadius;
+            var maxRadius = 18;
+
+            map.on('load', function() {
+
+
+                // Add a geojson point source.
+                // Heatmap layers also work with a vector tile source.
+                map.addSource('earthquakes', {
+                    "type": "geojson",
+                    "data": "earthquakes.geojson"
+                });
+
+                map.addLayer({
+                    "id": "earthquakes-heat",
+                    "type": "heatmap",
+                    "source": "earthquakes",
+                    "maxzoom": 9,
+                    "paint": {
+                        // Increase the heatmap weight based on frequency and property magnitude
+                        "heatmap-weight": [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            0, 0,
+                            6, 1
+                        ],
+                        // Increase the heatmap color weight weight by zoom level
+                        // heatmap-intensity is a multiplier on top of heatmap-weight
+                        "heatmap-intensity": [
+                            "interpolate", ["linear"],
+                            ["zoom"],
+                            0, 1,
+                            9, 3
+                        ],
+                        // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                        // Begin color ramp at 0-stop with a 0-transparancy color
+                        // to create a blur-like effect.
+                        "heatmap-color": [
+                            "interpolate", ["linear"],
+                            ["heatmap-density"],
+                            0, "rgba(248, 218, 125, .2)",
+                            0.2, "rgba(248, 204, 125, .5)",
+                            0.4, "rgba(255, 168, 95, 1)",
+                            0.6, "rgb(253,219,199)",
+                            0.8, "rgba(242, 146, 69, 1)",
+                            1, "rgba(253, 127, 22, 1)"
+                        ],
+                        // Adjust the heatmap radius by zoom level
+                        "heatmap-radius": [
+                            "interpolate", ["linear"],
+                            ["zoom"],
+                            0, 2,
+                            9, 20
+                        ],
+                        // Transition from heatmap to circle layer by zoom level
+                        "heatmap-opacity": [
+                            "interpolate", ["linear"],
+                            ["zoom"],
+                            7, 1,
+                            9, 0
+                        ],
+                    }
+                }, 'waterway-label');
+
+                map.addLayer({
+                    "id": "earthquakes-point",
+                    "type": "circle",
+                    "source": "earthquakes",
+                    "minzoom": 7,
+                    "paint": {
+                        // Size circle radius by earthquake magnitude and zoom level
+                        "circle-radius": [
+                            "interpolate", ["linear"],
+                            ["zoom"],
+                            7, [
+                                "interpolate", ["linear"],
+                                ["get", "mag"],
+                                1, 1,
+                                6, 4
+                            ],
+                            16, [
+                                "interpolate", ["linear"],
+                                ["get", "mag"],
+                                1, 5,
+                                6, 50
+                            ]
+                        ],
+                        // Color circle by earthquake magnitude
+                        "circle-color": [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            1, "rgba(33,102,172,0)",
+                            2, "rgba(248, 204, 125, .5)",
+                            3, "rgba(255, 168, 95, 1)",
+                            4, "rgb(253,219,199)",
+                            5, "rgb(239,138,98)",
+                            6, "rgb(178,24,43)"
+                        ],
+                        "circle-stroke-color": "white",
+                        "circle-stroke-width": 1,
+                        // Transition from heatmap to circle layer by zoom level
+                        "circle-opacity": [
+                            "interpolate", ["linear"],
+                            ["zoom"],
+                            7, 0,
+                            8, 1
+                        ]
+                    }
+                }, 'waterway-label');
+                map.on('moveend', function() {
+                    if ((map.getBounds().getNorthEast().lat < 34.997486284120924) && (map.getBounds().getNorthEast().lng < -115.53929752120165) && (map.getBounds().getSouthWest().lat > 32.57484297563741) && (map.getBounds().getSouthWest().lng > -121.09230695800564)) {
+                        document.getElementById("reload").style.opacity = "1";
+                    }
+
+                });
+
+
+                function animateMarker(timestamp) {
+                    setTimeout(function() {
+                        requestAnimationFrame(animateMarker);
+
+                        radius += (maxRadius - radius) / framesPerSecond;
+                        opacity -= (.9 / framesPerSecond);
+
+                        map.setPaintProperty('earthquakes-heat', 'heatmap-radius', radius);
+                        //map.setPaintProperty('earthquakes-heat', 'heatmap-opacity', opacity);
+                        map.setPaintProperty('earthquakes-point', 'circle-radius', radius);
+                        map.setPaintProperty('earthquakes-point', 'circle-opacity', opacity);
+
+                        if (radius >= 10) {
+                            radius = initialRadius;
+                            opacity = initialOpacity;
                         }
-                    }],
-                    yAxes: [{
-                        gridLines: {
-                            offsetGridLines: false
-                        },
-                        ticks: {
-                            maxRotation: 0,
-                            autoSkip: false,
-                            callback: function(value) {
-                                return (value.substr(0, 35) + '..'); //truncate
+
+                    }, 1000 / framesPerSecond);
+
+                }
+
+                // Start the animation.
+                animateMarker(0);
+            });
+
+
+            //Profiles
+            var chB = document.getElementById("profiles").getContext('2d');
+            var chBef = new Chart(chB, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        'NFL Enthusiasts (Pro Football Fan)', 'New Home Owners', 'In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)', 'In-Market Auto Intenders - Luxury Cars', 'Newlyweds', 'Car Commuters (Daily Commuter)', 'Golfers', 'Public Transportation Commuters (Daily Commuter)', 'In-Market Auto Intenders - SUVs and Crossovers', 'Disney Enthusiasts'
+                    ],
+                    datasets: [{
+                        label: 'Peet\'s',
+                        data: [1.868517464, 1.492017252, 1.481572066, 1.42806739, 1.382622533, 1.381716154, 1.359896308, 1.347066074, 1.334632622, 1.305432487],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Over/under index',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                callback: function(value) {
+                                    return (value.substr(0, 35) + '..'); //truncate
+                                },
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
                             },
                         }
-                    }]
-                },
-                tooltips: {
-                    enabled: true,
-                    mode: 'label',
-                    callbacks: {
-                        title: function(tooltipItems, data) {
-                            var idx = tooltipItems[0].index;
-                            return data.labels[idx]; //do something with title
-                        },
-                    }
-                },
-                legend: {
-                    display: false
-                },
-            }
-        });
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
 
-        //Chains Before
-        var ch = document.getElementById("ch").getContext('2d');
-        var cha = new Chart(ch, {
-            type: 'horizontalBar',
-            data: {
-                labels: [
-                    'Just Brakes', 'Leslie\'s Swimming Pool Supplies', 'Green Burrito', 'Boston Market', 'Direct Auto Insurance', 'AAMCO Transmissions and Total Car Care', 'Batteries Plus', 'Weight Watchers', 'Meineke Car Care Center', 'Firestone Complete Auto Care', 'Les Schwab Tire Centers', 'Liberty Travel', 'Merle Norman Cosmetic Studio', 'Del Taco', 'Safelite Auto Glass'
-                ],
-                datasets: [{
-                    label: 'Arby\'s',
-                    data: [1.523730524, 1.386884948, 1.326578491, 1.319492986, 1.288482722, 1.28061146, 1.280546701, 1.270280153, 1.269950023, 1.258891357, 1.250655872, 1.24914277, 1.246931058, 1.244732429, 1.240226665],
-                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
-                    borderColor: 'rgb(255, 170, 34)',
-                    borderWidth: 1
-                }, ]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Over/under index',
+            //Chains
+            var ch = document.getElementById("ch").getContext('2d');
+            var cha = new Chart(ch, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        'Just Brakes', 'Leslie\'s Swimming Pool Supplies', 'Green Burrito', 'Boston Market', 'Direct Auto Insurance', 'AAMCO Transmissions and Total Car Care', 'Batteries Plus', 'Weight Watchers', 'Meineke Car Care Center', 'Firestone Complete Auto Care', 'Les Schwab Tire Centers', 'Liberty Travel', 'Merle Norman Cosmetic Studio', 'Del Taco', 'Safelite Auto Glass'
+                    ],
+                    datasets: [{
+                        label: 'Arby\'s',
+                        data: [1.523730524, 1.386884948, 1.326578491, 1.319492986, 1.288482722, 1.28061146, 1.280546701, 1.270280153, 1.269950023, 1.258891357, 1.250655872, 1.24914277, 1.246931058, 1.244732429, 1.240226665],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Over/under index',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                //callback: function(value) {
+                                //  return (value.substr(0, 16) + '..'); //truncate
+                                //},
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
                         }
-                    }],
-                    yAxes: [{
-                        gridLines: {
-                            offsetGridLines: false
-                        },
-                        ticks: {
-                            maxRotation: 0,
-                            autoSkip: false,
-                            //callback: function(value) {
-                            //  return (value.substr(0, 16) + '..'); //truncate
-                            //},
-                        }
-                    }]
-                },
-                tooltips: {
-                    enabled: true,
-                    mode: 'label',
-                    callbacks: {
-                        title: function(tooltipItems, data) {
-                            var idx = tooltipItems[0].index;
-                            return data.labels[idx]; //do something with title
-                        },
-                    }
-                },
-                legend: {
-                    display: false
-                },
-            }
-        });
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
 
-        //Chains After
-        var ca = document.getElementById("cat").getContext('2d');
-        var cat = new Chart(ca, {
-            type: 'horizontalBar',
-            data: {
-                labels: [
-                    'Swimming Pool Maintenance and Services', 'Motorcycles, Mopeds and Scooters', 'Pools and Spas', 'Swimming', 'Deck and Patio', 'Fences, Fireplaces and Garage Doors', 'Military', 'RVs and Motor Homes', 'Gun Ranges', 'Piercing', 'Equipment Rental', 'Promotional Items', 'Smog Check', 'Pawn Shops', 'Automotive'
-                ],
-                datasets: [{
-                    label: 'Arby\'s',
-                    data: [1.61712039, 1.489348957, 1.464282186, 1.440060252, 1.4304284, 1.419952955, 1.418271532, 1.414769082, 1.413782375, 1.413374962, 1.400070831, 1.397900473, 1.396925619, 1.387498444, 1.385840252],
-                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
-                    borderColor: 'rgb(255, 170, 34)',
-                    borderWidth: 1
-                }, ]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Over/under index',
+            //Categories
+            var ca = document.getElementById("cat").getContext('2d');
+            var cat = new Chart(ca, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        'Swimming Pool Maintenance and Services', 'Motorcycles, Mopeds and Scooters', 'Pools and Spas', 'Swimming', 'Deck and Patio', 'Fences, Fireplaces and Garage Doors', 'Military', 'RVs and Motor Homes', 'Gun Ranges', 'Piercing', 'Equipment Rental', 'Promotional Items', 'Smog Check', 'Pawn Shops', 'Automotive'
+                    ],
+                    datasets: [{
+                        label: 'Arby\'s',
+                        data: [1.61712039, 1.489348957, 1.464282186, 1.440060252, 1.4304284, 1.419952955, 1.418271532, 1.414769082, 1.413782375, 1.413374962, 1.400070831, 1.397900473, 1.396925619, 1.387498444, 1.385840252],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Over/under index',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                //callback: function(value) {
+                                //  return (value.substr(0, 16) + '..'); //truncate
+                                //},
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
                         }
-                    }],
-                    yAxes: [{
-                        gridLines: {
-                            offsetGridLines: false
-                        },
-                        ticks: {
-                            maxRotation: 0,
-                            autoSkip: false,
-                            //callback: function(value) {
-                            //  return (value.substr(0, 16) + '..'); //truncate
-                            //},
-                        }
-                    }]
-                },
-                tooltips: {
-                    enabled: true,
-                    mode: 'label',
-                    callbacks: {
-                        title: function(tooltipItems, data) {
-                            var idx = tooltipItems[0].index;
-                            return data.labels[idx]; //do something with title
-                        },
-                    }
-                },
-                legend: {
-                    display: false
-                },
-            }
-        });
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
 
-    </script>
+        </script>
 </body>
