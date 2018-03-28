@@ -495,7 +495,7 @@
             }
 
             var objSankey2 = {};
-            d3.json("journey-2.json", function(error, energy) {
+            d3.json("journey-likely-2.json", function(error, energy) {
                 if (error) throw error;
                 objSankey = sk.createSankey('#sankey-2', configSankey, energy);
             });

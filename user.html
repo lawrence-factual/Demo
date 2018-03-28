@@ -495,7 +495,7 @@
             }
 
             var objSankey2 = {};
-            d3.json("journey.json", function(error, energy) {
+            d3.json("journey-likely.json", function(error, energy) {
                 if (error) throw error;
                 objSankey = sk.createSankey('#sankey-2', configSankey, energy);
             });
@@ -507,11 +507,11 @@
                 type: 'horizontalBar',
                 data: {
                     labels: [
-                        'Pilot Flying J', 'Casey\'s General Store', 'Giant Eagle', 'Tim Hortons', 'Caribou Coffee', 'Hardee\'s', 'Speedway', 'Meijer', 'Marathon', 'Sears Hometown Store', 'Long John Silver\'s', 'Phillips 66', 'Waffle House', 'Dollar General', 'Papa Murphys Take n Bake'
+                        "Walgreens", "McDonald\'s", "Walmart", "CVS Pharmacy", "Subway", "Starbucks", "Shell", "Redbox", "Taco Bell", "Wendy\'s", "Burger King", "Lowe\'s", "Dollar General", "Target", "Rite Aid"
                     ],
                     datasets: [{
                         label: 'Arby\'s',
-                        data: [3.670987998, 2.694583313, 2.505281517, 2.405050891, 2.310318698, 2.283916614, 2.270674715, 2.194350952, 2.180105059, 2.092448504, 2.089546849, 2.059241251, 1.926513093, 1.911261741, 1.811991334],
+                        data: [0.04097394114, 0.03342176661, 0.02779186302, 0.02611278891, 0.02111066422, 0.02035023896, 0.01712757901, 0.01645418738, 0.0142309577, 0.01415621535, 0.01355174014, 0.01329539946, 0.01299301976, 0.01217838498, 0.01210158224],
                         backgroundColor: 'rgba(255, 170, 34, 0.6)',
                         borderColor: 'rgb(255, 170, 34)',
                         borderWidth: 1
@@ -525,7 +525,7 @@
                             },
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Over/under index',
+                                labelString: '% of total visitors',
                             }
                         }],
                         yAxes: [{
@@ -563,11 +563,11 @@
                 type: 'horizontalBar',
                 data: {
                     labels: [
-                        'Pilot Flying J', 'Casey\'s General Store', 'Giant Eagle', 'Tim Hortons', 'Hardee\'s', 'Speedway', 'Meijer', 'Sears Hometown Store', 'Marathon', 'Phillips 66', 'Long John Silver\'s', 'Econo Lodge', 'Waffle House', 'Caribou Coffee', 'Dollar General'
+                        "Walgreens", "Walmart", "McDonald\'s", "CVS Pharmacy", "Starbucks", "Subway", "Redbox", "Shell", "Lowe\'s", "Taco Bell", "Wendy\'s", "Target", "Dollar General", "Rite Aid", "Burger King"
                     ],
                     datasets: [{
                         label: 'Arby\'s',
-                        data: [3.070910545, 2.614280585, 2.528117503, 2.358181652, 2.330158514, 2.272482337, 2.21269601, 2.203789969, 2.197990156, 2.032440395, 2.000905307, 1.981057424, 1.953011485, 1.909152607, 1.903011488],
+                        data: [0.04570600905, 0.03364908809, 0.03119299471, 0.02804806489, 0.02008485348, 0.01977825541, 0.01613547598, 0.01555093449, 0.0149911432, 0.01373847867, 0.01360797761, 0.01345444696, 0.0127546913, 0.0125483514, 0.01247701259],
                         backgroundColor: 'rgba(255, 170, 34, 0.6)',
                         borderColor: 'rgb(255, 170, 34)',
                         borderWidth: 1
@@ -581,7 +581,7 @@
                             },
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Over/under index',
+                                labelString: '% of total visitors',
                             }
                         }],
                         yAxes: [{

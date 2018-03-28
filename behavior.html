@@ -154,7 +154,7 @@
 
                         </div>
                         <br>
-                        <canvas id="" width="350" height="200"></canvas>
+                        <canvas id="topCh" width="350" height="200"></canvas>
                     </div>
                     <div style="width: 5%; display:inline-block;"></div>
                     <div style="width: 45%; display: inline-block;">
@@ -170,7 +170,7 @@
 
                         </div>
                         <br>
-                        <canvas id="" width="350" height="200"></canvas>
+                        <canvas id="topCat" width="350" height="200"></canvas>
                     </div>
                 </div>
 
@@ -215,15 +215,15 @@
                         <div>
                             <table>
                                 <tr>
-                                    <td class="percent ">71.0%</td>
-                                    <td class="subtext">of visitors are Value Conscious Shoppers.
+                                    <td class="percent ">75.4%</td>
+                                    <td class="subtext">of visitors are Fast Food and QSR diners.
                                     </td>
                                 </tr>
                             </table>
 
                         </div>
                         <br>
-                        <canvas id="likelyChBefore" width="350" height="200"></canvas>
+                        <canvas id="topProfiles" width="350" height="200"></canvas>
                     </div>
                     <div style="width: 5%; display:inline-block;"></div>
                     <div style="width: 45%; display: inline-block;">
@@ -431,17 +431,15 @@
             });
 
 
-            //Profiles
-            var chB = document.getElementById("profiles").getContext('2d');
-            var chBef = new Chart(chB, {
+            //Top Chains
+            var ch = document.getElementById("topCh").getContext('2d');
+            var cha = new Chart(ch, {
                 type: 'horizontalBar',
                 data: {
-                    labels: [
-                        'NFL Enthusiasts (Pro Football Fan)', 'New Home Owners', 'In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)', 'In-Market Auto Intenders - Luxury Cars', 'Newlyweds', 'Car Commuters (Daily Commuter)', 'Golfers', 'Public Transportation Commuters (Daily Commuter)', 'In-Market Auto Intenders - SUVs and Crossovers', 'Disney Enthusiasts'
-                    ],
+                    labels: ["McDonald\'s", "Walmart", "Walgreens", "Subway", "CVS Pharmacy", "Starbucks", "Shell", "Redbox", "Taco Bell", "Wendy\'s", "Burger King", "Lowe\'s", "Target", "Dollar Tree", "Dollar General"],
                     datasets: [{
-                        label: 'Peet\'s',
-                        data: [1.868517464, 1.492017252, 1.481572066, 1.42806739, 1.382622533, 1.381716154, 1.359896308, 1.347066074, 1.334632622, 1.305432487],
+                        label: 'Arby\'s',
+                        data: [0.7256435919, 0.6793083378, 0.6759091615, 0.615806098, 0.5443095656, 0.5272671496, 0.4809157873, 0.4775273498, 0.4765605033, 0.4710232394, 0.4627554662, 0.4621429988, 0.4228627536, 0.3922869913, 0.3907910817],
                         backgroundColor: 'rgba(255, 170, 34, 0.6)',
                         borderColor: 'rgb(255, 170, 34)',
                         borderWidth: 1
@@ -451,7 +449,7 @@
                     scales: {
                         xAxes: [{
                             ticks: {
-                                beginAtZero: true,
+                                beginAtZero: true
                             },
                             scaleLabel: {
                                 display: true,
@@ -465,9 +463,9 @@
                             ticks: {
                                 maxRotation: 0,
                                 autoSkip: false,
-                                callback: function(value) {
-                                    return (value.substr(0, 35) + '..'); //truncate
-                                },
+                                //callback: function(value) {
+                                //  return (value.substr(0, 16) + '..'); //truncate
+                                //},
                             }
                         }]
                     },
@@ -487,7 +485,63 @@
                 }
             });
 
-            //Chains
+            // Top Categories
+            var ca = document.getElementById("topCat").getContext('2d');
+            var cat = new Chart(ca, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        "Gas Stations", "Department Stores", "Discount Stores", "Pharmacies", "Burgers", "Convenience Stores", "Pizza", "Hotels and Motels", "Banks and Credit Unions", "Beauty Salons and Barbers", "Supermarkets and Groceries", "Mexican", "Clothing and Accessories", "Delis", "Cafes, Coffee and Tea Houses"
+                    ],
+                    datasets: [{
+                        label: 'Arby\'s',
+                        data: [0.9089531926, 0.8861204359, 0.8755892896, 0.8713478364, 0.8713410352, 0.83053338, 0.8071153608, 0.7995534823, 0.7965348161, 0.7960279466, 0.7784471606, 0.7767300325, 0.7589094142, 0.7389460549, 0.7316880833],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Over/under index',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                //callback: function(value) {
+                                //  return (value.substr(0, 16) + '..'); //truncate
+                                //},
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
+
+            //Likely Chains
             var ch = document.getElementById("ch").getContext('2d');
             var cha = new Chart(ch, {
                 type: 'horizontalBar',
@@ -580,6 +634,118 @@
                                 //callback: function(value) {
                                 //  return (value.substr(0, 16) + '..'); //truncate
                                 //},
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
+
+            //Profiles
+            var chB = document.getElementById("topProfiles").getContext('2d');
+            var chBef = new Chart(chB, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        "Fast Food and QSR Diners (Quick Serve Restaurant Diner)", "Value Conscious Shoppers", "Financial Services Customers", "Big Box Shoppers", "Recent Auto Repair Customers", "Electronics Shoppers (Electronics Buyer)", "Value Conscious Hotel Loyalists", "Fast Casual Diners", "Home Improvement Shoppers", "Coffee and Tea Enthusiasts", "Pharmacy Shoppers", "Mobile Phone Shoppers", "Pet Owners and Pet Store Shoppers", "In-Market Auto Intenders - All Cars (In Market Auto Buyer)", "Nightlife and Entertainment Enthusiasts"
+                    ],
+                    datasets: [{
+                        label: 'Arby\'s',
+                        data: [0.7543261104, 0.7102195075, 0.7050770721, 0.7033363187, 0.6981079732, 0.6977510884, 0.6943923614, 0.6785637836, 0.6754982249, 0.6580924808, 0.6498526284, 0.6457028126, 0.6448626834, 0.6447112669, 0.6222271621],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: '% of total visitors',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                callback: function(value) {
+                                    return (value.substr(0, 35) + '..'); //truncate
+                                },
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
+
+            //Profiles
+            var chB = document.getElementById("profiles").getContext('2d');
+            var chBef = new Chart(chB, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        'NFL Enthusiasts (Pro Football Fan)', 'New Home Owners', 'In-Market Auto Intenders - Eco-Friendly Cars (Green Cars)', 'In-Market Auto Intenders - Luxury Cars', 'Newlyweds', 'Car Commuters (Daily Commuter)', 'Golfers', 'Public Transportation Commuters (Daily Commuter)', 'In-Market Auto Intenders - SUVs and Crossovers', 'Disney Enthusiasts'
+                    ],
+                    datasets: [{
+                        label: 'Peet\'s',
+                        data: [1.868517464, 1.492017252, 1.481572066, 1.42806739, 1.382622533, 1.381716154, 1.359896308, 1.347066074, 1.334632622, 1.305432487],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Over/under index',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                callback: function(value) {
+                                    return (value.substr(0, 35) + '..'); //truncate
+                                },
                             }
                         }]
                     },
