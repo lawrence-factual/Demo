@@ -15,83 +15,426 @@
 </head>
 
 
-<body style="background-color: #f6f6f6;">
+<body>
 
-    <div id="logoDiv" class="fixed">
-        <img id="logo" src="arbys.png">
-        <h1>Arby's</h1>
-        <h3>Past week</h3>
-        <div class="tag">
-            <p>Locality:
-                <br>Los Angeles</p>
-            <div id="trash-1" class="trash" style="top: 255px;">
-                <a href="demo.html">
-                    <svg width="16" height="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 16h2V8H7v8zm4 0h2V8h-2v8zm-6 2h10V6H5v12zM7 4h6V2H7v2zm8 0V0H5v4H0v2h3v14h14V6h3V4h-5z" fill="RGBA(64, 133, 232, 1)" fill-rule="evenodd" />
-                    </svg>
-                </a>
+    <div id="factual">
+        <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual-color.png">
+    </div>
+    <div id="filters">
+        <div style="position: absolute; left: 100px; top: 15px;">
+            <img src="arbys.png" id="logo-small" class="small">
+        </div>
+        <div style="position: absolute; left: 160px; top: 5px;">
+            <h2>Arby's</h2>
+        </div>
+        <div style="position: absolute; left: 280px; top: 10px; height: 70%; width: 2px; background-color: rgba(0,0,0,.05);"></div>
+        <div style=" position: absolute; left: 300px; top: 14px;">
+            <table>
+                <tr>
+                    <td style="font-size:.8em; font-weight: 700; padding-bottom: 4px;">Region</td>
+                </tr>
+                <tr>
+                    <td>Los Angeles</td>
+                    <td style="padding-left: 10px;"><a href="">x</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="position: absolute; right: 0; height: 70px; border: 2px solid RGBA(251, 141, 43, 1.00); box-sizing: border-box; padding: 27px 20px; cursor: pointer;">
+            <b>BUY AUDIENCE</b>
+        </div>
+    </div>
+    <div class="hero">
+        <div id='map' style="width:100%; height: 800px;"></div>
+        <div id='overlay'></div>
+        <div id="overlay-content">
+            <img src="arbys.png" id="logo">
+            <div style="position: absolute; left: 30%; top: 34%;">
+                <h1 style="font-size: 4em; text-transform: none; letter-spacing: 0px;">Arby's</h1>
+                <p>Fast Food > American</p>
+            </div>
+            <div id="stats-1">
+                <table>
+                    <tr>
+                        <td class="td1">5,796,862</td>
+                        <td class="td1">#13</td>
+                        <td class="td1">0.91%</td>
+                    </tr>
+                    <tr>
+                        <td class="td2">Visitors Observed</td>
+                        <td class="td2">Rank in Category</td>
+                        <td class="td2">Category Visit Share</td>
+                    </tr>
+                </table>
+
             </div>
         </div>
     </div>
-    <!--
-    <div id="searchBar" class="fixed">
-        <p style="padding-left: 15px; margin-top: 13px;">Arby's</p>
+    <div id="demographics">
+        <div class="content">
+            <div style="height: 160px;"></div>
+            <a href="footfall-2.html"><h1 class="tabs">Footfall</h1></a>
+            <a href="user-2.html"><h1 class="tabs">User Journey</h1></a>
+            <a href="demo-2.html"><h1 class="tabs active">Demographics</h1></a>
+            <a href="behavior-2.html"><h1 class="tabs">Behavior</h1></a>
+            <div style="height: 60px;"></div>
+            <div class="stats">
+                <table style="width: 100%;">
+                    <tr>
+                        <th>Gender + Age</th>
+                        <th style="padding-left: 20px;">Income</th>
+                        <th style="padding-left: 20px;">Top Home Regions</th>
+                        <th style="padding-left: 20px; border-right: none;">Regions Likely to Visit</th>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid;">
+                            <table class="td-table">
+                                <tr>
+                                    <td>Male</td>
+
+                                    <td>52.6%</td>
+                                </tr>
+                                <tr>
+                                    <td>35-44 years old</td>
+                                    <td>43.9%</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid; padding-left: 20px;">
+                            <table class="td-table">
+                                <tr>
+                                    <td>$25-50k</td>
+
+                                    <td>37.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid; padding-left: 20px;">
+
+                            <table class="td-table">
+                                <tr>
+                                    <td>Ohio, US</td>
+                                    <td class="">8.5%</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Atlanta, GA</td>
+                                    <td class="">3.4%</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td style=" padding-left: 20px;">
+                            <table class="td-table">
+                                <tr>
+                                    <td>Delaware, US</td>
+                                    <td class="green">+50.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>Fort Meyers, FL</td>
+
+                                    <td class="green">+22.2%</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="height: 60px;"></div>
+            <div style="width: 100%;">
+                <div>
+                    <div style="width: 35%; display: inline-block; vertical-align: top;">
+                        <div style="">
+                            <h2>Gender</h2>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td class="percent">52.6%</td>
+                                        <td class="subtext">of visitors are male.</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <br>
+                            <canvas id="gender" width="350" height="200"></canvas>
+                        </div>
+                        <div style="height: 60px;"></div>
+                        <div style="">
+                            <h2>Age</h2>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td class="percent">43.9%</td>
+                                        <td class="subtext">of visitors are 35-44 years old.
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <br>
+                            <canvas id="age" width="350" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div style="width: 6%; display:inline-block;"></div>
+                    <div style="width: 58%; display: inline-block;">
+                        <h2 style="text-transform: capitalize;">Top home regions</h2>
+                        <table>
+                            <tr>
+                                <td class="percent">8.5%</td>
+                                <td class="subtext">of traffic comes
+                                    <br>from Ohio, US.
+                                </td>
+                                <td class="percent" style="padding-left: 40px;">3.4%</td>
+                                <td class="subtext">of traffic comes
+                                    <br>from Atlanta, GA.
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br>
+                        <div id="usMap" style="width:100%; height: 680px;"></div>
+                    </div>
+                </div>
+
+
+                <div style="margin-top: 60px;">
+                    <div style="width: 35%; display: inline-block; vertical-align: top;">
+                        <h2>Income</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent">37.5%</td>
+                                    <td class="subtext">of visitors make $25k–50k.
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="income" width="350" height="350"></canvas>
+                    </div>
+                    <div style="width: 6%; display:inline-block;"></div>
+                    <div style="width: 58%; display: inline-block;">
+                        <h2 style="text-transform: capitalize;">Home regions most likely to visit</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent green">+50.8%</td>
+                                    <td class="subtext">more likely to visit if
+                                        <br>from Delaware, US.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="percent">+22.2%</td>
+                                    <td class="subtext">more likely to visit if
+                                        <br>from Fort Meyers, FL.
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="homeRegion" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 60px;"></div>
+        </div>
+
+
     </div>
-    <div id="dateBar" class="fixed">
-        <p style="padding-left: 15px; margin-top: 13px;">past week</p>
-    </div>
-
--->
-    <div id="container" class="fixed">
-        <div id="tabs" class="fixed">
-            <a href="footfall-2.html"><h3 style="margin-right: 10px;" class="inline">Footfall</h3></a>
-            <a href="behavior-2.html"><h3 style="margin-right: 10px;"  class="inline">Behavior</h3></a>
-            <a href="demo-2.html" class="active"><h3 style="margin-right: 10px;"  class="inline">Demographics</h3></a>
-            <a href="user-2.html"><h3 style="margin-right: 10px;"  class="inline">User Journey</h3></a>
-        </div>
-
-        <div class="fixed" id="container" style="top: 50px; height: 100px;">
-            <table>
-                <tr>
-                    <td class="td1">Top Age Group</td>
-                    <td class="td1">Top Income Bracket</td>
-                    <td class="td1">Top Home Region</td>
-                </tr>
-                <tr>
-                    <td class="td2">35-44 year olds</td>
-                    <td class="td2">$25-50k</td>
-                    <td class="td2">California</td>
-                </tr>
-                <tr>
-                    <td class="td3">12,812 visitors</td>
-                    <td class="td3">17,131 visitors</td>
-                    <td class="td3">528,395 visitors</td>
-                </tr>
-            </table>
-
-        </div>
-
-        <div id='map' class="fixed"></div>
-
-        <div id='ageDiv' class="fixed leftChart">
-            <h3>Visitor Age</h3>
-            <canvas id="age" width="400" height="200"></canvas>
-        </div>
-
-        <div id='incomeDiv' class="fixed leftChart">
-            <h3>Visitor Income</h3>
-            <canvas id="income" width="400" height="400"></canvas>
-        </div>
-
-        <div id='homeRegionDiv' class="fixed" style="width: 800px; height: 420px;">
-            <h3>Home Regions More Likely to Visit</h3>
-            <canvas id="homeRegion" width="1200" height="420"></canvas>
-        </div>
-
-    </div>
 
 
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
     <script>
+        $(window).on("load", function() {
+            console.log(window.scrollY);
+            $('html, body').animate({
+                scrollTop: $('#demographics').offset().top
+            }, 'none');
+            if (window.scrollY > 800) {
+                document.getElementById("filters").style.opacity = "1";
+            } else {
+                document.getElementById("filters").style.opacity = "0";
+            }
+        });
+
+        $(window).on("scroll", function() {
+            console.log(window.scrollY);
+            if (window.scrollY > 800) {
+                document.getElementById("filters").style.opacity = "1";
+            } else {
+                document.getElementById("filters").style.opacity = "0";
+            }
+        });
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGF3cmVuY2UtZmFjdHVhbCIsImEiOiJjamQ2OWdseHQ0dHkxMndvMXh4cXF3c3g1In0.ycrRQ-DESrMwj6H_apu5Vw';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v9',
+            center: [-97.4954506496801, 39.248342470676164],
+            zoom: 3.5,
+            zoomControl: false,
+            interactive: false,
+        });
+
+        //map.addControl(new mapboxgl.NavigationControl());
+
+        var framesPerSecond = 600;
+        var initialOpacity = 1
+        var opacity = initialOpacity;
+        var initialRadius = 8;
+        var radius = initialRadius;
+        var maxRadius = 18;
+
+        map.on('load', function() {
+
+
+            // Add a geojson point source.
+            // Heatmap layers also work with a vector tile source.
+            map.addSource('earthquakes', {
+                "type": "geojson",
+                "data": "earthquakes.geojson"
+            });
+
+            map.addLayer({
+                "id": "earthquakes-heat",
+                "type": "heatmap",
+                "source": "earthquakes",
+                "maxzoom": 9,
+                "paint": {
+                    // Increase the heatmap weight based on frequency and property magnitude
+                    "heatmap-weight": [
+                        "interpolate", ["linear"],
+                        ["get", "mag"],
+                        0, 0,
+                        6, 1
+                    ],
+                    // Increase the heatmap color weight weight by zoom level
+                    // heatmap-intensity is a multiplier on top of heatmap-weight
+                    "heatmap-intensity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        0, 1,
+                        9, 3
+                    ],
+                    // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                    // Begin color ramp at 0-stop with a 0-transparancy color
+                    // to create a blur-like effect.
+                    "heatmap-color": [
+                        "interpolate", ["linear"],
+                        ["heatmap-density"],
+                        0, "rgba(248, 218, 125, .2)",
+                        0.2, "rgba(248, 204, 125, .5)",
+                        0.4, "rgba(255, 168, 95, 1)",
+                        0.6, "rgb(253,219,199)",
+                        0.8, "rgba(242, 146, 69, 1)",
+                        1, "rgba(253, 127, 22, 1)"
+                    ],
+                    // Adjust the heatmap radius by zoom level
+                    "heatmap-radius": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        0, 2,
+                        9, 20
+                    ],
+                    // Transition from heatmap to circle layer by zoom level
+                    "heatmap-opacity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, 1,
+                        9, 0
+                    ],
+                }
+            }, 'waterway-label');
+
+            map.addLayer({
+                "id": "earthquakes-point",
+                "type": "circle",
+                "source": "earthquakes",
+                "minzoom": 7,
+                "paint": {
+                    // Size circle radius by earthquake magnitude and zoom level
+                    "circle-radius": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            1, 1,
+                            6, 4
+                        ],
+                        16, [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            1, 5,
+                            6, 50
+                        ]
+                    ],
+                    // Color circle by earthquake magnitude
+                    "circle-color": [
+                        "interpolate", ["linear"],
+                        ["get", "mag"],
+                        1, "rgba(33,102,172,0)",
+                        2, "rgba(248, 204, 125, .5)",
+                        3, "rgba(255, 168, 95, 1)",
+                        4, "rgb(253,219,199)",
+                        5, "rgb(239,138,98)",
+                        6, "rgb(178,24,43)"
+                    ],
+                    "circle-stroke-color": "white",
+                    "circle-stroke-width": 1,
+                    // Transition from heatmap to circle layer by zoom level
+                    "circle-opacity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, 0,
+                        8, 1
+                    ]
+                }
+            }, 'waterway-label');
+            map.on('moveend', function() {
+                if ((map.getBounds().getNorthEast().lat < 34.997486284120924) && (map.getBounds().getNorthEast().lng < -115.53929752120165) && (map.getBounds().getSouthWest().lat > 32.57484297563741) && (map.getBounds().getSouthWest().lng > -121.09230695800564)) {
+                    document.getElementById("reload").style.opacity = "1";
+                }
+
+            });
+
+
+            function animateMarker(timestamp) {
+                setTimeout(function() {
+                    requestAnimationFrame(animateMarker);
+
+                    radius += (maxRadius - radius) / framesPerSecond;
+                    opacity -= (.9 / framesPerSecond);
+
+                    map.setPaintProperty('earthquakes-heat', 'heatmap-radius', radius);
+                    //map.setPaintProperty('earthquakes-heat', 'heatmap-opacity', opacity);
+                    map.setPaintProperty('earthquakes-point', 'circle-radius', radius);
+                    map.setPaintProperty('earthquakes-point', 'circle-opacity', opacity);
+
+                    if (radius >= 10) {
+                        radius = initialRadius;
+                        opacity = initialOpacity;
+                    }
+
+                }, 1000 / framesPerSecond);
+
+            }
+
+            // Start the animation.
+            animateMarker(0);
+        });
+
+
         //Highmap
         $.getJSON('la-home-region-arbys.json', function(data) {
 
@@ -101,7 +444,7 @@
             });
 
             // Instantiate the map
-            Highcharts.mapChart('map', {
+            Highcharts.mapChart('usMap', {
 
                 chart: {
                     map: 'countries/us/us-all',
@@ -119,17 +462,20 @@
 
 
                 mapNavigation: {
-                    enabled: true
+                    enabled: false
                 },
 
                 colorAxis: {
                     min: 5000,
-                    type: 'logarithmic',
+                    type: 'linear',
                     minColor: '#FFF0E0',
                     maxColor: '#FB8D2B',
                     stops: [
-                        [0, 'rgba(237, 115, 18, 0.2)'],
-                        [0.67, 'rgba(237, 115, 18, 0.7)'],
+                        [0.0, 'RGBA(246, 246, 246, 1.00)'],
+                        [0.1, 'rgba(237, 115, 18, .1)'],
+                        [0.2, 'rgba(237, 115, 18, .2)'],
+                        [0.2, 'rgba(237, 115, 18, .3)'],
+                        [0.67, 'rgba(237, 115, 18, .6)'],
                         [1, 'rgba(237, 115, 18, 1)']
                     ]
                 },
@@ -152,6 +498,37 @@
                 }]
             });
         });
+
+
+        //Visitor Gender
+        var g = document.getElementById("gender").getContext('2d');
+        var gender = new Chart(g, {
+            type: 'doughnut',
+            data: {
+                labels: ["Male", "Female"],
+                datasets: [{
+                    data: [52.6, 100 - 52.6],
+                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)', ],
+                    borderColor: ['RGBA(251, 141, 43, 1.00)', 'RGBA(64, 133, 232, 1.00)', 'RGBA(108, 202, 213, 1.00)', 'RGBA(250, 82, 81, 1.00)', 'RGBA(103, 103, 241, 1.00)', 'RGBA(176, 116, 175, 1.00)', ],
+                    borderWidth: 2
+                }, ]
+            },
+            options: {
+
+                legend: {
+                    display: true,
+                    position: 'right',
+                },
+            }
+        });
+        document.getElementById("age").onclick = function(evt) {
+            var activePoints = age.getElementsAtEvent(evt);
+            var firstPoint = activePoints[0];
+            var label = age.data.labels[firstPoint._index];
+            var value = age.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+            if (firstPoint !== undefined)
+                alert(label + ": " + value);
+        };
         //Visitor Age
         var a = document.getElementById("age").getContext('2d');
         var age = new Chart(a, {

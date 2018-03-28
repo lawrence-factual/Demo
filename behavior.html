@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div id="userJourney">
+    <div id="behavior">
         <div class="content">
             <div style="height: 160px;"></div>
             <a href="index.html"><h1 class="tabs">Footfall</h1></a>
@@ -253,7 +253,7 @@
             $(window).on("load", function() {
                 console.log(window.scrollY);
                 $('html, body').animate({
-                    scrollTop: $('#userJourney').offset().top
+                    scrollTop: $('#behavior').offset().top
                 }, 'none');
                 if (window.scrollY > 800) {
                     document.getElementById("filters").style.opacity = "1";
