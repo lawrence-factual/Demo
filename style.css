@@ -193,3 +193,18 @@ a {
 #hero, .content, #footfall, #userJourney, #demographics, #behavior {
     margin: 0 auto;
 }
+
+#search {
+    background-color: #fff;
+    padding: 10px;
+    color: RGBA(251, 141, 43, 1.00);
+    font-weight: bold;
+    font-size: .8em;
+    border: 1px RGBA(251, 141, 43, 1.00) solid;
+    border-radius: 4px;
+    z-index: 5;
+    display: inline-block;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: 20px;
+}

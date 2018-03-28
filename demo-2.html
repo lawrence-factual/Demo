@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td>Los Angeles</td>
-                    <td style="padding-left: 10px;"><a href="">x</a></td>
+                    <td style="padding-left: 10px;"><a href="demo.html">x</a></td>
                 </tr>
             </table>
         </div>
@@ -505,11 +505,11 @@
         var gender = new Chart(g, {
             type: 'doughnut',
             data: {
-                labels: ["Male", "Female"],
+                labels: ["Male", "Female", "Unknown"],
                 datasets: [{
-                    data: [52.6, 100 - 52.6],
-                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)', ],
-                    borderColor: ['RGBA(251, 141, 43, 1.00)', 'RGBA(64, 133, 232, 1.00)', 'RGBA(108, 202, 213, 1.00)', 'RGBA(250, 82, 81, 1.00)', 'RGBA(103, 103, 241, 1.00)', 'RGBA(176, 116, 175, 1.00)', ],
+                    data: [51.2, 37.8, 100 - 51.2 - 37.8],
+                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(0,0,0,0.2)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)', ],
+                    borderColor: ['RGBA(251, 141, 43, 1.00)', 'RGBA(64, 133, 232, 1.00)', 'RGBA(0,0,0,0.2)', 'RGBA(250, 82, 81, 1.00)', 'RGBA(103, 103, 241, 1.00)', 'RGBA(176, 116, 175, 1.00)', ],
                     borderWidth: 2
                 }, ]
             },

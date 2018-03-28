@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <td>New Home Owner</td>
-                    <td style="padding-left: 10px;"><a href="">x</a></td>
+                    <td style="padding-left: 10px;"><a href="behavior-2.html">x</a></td>
                 </tr>
             </table>
         </div>
@@ -166,7 +166,7 @@
 
                         </div>
                         <br>
-                        <canvas id="" width="350" height="200"></canvas>
+                        <canvas id="topCh" width="350" height="200"></canvas>
                     </div>
                     <div style="width: 5%; display:inline-block;"></div>
                     <div style="width: 45%; display: inline-block;">
@@ -182,7 +182,7 @@
 
                         </div>
                         <br>
-                        <canvas id="" width="350" height="200"></canvas>
+                        <canvas id="topCat" width="350" height="200"></canvas>
                     </div>
                 </div>
 
@@ -235,7 +235,7 @@
 
                         </div>
                         <br>
-                        <canvas id="likelyChBefore" width="350" height="200"></canvas>
+                        <canvas id="topProfiles" width="350" height="200"></canvas>
                     </div>
                     <div style="width: 5%; display:inline-block;"></div>
                     <div style="width: 45%; display: inline-block;">
@@ -635,6 +635,172 @@
                                 //callback: function(value) {
                                 //  return (value.substr(0, 16) + '..'); //truncate
                                 //},
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
+
+            //Top Chains
+            var ch = document.getElementById("topCh").getContext('2d');
+            var cha = new Chart(ch, {
+                type: 'horizontalBar',
+                data: {
+                    labels: ["Walmart", "Shell", "Burger King", "Lowe\'s", "Wendy\'s", "Starbucks", "Dollar General", "Target", "Wells Fargo Bank", "Redbox", "Staples", "Walgreens", "Dollar Tree", "McDonald\'s", "T.J.Maxx"],
+                    datasets: [{
+                        label: 'Arby\'s',
+                        data: [0.8682475825, 0.7653705251, 0.6891175627, 0.6827595382, 0.6796775236, 0.5851744915, 0.5317862259, 0.5294564428, 0.5208821713, 0.4269753515, 0.4246627124, 0.4172180175, 0.406759762, 0.4003633449, 0.3768659749],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Over/under index',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                //callback: function(value) {
+                                //  return (value.substr(0, 16) + '..'); //truncate
+                                //},
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
+
+            // Top Categories
+            var ca = document.getElementById("topCat").getContext('2d');
+            var cat = new Chart(ca, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        "Gas Stations", "Pharmacies", "Burgers", "Banks and Credit Unions", "Hotels and Motels", "Restaurants", "Discount Stores", "Department Stores", "Cafes, Coffee and Tea Houses", "Beauty Salons and Barbers", "Bars", "Mexican", "Churches", "Mobile Phones", "Gyms and Fitness Centers"
+                    ],
+                    datasets: [{
+                        label: 'Arby\'s',
+                        data: [1.454324931, 1.372964791, 1.298501998, 1.108201246, 1.104539204, 1.086911424, 0.9186286046, 0.8808298093, 0.8683600591, 0.8586666459, 0.8574497669, 0.8495724511, 0.8255722037, 0.8173298425, 0.8061941435, ],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Over/under index',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                //callback: function(value) {
+                                //  return (value.substr(0, 16) + '..'); //truncate
+                                //},
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return data.labels[idx]; //do something with title
+                            },
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                }
+            });
+
+            //Profiles
+            var chB = document.getElementById("topProfiles").getContext('2d');
+            var chBef = new Chart(chB, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        "Fast Food and QSR Diners (Quick Serve Restaurant Diner)", "Recent Auto Repair Customers", "Pet Owners and Pet Store Shoppers", "New Home Owners", "Fast Casual Diners", "Nightlife and Entertainment Enthusiasts", "Home Improvement Shoppers", "Big Box Shoppers", "Financial Services Customers", "Moviegoers", "Gym and Fitness Lifestyle", "Luxury Goods Shoppers (Affluent Consumer)", "Family Fun Lifestyle (Family Fun Activities)", "Family Travelers", "Pharmacy Shoppers"
+                    ],
+                    datasets: [{
+                        label: 'Arby\'s',
+                        data: [1.248548, 0.9594923582, 0.9413734179, 1, 0.8268287567, 0.8048685656, 0.8045360885, 0.8008078238, 0.7854435284, 0.7834253201, 0.7644479264, 0.7422738007, 0.7361179828, 0.702012991, 0.683697298],
+                        backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                        borderColor: 'rgb(255, 170, 34)',
+                        borderWidth: 1
+                    }, ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: '% of total visitors',
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                offsetGridLines: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: false,
+                                callback: function(value) {
+                                    return (value.substr(0, 35) + '..'); //truncate
+                                },
                             }
                         }]
                     },
