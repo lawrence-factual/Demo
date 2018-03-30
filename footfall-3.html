@@ -162,21 +162,28 @@
                     </div>
                     <div style="width: 5%; display:inline-block;"></div>
                     <div style="width: 45%; display: inline-block;">
-                        <h2>How frequently do people visit?</h2>
+                        <h2>When are people visiting?</h2>
                         <div>
                             <table>
                                 <tr>
-                                    <td class="percent">47.7%</td>
-                                    <td class="subtext">of visitors come at a
-                                        <br>
-                                        <p class="clear bold orange">medium frequency.</p>
+                                    <td class="percent" style="padding-bottom: 10px;">6.1%</td>
+                                    <td class="subtext">of traffic for the week
+                                        <br> is on
+                                        <p class="clear bold orange">Monday.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="percent">9.0%</td>
+                                    <td class="subtext">of Monday's traffic
+                                        <br> was at
+                                        <p class="clear bold orange">9a.</p>
                                     </td>
                                 </tr>
                             </table>
 
                         </div>
                         <br>
-                        <canvas id="visByFreq" width="350" height="200"></canvas>
+                        <canvas id="ffByHr" width="350" height="200"></canvas>
                     </div>
                 </div>
 
@@ -205,25 +212,19 @@
                         <div>
                             <table>
                                 <tr>
-                                    <td class="percent" style="padding-bottom: 10px;">6.1%</td>
-                                    <td class="subtext">of traffic for the week
-                                        <br> is on
-                                        <p class="clear bold orange">Monday.</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="percent">9.0%</td>
-                                    <td class="subtext">of Monday's traffic
-                                        <br> was at
-                                        <p class="clear bold orange">9a.</p>
+                                    <td class="percent">47.7%</td>
+                                    <td class="subtext">of visitors come at a
+                                        <br>
+                                        <p class="clear bold orange" style="color: RGBA(64, 133, 232, .8);">medium frequency.</p>
                                     </td>
                                 </tr>
                             </table>
 
                         </div>
                         <br>
-                        <canvas id="ffByHr" width="350" height="200"></canvas>
+                        <canvas id="visByFreq" width="350" height="200"></canvas>
                     </div>
+
                 </div>
                 <div style="height: 60px;"></div>
                 <h2>What's the foot traffic by region?</h2>
@@ -249,8 +250,8 @@
                 document.getElementById("filters").style.opacity = "0";
             }
         });
-        
-                $(document).ready(function(){
+
+        $(document).ready(function() {
             $(body).removeClass("offset");
         })
 
@@ -685,31 +686,22 @@
         //Visitors by Frequency
         var vBF = document.getElementById("visByFreq").getContext('2d');
         var visByFreq = new Chart(vBF, {
-            type: 'bar',
+            type: 'doughnut',
             data: {
                 labels: ["Low", "Med", "High", ],
                 datasets: [{
                     label: 'Peet\'s',
                     data: [37192, 89201, 60312],
-                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
-                    borderColor: 'rgb(255, 170, 34)',
+                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)'],
+                    borderColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)'],
                     borderWidth: 1
                 }, ]
             },
             options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Number of Visitors',
-                        }
-                    }]
-                },
+
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'right',
                 },
             }
         });
