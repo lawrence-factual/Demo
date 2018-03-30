@@ -1,0 +1,853 @@
+<! DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="style.css" rel="stylesheet" />
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src='Highmaps-6/code/highmaps.js'></script>
+    <script src='jquery-3.3.1.js'></script>
+</head>
+
+<body>
+
+    <div id="factual" style="z-index: 5;">
+        <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual.png">
+    </div>
+    <div id="filters">
+        <div id="factual">
+            <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual-color.png">
+        </div>
+        <div style="position: absolute; left: 100px; top: 15px;">
+            <img src="arbys.png" id="logo-small" class="small">
+        </div>
+        <div style="position: absolute; left: 160px; top: 5px;">
+            <h2>Arby's</h2>
+        </div>
+        <div style="position: absolute; left: 280px; top: 10px; height: 70%; width: 2px; background-color: rgba(0,0,0,.05);"></div>
+        <div style="display: none; position: absolute; left: 300px; top: 14px;">
+            <table>
+                <tr>
+                    <td style="font-size:.8em; font-weight: 700; padding-bottom: 4px;">Region</td>
+                </tr>
+                <tr>
+                    <td>Los Angeles</td>
+                    <td style="padding-left: 10px;"><a href="">x</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="position: absolute; right: 0; height: 70px; border: 2px solid RGBA(251, 141, 43, 1.00); box-sizing: border-box; padding: 27px 20px; cursor: pointer;">
+            <b>BUY AUDIENCE</b>
+        </div>
+    </div>
+    <div class="hero">
+        <div id='map' style="width:100%; height: 800px;"></div>
+        <div id='overlay'></div>
+        <div id="overlay-content">
+            <img src="arbys.png" id="logo">
+            <div style="position: absolute; left: 30%; top: 34%;">
+                <h1 style="font-size: 4em; text-transform: none; letter-spacing: 0px;">Arby's</h1>
+                <p>Fast Food > American</p>
+            </div>
+            <div id="stats-1">
+                <table>
+                    <tr>
+                        <td class="td1">5,796,862</td>
+                        <td class="td1">#13</td>
+                        <td class="td1">0.91%</td>
+                    </tr>
+                    <tr>
+                        <td class="td2">Visitors Observed</td>
+                        <td class="td2">Rank in Category</td>
+                        <td class="td2">Category Visit Share</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div id="footfall">
+        <div class="content">
+            <div style="height: 160px;"></div>
+            <a href="index.html"><h1 class="tabs active">Footfall</h1></a>
+            <a href="user.html"><h1 class="tabs">User Journey</h1></a>
+            <a href="demo.html"><h1 class="tabs">Demographics</h1></a>
+            <a href="behavior.html"><h1 class="tabs">Behavior</h1></a>
+            <div style="height: 60px;"></div>
+            <div class="stats">
+                <table style="width: 100%;">
+                    <tr>
+                        <th>Visitors this Week</th>
+                        <th style="padding-left: 20px;">Footfall by Hour</th>
+                        <th style="padding-left: 20px;">Visitors by Frequency</th>
+                        <th style="padding-left: 20px; border-right: none;">Dwell Time</th>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid;">
+                            <table class="td-table">
+                                <tr>
+                                    <td class="td-table-td-text">
+                                        <p class="clear bold green">+0.7%</p>
+                                        <br>vs last week</td>
+                                    <td class="chart"><img src="charts/visitors.png"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid; padding-left: 20px;">
+                            <table class="td-table">
+                                <tr>
+                                    <td class="td-table-td-text">
+                                        <p class="clear bold orange">Monday</p>
+                                        <br>@ 9a</td>
+                                    <td class="chart"><img src="charts/footfall(1).png"></td>
+                                </tr>
+                            </table>
+                        </td>
+
+                        <td style="border-right: 1px rgba(0,0,0,0.1) solid; padding-left: 20px;">
+
+                            <table class="td-table">
+                                <tr>
+                                    <td class="td-table-td-text">
+                                        <p class="clear bold orange">47.7%</p>
+                                        <br>Medium</td>
+                                    <td class="chart"><img src="charts/frequency.png"></td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td style=" padding-left: 20px;">
+                            <table class="td-table">
+                                <tr>
+                                    <td class="td-table-td-text">
+                                        <p class="clear bold orange">30.3%</p>
+                                        <br> &lt; 10 min.</td>
+                                    <td class="chart"><img src="charts/dwell.png"></td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="height: 60px;"></div>
+            <div style="width: 100%;">
+                <div>
+                    <div style="width: 45%; display: inline-block; vertical-align: top;">
+                        <h2>How many visited?</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent green">+0.77%</td>
+                                    <td class="subtext">total visitors
+                                        <br>observed this week.</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="peepObs" width="350" height="200"></canvas>
+                    </div>
+                    <div style="width: 5%; display:inline-block;"></div>
+                    <div style="width: 45%; display: inline-block;">
+                        <h2>When are people visiting?</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent" style="padding-bottom: 10px;">6.1%</td>
+                                    <td class="subtext">of traffic for the week
+                                        <br> is on
+                                        <p class="clear bold orange">Monday.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="percent">9.0%</td>
+                                    <td class="subtext">of Monday's traffic
+                                        <br> was at
+                                        <p class="clear bold orange">9a.</p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="ffByHr" width="350" height="200"></canvas>
+                    </div>
+                </div>
+
+
+                <div style="margin-top: 60px;">
+                    <div style="width: 45%; display: inline-block; vertical-align: top;">
+                        <h2>How long do they stay?</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent">30.3%</td>
+                                    <td class="subtext">of visitors stay
+                                        <br>
+                                        <p class="clear bold orange">less than 10 minutes.</p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="dwellTime" width="350" height="200"></canvas>
+                    </div>
+                    <div style="width: 5%; display:inline-block;"></div>
+                    <div style="width: 45%; display: inline-block;">
+                        <h2>How frequently do people visit?</h2>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td class="percent">47.7%</td>
+                                    <td class="subtext">of visitors come at a
+                                        <br>
+                                        <p class="clear bold orange" style="color: RGBA(64, 133, 232, .8);">medium frequency.</p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <br>
+                        <canvas id="visByFreq" width="350" height="200"></canvas>
+                    </div>
+
+                </div>
+                <div style="height: 60px;"></div>
+                <h2 style="display: inline-block;">What's the foot traffic by region?</h2>
+                <a href="footfall-2.html">
+                    <button id="search">Search this area</button>
+                </a>
+                <div id="map2" style="width:100%; height: 600px;"></div>
+
+            </div>
+            <div style="height: 60px;"></div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
+    <script>
+        $(window).on("load", function() {
+            console.log(window.scrollY);
+            if (window.scrollY > 800) {
+                document.getElementById("filters").style.opacity = "1";
+            } else {
+                document.getElementById("filters").style.opacity = "0";
+            }
+        });
+
+        $(window).on("scroll", function() {
+            console.log(window.scrollY);
+            if (window.scrollY > 800) {
+                document.getElementById("filters").style.opacity = "1";
+            } else {
+                document.getElementById("filters").style.opacity = "0";
+            }
+        });
+
+
+        $(document).keypress(function(e) {
+            if (e.which == 13) {
+                document.getElementById("search").style.opacity = "1";
+            }
+        });
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGF3cmVuY2UtZmFjdHVhbCIsImEiOiJjamQ2OWdseHQ0dHkxMndvMXh4cXF3c3g1In0.ycrRQ-DESrMwj6H_apu5Vw';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v9',
+            center: [-97.4954506496801, 39.248342470676164],
+            zoom: 3.5,
+            zoomControl: false,
+            interactive: false,
+        });
+
+        //map.addControl(new mapboxgl.NavigationControl());
+
+        var framesPerSecond = 600;
+        var initialOpacity = 1
+        var opacity = initialOpacity;
+        var initialRadius = 8;
+        var radius = initialRadius;
+        var maxRadius = 18;
+
+        map.on('load', function() {
+
+
+            // Add a geojson point source.
+            // Heatmap layers also work with a vector tile source.
+            map.addSource('earthquakes', {
+                "type": "geojson",
+                "data": "earthquakes.geojson"
+            });
+
+            map.addLayer({
+                "id": "earthquakes-heat",
+                "type": "heatmap",
+                "source": "earthquakes",
+                "maxzoom": 9,
+                "paint": {
+                    // Increase the heatmap weight based on frequency and property magnitude
+                    "heatmap-weight": [
+                        "interpolate", ["linear"],
+                        ["get", "mag"],
+                        0, 0,
+                        6, 1
+                    ],
+                    // Increase the heatmap color weight weight by zoom level
+                    // heatmap-intensity is a multiplier on top of heatmap-weight
+                    "heatmap-intensity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        0, 1,
+                        9, 3
+                    ],
+                    // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                    // Begin color ramp at 0-stop with a 0-transparancy color
+                    // to create a blur-like effect.
+                    "heatmap-color": [
+                        "interpolate", ["linear"],
+                        ["heatmap-density"],
+                        0, "rgba(248, 218, 125, .2)",
+                        0.2, "rgba(248, 204, 125, .5)",
+                        0.4, "rgba(255, 168, 95, 1)",
+                        0.6, "rgb(253,219,199)",
+                        0.8, "rgba(242, 146, 69, 1)",
+                        1, "rgba(253, 127, 22, 1)"
+                    ],
+                    // Adjust the heatmap radius by zoom level
+                    "heatmap-radius": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        0, 2,
+                        9, 20
+                    ],
+                    // Transition from heatmap to circle layer by zoom level
+                    "heatmap-opacity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, 1,
+                        9, 0
+                    ],
+                }
+            }, 'waterway-label');
+
+            map.addLayer({
+                "id": "earthquakes-point",
+                "type": "circle",
+                "source": "earthquakes",
+                "minzoom": 7,
+                "paint": {
+                    // Size circle radius by earthquake magnitude and zoom level
+                    "circle-radius": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            1, 1,
+                            6, 4
+                        ],
+                        16, [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            1, 5,
+                            6, 50
+                        ]
+                    ],
+                    // Color circle by earthquake magnitude
+                    "circle-color": [
+                        "interpolate", ["linear"],
+                        ["get", "mag"],
+                        1, "rgba(33,102,172,0)",
+                        2, "rgba(248, 204, 125, .5)",
+                        3, "rgba(255, 168, 95, 1)",
+                        4, "rgb(253,219,199)",
+                        5, "rgb(239,138,98)",
+                        6, "rgb(178,24,43)"
+                    ],
+                    "circle-stroke-color": "white",
+                    "circle-stroke-width": 1,
+                    // Transition from heatmap to circle layer by zoom level
+                    "circle-opacity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, 0,
+                        8, 1
+                    ]
+                }
+            }, 'waterway-label');
+            map.on('moveend', function() {
+                if ((map.getBounds().getNorthEast().lat < 34.997486284120924) && (map.getBounds().getNorthEast().lng < -115.53929752120165) && (map.getBounds().getSouthWest().lat > 32.57484297563741) && (map.getBounds().getSouthWest().lng > -121.09230695800564)) {
+                    document.getElementById("button").style.opacity = "1";
+                }
+
+            });
+
+
+            function animateMarker(timestamp) {
+                setTimeout(function() {
+                    requestAnimationFrame(animateMarker);
+
+                    radius += (maxRadius - radius) / framesPerSecond;
+                    opacity -= (.9 / framesPerSecond);
+
+                    map.setPaintProperty('earthquakes-heat', 'heatmap-radius', radius);
+                    //map.setPaintProperty('earthquakes-heat', 'heatmap-opacity', opacity);
+                    map.setPaintProperty('earthquakes-point', 'circle-radius', radius);
+                    map.setPaintProperty('earthquakes-point', 'circle-opacity', opacity);
+
+                    if (radius >= 10) {
+                        radius = initialRadius;
+                        opacity = initialOpacity;
+                    }
+
+                }, 1000 / framesPerSecond);
+
+            }
+
+            // Start the animation.
+            animateMarker(0);
+        });
+
+
+        //MAP 2 FOOTFALL
+
+        var map2 = new mapboxgl.Map({
+            container: 'map2',
+            style: 'mapbox://styles/mapbox/light-v9',
+            center: [-97.4954506496801, 39.248342470676164],
+            zoom: 3.5,
+            zoomControl: true,
+        });
+
+
+        map2.addControl(new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken
+        }));
+        map2.addControl(new mapboxgl.NavigationControl());
+
+        var framesPerSecond = 600;
+        var initialOpacity = 1
+        var opacity = initialOpacity;
+        var initialRadius = 8;
+        var radius = initialRadius;
+        var maxRadius = 18;
+
+        map2.on('load', function() {
+
+
+            // Add a geojson point source.
+            // Heatmap layers also work with a vector tile source.
+            map2.addSource('earthquakes', {
+                "type": "geojson",
+                "data": "earthquakes.geojson"
+            });
+
+            map2.addLayer({
+                "id": "earthquakes-heat",
+                "type": "heatmap",
+                "source": "earthquakes",
+                "maxzoom": 9,
+                "paint": {
+                    // Increase the heatmap weight based on frequency and property magnitude
+                    "heatmap-weight": [
+                        "interpolate", ["linear"],
+                        ["get", "mag"],
+                        0, 0,
+                        6, 1
+                    ],
+                    // Increase the heatmap color weight weight by zoom level
+                    // heatmap-intensity is a multiplier on top of heatmap-weight
+                    "heatmap-intensity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        0, 1,
+                        9, 3
+                    ],
+                    // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                    // Begin color ramp at 0-stop with a 0-transparancy color
+                    // to create a blur-like effect.
+                    "heatmap-color": [
+                        "interpolate", ["linear"],
+                        ["heatmap-density"],
+                        0, "rgba(248, 218, 125, .2)",
+                        0.2, "rgba(248, 204, 125, .5)",
+                        0.4, "rgba(255, 168, 95, 1)",
+                        0.6, "rgb(253,219,199)",
+                        0.8, "rgba(242, 146, 69, 1)",
+                        1, "rgba(253, 127, 22, 1)"
+                    ],
+                    // Adjust the heatmap radius by zoom level
+                    "heatmap-radius": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        0, 2,
+                        9, 20
+                    ],
+                    // Transition from heatmap to circle layer by zoom level
+                    "heatmap-opacity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, 1,
+                        9, 0
+                    ],
+                }
+            }, 'waterway-label');
+
+            map2.addLayer({
+                "id": "earthquakes-point",
+                "type": "circle",
+                "source": "earthquakes",
+                "minzoom": 7,
+                "paint": {
+                    // Size circle radius by earthquake magnitude and zoom level
+                    "circle-radius": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            1, 1,
+                            6, 4
+                        ],
+                        16, [
+                            "interpolate", ["linear"],
+                            ["get", "mag"],
+                            1, 5,
+                            6, 50
+                        ]
+                    ],
+                    // Color circle by earthquake magnitude
+                    "circle-color": [
+                        "interpolate", ["linear"],
+                        ["get", "mag"],
+                        1, "rgba(33,102,172,0)",
+                        2, "rgba(248, 204, 125, .5)",
+                        3, "rgba(255, 168, 95, 1)",
+                        4, "rgb(253,219,199)",
+                        5, "rgb(239,138,98)",
+                        6, "rgb(178,24,43)"
+                    ],
+                    "circle-stroke-color": "white",
+                    "circle-stroke-width": 1,
+                    // Transition from heatmap to circle layer by zoom level
+                    "circle-opacity": [
+                        "interpolate", ["linear"],
+                        ["zoom"],
+                        7, 0,
+                        8, 1
+                    ]
+                }
+            }, 'waterway-label');
+            map2.on('moveend', function() {
+                if ((map.getBounds().getNorthEast().lat < 34.997486284120924) && (map.getBounds().getNorthEast().lng < -115.53929752120165) && (map.getBounds().getSouthWest().lat > 32.57484297563741) && (map.getBounds().getSouthWest().lng > -121.09230695800564)) {
+                    document.getElementById("reload").style.opacity = "1";
+                }
+
+            });
+
+
+            function animateMarker(timestamp) {
+                setTimeout(function() {
+                    requestAnimationFrame(animateMarker);
+
+                    radius += (maxRadius - radius) / framesPerSecond;
+                    opacity -= (.9 / framesPerSecond);
+
+                    map2.setPaintProperty('earthquakes-heat', 'heatmap-radius', radius);
+                    //map.setPaintProperty('earthquakes-heat', 'heatmap-opacity', opacity);
+                    map2.setPaintProperty('earthquakes-point', 'circle-radius', radius);
+                    map2.setPaintProperty('earthquakes-point', 'circle-opacity', opacity);
+
+                    if (radius >= 10) {
+                        radius = initialRadius;
+                        opacity = initialOpacity;
+                    }
+
+                }, 1000 / framesPerSecond);
+
+            }
+
+            // Start the animation.
+            //animateMarker(0);
+        });
+
+        $(document).keypress(function(e) {
+            if (e.which == 13) {
+                document.getElementById("search").style.opacity = "1";
+            }
+        });
+
+
+        //People Observed
+        var pOb = document.getElementById("peepObs").getContext('2d');
+
+
+        // Generate random data to plot
+        var DATA_POINT_NUM = 58;
+        var data = {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: 'rgba(255, 170, 34, 0)',
+                borderColor: 'rgb(255, 170, 34)',
+                //lineTension: 0
+            }, ]
+        }
+        for (var i = 0; i < DATA_POINT_NUM; i++) {
+            data.datasets[0].data.push({
+                x: i,
+                y: Math.random() * 300
+            });
+            data.labels.push('');
+        }
+
+        function getXAxisLabel(value) {
+            try {
+                var xMin = peepObs.options.scales.xAxes[0].ticks.min;
+            } catch (e) {
+                var xMin = undefined;
+            }
+            if (xMin === value) {
+                return '';
+            } else {
+                return data.labels[value];
+            }
+        }
+
+        var peepObs = new Chart(pOb, {
+            type: 'line',
+            data: {
+                labels: [
+                    'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'
+                ],
+                datasets: [{
+                    label: 'This Week',
+                    data: [933174, 668386, 773870, 832691, 847520, 943872, 797349],
+                    backgroundColor: 'RGBA(251, 141, 43, 0)',
+                    borderColor: 'RGBA(251, 141, 43, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Last Week',
+                    data: [953174, 618386, 753870, 812691, 877520, 933872, 807349],
+                    backgroundColor: 'RGBA(64, 133, 232, 0)',
+                    borderColor: 'rgba(0,0,0,0.4)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                animation: false,
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom',
+                        ticks: {
+                            min: 0,
+                            max: 10,
+                            callback: getXAxisLabel, // function(value) { return data.labels[value]; },
+                            autoSkip: false,
+                            maxRotation: 0,
+
+                        },
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of Visitors',
+                        },
+                        ticks: {
+                            beginAtZero: false,
+                        },
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'this week',
+                        }
+                    }],
+
+                },
+                legend: {
+                    display: true
+                },
+
+            }
+        });
+
+
+
+
+
+        //Visitors by Frequency
+        var vBF = document.getElementById("visByFreq").getContext('2d');
+        var visByFreq = new Chart(vBF, {
+            type: 'doughnut',
+            data: {
+                labels: ["Low", "Med", "High", ],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [37192 / 186705 * 100, 89201 / 186705 * 100, 60312 / 186705 * 100],
+                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)'],
+                    borderColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)'],
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+
+                legend: {
+                    display: true,
+                    position: 'right',
+                },
+            }
+        });
+
+
+        //Dwell Time
+        var dT = document.getElementById("dwellTime").getContext('2d');
+        var visByFreq = new Chart(dT, {
+            type: 'bar',
+            data: {
+                labels: ['<10', '<20', '<30', '<40', '<50', '<60', '<70', '<80', '<90', '<100', '<110'],
+                datasets: [{
+                    label: 'Peet\'s',
+                    data: [30, 22, 12, 12, 7, 7, 4, 2, 4, 1],
+                    backgroundColor: 'rgba(255, 170, 34, 0.6)',
+                    borderColor: 'rgb(255, 170, 34)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: '% of visitors',
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: true
+                        },
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 70,
+                            autoSkip: false
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'less than x minutes',
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        //Footfall
+        var ffBH = document.getElementById("ffByHr").getContext('2d');
+        var ffByHr = new Chart(ffBH, {
+            type: 'line',
+            data: {
+                labels: [
+                    ['12a', 'AM'], '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', ['12p', 'PM'], '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p',
+                ],
+                datasets: [{
+                    label: 'Monday',
+                    data: [5853, 4505, 4090, 5217, 8978, 19259, 34538, 42103, 44065, 48756, 63683, 84495, 78693, 68562, 65209, 66803, 68966, 61165, 48648, 39322, 29745, 19868, 12701, 7950],
+                    backgroundColor: 'RGBA(251, 141, 43, 0)',
+                    borderColor: 'RGBA(251, 141, 43, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Tuesday',
+                    data: [
+                        4719, 3636, 3236, 3792, 5965, 12606, 22654, 27228, 30043, 34108, 44791, 58308, 52966, 45640, 43202, 44149, 46598, 44524, 38513, 34924, 27511, 19641, 12398, 7234
+                    ],
+                    backgroundColor: 'RGBA(64, 133, 232, 0)',
+                    borderColor: 'RGBA(64, 133, 232, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Wednesday',
+                    data: [4987, 3816, 3501, 4218, 7345, 15662, 28514, 33694, 34434, 37547, 50442, 66132, 60968, 52297, 49945, 53673, 58642, 55327, 45955, 38652, 29837, 19013, 11865, 7404],
+                    backgroundColor: 'RGBA(108, 202, 213, 0)',
+                    borderColor: 'RGBA(108, 202, 213, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Thursday',
+                    data: [5360, 4330, 3874, 4726, 8092, 17444, 31369, 37151, 38052, 41513, 55451, 73575, 66931, 57111, 55206, 58105, 62912, 57947, 47000, 38220, 29460, 19234, 11902, 7726],
+                    backgroundColor: 'RGBA(250, 82, 81, 0)',
+                    borderColor: 'RGBA(250, 82, 81, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Friday',
+                    data: [5239, 4159, 3739, 4352, 7281, 15724, 28473, 34634, 36749, 41766, 54659, 72714, 68331, 59142, 56559, 57635, 60191, 58321, 50967, 43223, 34329, 23509, 15563, 10261],
+                    backgroundColor: 'RGBA(103, 103, 241, 0)',
+                    borderColor: 'RGBA(103, 103, 241, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Saturday',
+                    data: [8770, 6465, 5360, 5056, 6535, 11338, 19786, 30445, 43501, 55786, 68833, 79230, 78267, 71401, 64677, 60126, 58309, 58980, 54610, 49893, 41781, 30395, 20948, 13380],
+                    backgroundColor: 'RGBA(176, 116, 175, 0)',
+                    borderColor: 'RGBA(176, 116, 175, 1.00)',
+                    borderWidth: 1
+                }, {
+                    label: 'Sunday',
+                    data: [9110, 6792, 5109, 4425, 5156, 7663, 12249, 19356, 29150, 39860, 52224, 71176, 75580, 67756, 60902, 57051, 54538, 54127, 48317, 40894, 32315, 21373, 13627, 8599],
+                    backgroundColor: 'RGBA(95, 165, 214, 0)',
+                    borderColor: 'RGBA(95, 165, 214, 1.00)',
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of Visitors',
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: false
+                        },
+                        time: {
+                            unit: 'hour',
+                            unitStepSize: 12,
+                            isoWeekday: true,
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time of Day',
+                        }
+                    }]
+                },
+                legend: {
+                    display: true,
+                    position: 'right'
+                },
+            }
+        });
+
+    </script>
+</body>

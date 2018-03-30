@@ -1,0 +1,246 @@
+{
+    "nodes": [{
+        "name": "Pilot Flying J"
+  }, {
+        "name": "Casey's General Store"
+  }, {
+        "name": "Giant Eagle"
+  }, {
+        "name": "Tim Hortons"
+  }, {
+        "name": "Caribou Coffee"
+  }, {
+        "name": "Hardee's"
+  }, {
+        "name": "Speedway"
+  }, {
+        "name": "Meijer"
+  }, {
+        "name": "Marathon"
+  }, {
+        "name": "Sears Hometown Store"
+  }, {
+        "name": "Long John Silver's"
+  }, {
+        "name": "Phillips 66"
+  }, {
+        "name": "Waffle House"
+  }, {
+        "name": "Dollar General"
+  }, {
+        "name": "Papa Murphys Take n Bake"
+  }, {
+        "name": "Fifth Third Bank"
+  }, {
+        "name": "A&W Restaurant"
+  }, {
+        "name": "Kangaroo Express"
+  }, {
+        "name": "Food Lion"
+  }, {
+        "name": "Save-A-Lot"
+  }, {
+        "name": "Arby's"
+  }, {
+        "name": "Pilot Flying J"
+  }, {
+        "name": "Casey's General Store"
+  }, {
+        "name": "Giant Eagle"
+  }, {
+        "name": "Tim Hortons"
+  }, {
+        "name": "Hardee's"
+  }, {
+        "name": "Speedway"
+  }, {
+        "name": "Meijer"
+  }, {
+        "name": "Sears Hometown Store"
+  }, {
+        "name": "Marathon"
+  }, {
+        "name": "Phillips 66"
+  }, {
+        "name": "Long John Silver's"
+  }, {
+        "name": "Econo Lodge"
+  }, {
+        "name": "Waffle House"
+  }, {
+        "name": "Caribou Coffee"
+  }, {
+        "name": "Dollar General"
+  }, {
+        "name": "Carquest Auto Parts"
+  }, {
+        "name": "Fifth Third Bank"
+  }, {
+        "name": "A&W Restaurant"
+  }, {
+        "name": "Super 8 Motel"
+    }, {
+        "name": "Save-A-Lot"
+    }],
+    "links": [{
+        "source": 0,
+        "target": 20,
+        "value": 3.670987998
+}, {
+        "source": 1,
+        "target": 20,
+        "value": 2.694583313
+}, {
+        "source": 2,
+        "target": 20,
+        "value": 2.505281517
+}, {
+        "source": 3,
+        "target": 20,
+        "value": 2.405050891
+}, {
+        "source": 4,
+        "target": 20,
+        "value": 2.310318698
+}, {
+        "source": 5,
+        "target": 20,
+        "value": 2.283916614
+}, {
+        "source": 6,
+        "target": 20,
+        "value": 2.270674715
+}, {
+        "source": 7,
+        "target": 20,
+        "value": 2.194350952
+}, {
+        "source": 8,
+        "target": 20,
+        "value": 2.180105059
+}, {
+        "source": 9,
+        "target": 20,
+        "value": 2.092448504
+}, {
+        "source": 10,
+        "target": 20,
+        "value": 2.089546849
+}, {
+        "source": 11,
+        "target": 20,
+        "value": 2.059241251
+}, {
+        "source": 12,
+        "target": 20,
+        "value": 1.926513093
+}, {
+        "source": 13,
+        "target": 20,
+        "value": 1.911261741
+}, {
+        "source": 14,
+        "target": 20,
+        "value": 1.811991334
+}, {
+        "source": 15,
+        "target": 20,
+        "value": 1.770004392
+}, {
+        "source": 16,
+        "target": 20,
+        "value": 1.768700182
+}, {
+        "source": 17,
+        "target": 20,
+        "value": 1.764177076
+}, {
+        "source": 18,
+        "target": 20,
+        "value": 1.748666441
+}, {
+        "source": 19,
+        "target": 20,
+        "value": 1.744892646
+}, {
+        "source": 20,
+        "target": 21,
+        "value": 3.070910545
+}, {
+        "source": 20,
+        "target": 22,
+        "value": 2.614280585
+}, {
+        "source": 20,
+        "target": 23,
+        "value": 2.528117503
+}, {
+        "source": 20,
+        "target": 24,
+        "value": 2.358181652
+}, {
+        "source": 20,
+        "target": 25,
+        "value": 2.330158514
+}, {
+        "source": 20,
+        "target": 26,
+        "value": 2.272482337
+}, {
+        "source": 20,
+        "target": 27,
+        "value": 2.21269601
+}, {
+        "source": 20,
+        "target": 28,
+        "value": 2.203789969
+}, {
+        "source": 20,
+        "target": 29,
+        "value": 2.197990156
+}, {
+        "source": 20,
+        "target": 30,
+        "value": 2.032440395
+}, {
+        "source": 20,
+        "target": 31,
+        "value": 2.000905307
+}, {
+        "source": 20,
+        "target": 32,
+        "value": 1.981057424
+}, {
+        "source": 20,
+        "target": 33,
+        "value": 1.953011485
+}, {
+        "source": 20,
+        "target": 34,
+        "value": 1.909152607
+}, {
+        "source": 20,
+        "target": 35,
+        "value": 1.903011488
+}, {
+        "source": 20,
+        "target": 36,
+        "value": 1.844100232
+}, {
+        "source": 20,
+        "target": 37,
+        "value": 1.815135777
+}, {
+        "source": 20,
+        "target": 38,
+        "value": 1.801924529
+}, {
+        "source": 20,
+        "target": 39,
+        "value": 1.758822114
+}, {
+        "source": 20,
+        "target": 40,
+        "value": 1.742565423
+    }]
+}

@@ -1,0 +1,246 @@
+{
+    "nodes": [{
+        "name": "Hardee's"
+  }, {
+        "name": "Marathon"
+  }, {
+        "name": "Waffle House"
+  }, {
+        "name": "Ace Hardware"
+  }, {
+        "name": "Big Lots"
+  }, {
+        "name": "O'Reilly Auto Parts"
+  }, {
+        "name": "Advance Auto Parts"
+  }, {
+        "name": "Sam's Club"
+  }, {
+        "name": "Lowe's"
+  }, {
+        "name": "PNC Bank"
+  }, {
+        "name": "Office Depot"
+  }, {
+        "name": "Wendy's"
+  }, {
+        "name": "Applebee's"
+  }, {
+        "name": "Sonic Drive-In"
+  }, {
+        "name": "Pizza Hut"
+  }, {
+        "name": "Rite Aid"
+  }, {
+        "name": "KFC"
+  }, {
+        "name": "Holiday Inn Express"
+  }, {
+        "name": "Dick's Sporting Goods"
+  }, {
+        "name": "Taco Bell"
+  }, {
+        "name": "Arby's"
+  }, {
+        "name": "Marathon"
+  }, {
+        "name": "Anytime Fitness"
+  }, {
+        "name": "Little Caesars Pizza"
+  }, {
+        "name": "Lowe's"
+  }, {
+        "name": "Ace Hardware"
+  }, {
+        "name": "Wendy's"
+  }, {
+        "name": "Taco Bell"
+  }, {
+        "name": "Papa John's Pizza"
+  }, {
+        "name": "KFC"
+  }, {
+        "name": "Dairy Queen"
+  }, {
+        "name": "Kmart"
+  }, {
+        "name": "Jimmy John's"
+  }, {
+        "name": "Big Lots"
+  }, {
+        "name": "Walgreens"
+  }, {
+        "name": "Olive Garden"
+  }, {
+        "name": "McDonald's"
+  }, {
+        "name": "Goodwill"
+  }, {
+        "name": "O'Reilly Auto Parts"
+  }, {
+        "name": "PNC Bank"
+  }, {
+        "name": "Sam's Club"
+    }],
+    "links": [{
+        "source": 0,
+        "target": 20,
+        "value": 3.568765368
+  }, {
+        "source": 1,
+        "target": 20,
+        "value": 3.460864808
+  }, {
+        "source": 2,
+        "target": 20,
+        "value": 2.984353028
+  }, {
+        "source": 3,
+        "target": 20,
+        "value": 2.348793673
+  }, {
+        "source": 4,
+        "target": 20,
+        "value": 2.320158424
+  }, {
+        "source": 5,
+        "target": 20,
+        "value": 2.211037721
+  }, {
+        "source": 6,
+        "target": 20,
+        "value": 2.14873184
+  }, {
+        "source": 7,
+        "target": 20,
+        "value": 2.1283209
+  }, {
+        "source": 8,
+        "target": 20,
+        "value": 2.127029078
+  }, {
+        "source": 9,
+        "target": 20,
+        "value": 2.045917195
+  }, {
+        "source": 10,
+        "target": 20,
+        "value": 1.953643826
+  }, {
+        "source": 11,
+        "target": 20,
+        "value": 1.91754947
+  }, {
+        "source": 12,
+        "target": 20,
+        "value": 1.877432302
+  }, {
+        "source": 13,
+        "target": 20,
+        "value": 1.856581094
+  }, {
+        "source": 14,
+        "target": 20,
+        "value": 1.842628348
+  }, {
+        "source": 15,
+        "target": 20,
+        "value": 1.836772427
+  }, {
+        "source": 16,
+        "target": 20,
+        "value": 1.823047448
+  }, {
+        "source": 17,
+        "target": 20,
+        "value": 1.729540781
+  }, {
+        "source": 18,
+        "target": 20,
+        "value": 1.643883555
+  }, {
+        "source": 19,
+        "target": 20,
+        "value": 1.632911605
+  }, {
+        "source": 20,
+        "target": 21,
+        "value": 3.476114675
+  }, {
+        "source": 20,
+        "target": 22,
+        "value": 2.557296936
+  }, {
+        "source": 20,
+        "target": 23,
+        "value": 2.201125458
+  }, {
+        "source": 20,
+        "target": 24,
+        "value": 2.193753305
+  }, {
+        "source": 20,
+        "target": 25,
+        "value": 2.191820875
+  }, {
+        "source": 20,
+        "target": 26,
+        "value": 2.186016682
+  }, {
+        "source": 20,
+        "target": 27,
+        "value": 2.133703359
+  }, {
+        "source": 20,
+        "target": 28,
+        "value": 2.092429566
+  }, {
+        "source": 20,
+        "target": 29,
+        "value": 2.08120885
+  }, {
+        "source": 20,
+        "target": 30,
+        "value": 2.028042692
+  }, {
+        "source": 20,
+        "target": 31,
+        "value": 2.005494282
+  }, {
+        "source": 20,
+        "target": 32,
+        "value": 1.989803704
+  }, {
+        "source": 20,
+        "target": 33,
+        "value": 1.950902318
+  }, {
+        "source": 20,
+        "target": 34,
+        "value": 1.905283144
+  }, {
+        "source": 20,
+        "target": 35,
+        "value": 1.855765041
+  }, {
+        "source": 20,
+        "target": 36,
+        "value": 1.827094915
+  }, {
+        "source": 20,
+        "target": 37,
+        "value": 1.823914768
+  }, {
+        "source": 20,
+        "target": 38,
+        "value": 1.797094989
+  }, {
+        "source": 20,
+        "target": 39,
+        "value": 1.782106896
+  }, {
+        "source": 20,
+        "target": 40,
+        "value": 1.762280607
+    }]
+}

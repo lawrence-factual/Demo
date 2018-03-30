@@ -1,0 +1,223 @@
+
+#overlay {
+    width: 100%;
+    height: 810px;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+}
+
+#logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    position: absolute;
+    top: 30%;
+    left: 15%;
+}
+
+#overlay-content {
+    top:0;
+    left:0;
+    width: 100%;
+    height: 800px;
+    position: absolute;
+}
+#overlay-content > div > p {
+    color: white;
+    opacity: 0.6;
+}
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+    font-family: sans-serif;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+}
+
+p {
+    font-size: 16px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.td1 {
+    font-size: 3em;
+    font-weight: 300;
+    padding-bottom: 16px;
+    text-transform: capitalize;
+    padding-right: 80px;
+    color: white;
+}
+
+#stats-1 > td1 {
+    color: white;
+}
+
+.td2 {
+    font-size: .8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-right: 80px;
+    color: white;
+}
+
+#stats-1 {
+    position: absolute;
+    top: 500px;
+    left: 15%;
+}
+
+#factual {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 100;
+    top: 10px;
+    left: 10px;
+}
+
+.content {
+    width: 70%;
+margin: 0 auto;
+display: block;
+    min-width: 800px;
+}
+
+
+
+.tabs {
+    cursor: pointer;
+    display: inline;
+    margin-right: 40px;
+    color: rgba(0,0,0,0.3);
+}
+
+.active {
+    color: #f68a1e;
+}
+
+.stats {
+
+    width: 100%;
+}
+
+th {
+    text-align: left;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    width: 25%;
+    border-right: 1px rgba(0,0,0,0.1) solid;
+}
+
+td.chart {
+    text-align: center;
+}
+
+.td-table {
+    width: 100%;
+    
+}
+
+.percent {
+    font-size: 3em;
+    font-weight: 300;
+    padding-right: 10px;
+}
+
+.green {
+    color: RGBA(97, 173, 87, 1.00);
+}
+
+td.subtext {
+    vertical-align: top;
+    font-size: 1em;
+    line-height: 1.3;
+}
+
+.orange {
+    color: RGBA(251, 141, 43, 1.00);
+}
+
+.clear {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+a {
+    color: none;
+    text-decoration: none;
+}
+
+.td-table-td-text {
+    line-height: 1.4;
+}
+
+#filters {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+
+
+#logo-small {
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    width: 40px;
+    height: 40px;
+}
+
+#sankey {
+    width: 100%;
+    height: 400px;
+}
+
+#sankey-2 {
+        width: 100%;
+    height: 400px;
+}
+
+#hero, .content, #footfall, #userJourney, #demographics, #behavior {
+    margin: 0 auto;
+}
+
+#search {
+    background-color: #fff;
+    padding: 10px;
+    color: RGBA(251, 141, 43, 1.00);
+    font-weight: bold;
+    font-size: .8em;
+    border: 1px RGBA(251, 141, 43, 1.00) solid;
+    border-radius: 4px;
+    z-index: 5;
+    display: inline-block;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+

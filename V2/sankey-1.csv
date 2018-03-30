@@ -1,0 +1,82 @@
+source,target3,value
+Walgreens,Arby\'s3,576709
+McDonald\'s,Arby\'s3,470412
+Walmart,Arby\'s3,391171
+CVS Pharmacy,Arby\'s3,367538
+Subway,Arby\'s3,297133
+Starbucks,Arby\'s3,286430
+Shell,Arby\'s3,241071
+Redbox,Arby\'s3,231593
+Taco Bell,Arby\'s3,200301
+Wendy\'s,Arby\'s3,199249
+Burger King,Arby\'s3,190741
+Lowe\'s,Arby\'s3,187133
+Dollar General,Arby\'s3,182877
+Target,Arby\'s3,171411
+Rite Aid,Arby\'s3,170330
+Wells Fargo Bank,Arby\'s3,162193
+Dollar Tree,Arby\'s3,150981
+Chase Bank,Arby\'s3,144758
+Best Buy,Arby\'s3,139120
+Dunkin' Donuts,Arby\'s3,132905
+7-Eleven,Arby\'s3,124491
+KFC,Arby\'s3,120589
+Kohl\'s,Arby\'s3,112496
+Advance Auto Parts,Arby\'s3,112405
+Pizza Hut,Arby\'s3,109339
+Chick-Fil-A,Arby\'s3,108488
+Sonic Drive-In,Arby\'s3,107162
+PetSmart,Arby\'s3,104502
+Chevron,Arby\'s3,102644
+BP,Arby\'s3,101852
+Autozone,Arby\'s3,101596
+Staples,Arby\'s3,100364
+Exxon,Arby\'s3,98943
+Office Depot,Arby\'s3,96895
+Publix,Arby\'s3,95927
+Goodwill,Arby\'s3,94939
+Ace Hardware,Arby\'s3,92268
+O'Reilly Auto Parts,Arby\'s3,90230
+The Home Depot,Arby\'s3,89360
+GameStop,Arby\'s3,89360
+Arby\'s,Walgreens3,690663
+Arby\'s,Walmart3,508471
+Arby\'s,McDonald\'s3,471357
+Arby\'s,CVS Pharmacy3,423834
+Arby\'s,Starbucks3,303502
+Arby\'s,Subway3,298869
+Arby\'s,Redbox3,243823
+Arby\'s,Shell3,234990
+Arby\'s,Lowe\'s3,226531
+Arby\'s,Taco Bell3,207602
+Arby\'s,Wendy\'s3,205630
+Arby\'s,Target3,203310
+Arby\'s,Dollar General3,192736
+Arby\'s,Rite Aid3,189618
+Arby\'s,Burger King3,188540
+Arby\'s,Dollar Tree3,163865
+Arby\'s,Best Buy3,163545
+Arby\'s,Wells Fargo Bank3,156803
+Arby\'s,Chase Bank3,145292
+Arby\'s,Kohl\'s3,130676
+Arby\'s,Dunkin' Donuts3,124821
+Arby\'s,7-Eleven3,122559
+Arby\'s,KFC3,121162
+Arby\'s,PetSmart3,120471
+Arby\'s,Staples3,117135
+Arby\'s,Publix3,117102
+Arby\'s,Chick-Fil-A3,117065
+Arby\'s,Office Depot3,111354
+Arby\'s,Advance Auto Parts3,110351
+Arby\'s,Pizza Hut3,110054
+Arby\'s,Sonic Drive-In3,105664
+Arby\'s,Chevron3,101132
+Arby\'s,Goodwill3,100595
+Arby\'s,Exxon3,98818
+Arby\'s,Autozone3,98792
+Arby\'s,Ace Hardware3,98777
+Arby\'s,GameStop3,98524
+Arby\'s,Michaels3,95750
+Arby\'s,BP3,93998
+Arby\'s,The Home Depot3,52252
+Arby\'s,Bed Bath & Beyond3,52252
