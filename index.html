@@ -13,10 +13,14 @@
 </head>
 
 <body>
-    <div id="factual">
-        <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual-color.png">
+
+                <div id="factual" style="z-index: 5;">
+        <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual.png">
     </div>
     <div id="filters">
+            <div id="factual">
+        <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual-color.png">
+    </div>
         <div style="position: absolute; left: 100px; top: 15px;">
             <img src="arbys.png" id="logo-small" class="small">
         </div>
@@ -260,7 +264,7 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoibGF3cmVuY2UtZmFjdHVhbCIsImEiOiJjamQ2OWdseHQ0dHkxMndvMXh4cXF3c3g1In0.ycrRQ-DESrMwj6H_apu5Vw';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/light-v9',
+            style: 'mapbox://styles/mapbox/dark-v9',
             center: [-97.4954506496801, 39.248342470676164],
             zoom: 3.5,
             zoomControl: false,

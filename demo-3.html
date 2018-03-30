@@ -104,11 +104,11 @@
                                 <tr>
                                     <td>Male</td>
 
-                                    <td>52.6%</td>
+                                    <td>41.3%</td>
                                 </tr>
                                 <tr>
                                     <td>35-44 years old</td>
-                                    <td>43.9%</td>
+                                    <td>34.5%</td>
                                 </tr>
                             </table>
                         </td>
@@ -117,7 +117,7 @@
                                 <tr>
                                     <td>$25-50k</td>
 
-                                    <td>37.5%</td>
+                                    <td>51.3%</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -129,13 +129,13 @@
 
                             <table class="td-table">
                                 <tr>
-                                    <td>Ohio, US</td>
-                                    <td class="">8.5%</td>
+                                    <td>California, US</td>
+                                    <td class="">100%</td>
 
                                 </tr>
                                 <tr>
-                                    <td>Atlanta, GA</td>
-                                    <td class="">3.4%</td>
+                                    <td>Hungtington Beach, CA</td>
+                                    <td class="">7.3%</td>
                                 </tr>
                             </table>
 
@@ -143,13 +143,13 @@
                         <td style=" padding-left: 20px;">
                             <table class="td-table">
                                 <tr>
-                                    <td>Delaware, US</td>
-                                    <td class="green">+50.8%</td>
+                                    <td>California, US</td>
+                                    <td class="green">+100%</td>
                                 </tr>
                                 <tr>
-                                    <td>Fort Meyers, FL</td>
+                                    <td>California, US</td>
 
-                                    <td class="green">+22.2%</td>
+                                    <td class="green">+100%</td>
                                 </tr>
                             </table>
 
@@ -167,7 +167,7 @@
                             <div>
                                 <table>
                                     <tr>
-                                        <td class="percent">52.6%</td>
+                                        <td class="percent">41.3%</td>
                                         <td class="subtext">of visitors are male.</td>
                                     </tr>
                                 </table>
@@ -182,7 +182,7 @@
                             <div>
                                 <table>
                                     <tr>
-                                        <td class="percent">43.9%</td>
+                                        <td class="percent">34.5%</td>
                                         <td class="subtext">of visitors are 35-44 years old.
                                         </td>
                                     </tr>
@@ -198,13 +198,13 @@
                         <h2 style="text-transform: capitalize;">Top home regions</h2>
                         <table>
                             <tr>
-                                <td class="percent">8.5%</td>
+                                <td class="percent">100%</td>
                                 <td class="subtext">of traffic comes
-                                    <br>from Ohio, US.
+                                    <br>from California, US.
                                 </td>
-                                <td class="percent" style="padding-left: 40px;">3.4%</td>
+                                <td class="percent" style="padding-left: 40px;">7.3%</td>
                                 <td class="subtext">of traffic comes
-                                    <br>from Atlanta, GA.
+                                    <br>from Huntington Beach, CA.
                                 </td>
                             </tr>
 
@@ -221,7 +221,7 @@
                         <div>
                             <table>
                                 <tr>
-                                    <td class="percent">37.5%</td>
+                                    <td class="percent">51.3%</td>
                                     <td class="subtext">of visitors make $25k–50k.
                                     </td>
                                 </tr>
@@ -237,15 +237,15 @@
                         <div>
                             <table>
                                 <tr>
-                                    <td class="percent green">+50.8%</td>
+                                    <td class="percent green">+100%</td>
                                     <td class="subtext">more likely to visit if
-                                        <br>from Delaware, US.
+                                        <br>from California, US.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="percent">+22.2%</td>
+                                    <td class="percent">+100%</td>
                                     <td class="subtext">more likely to visit if
-                                        <br>from Fort Meyers, FL.
+                                        <br>from California, US.
                                     </td>
                                 </tr>
                             </table>
@@ -517,11 +517,11 @@
         var gender = new Chart(g, {
             type: 'doughnut',
             data: {
-                labels: ["Male", "Female"],
+                labels: ["Male", "Female", "Unknown"],
                 datasets: [{
-                    data: [52.6, 100 - 52.6],
-                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(108, 202, 213, .8)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)', ],
-                    borderColor: ['RGBA(251, 141, 43, 1.00)', 'RGBA(64, 133, 232, 1.00)', 'RGBA(108, 202, 213, 1.00)', 'RGBA(250, 82, 81, 1.00)', 'RGBA(103, 103, 241, 1.00)', 'RGBA(176, 116, 175, 1.00)', ],
+                    data: [41.3, 37.1, 100-41.3-37.1],
+                    backgroundColor: ['RGBA(251, 141, 43, .8)', 'RGBA(64, 133, 232, .8)', 'RGBA(0,0,0,0.3)', 'RGBA(250, 82, 81, .8)', 'RGBA(103, 103, 241, .8)', 'RGBA(176, 116, 175, .8)', ],
+                    borderColor: ['RGBA(251, 141, 43, 1.00)', 'RGBA(64, 133, 232, 1.00)', 'RGBA(0,0,0,.3)', 'RGBA(250, 82, 81, 1.00)', 'RGBA(103, 103, 241, 1.00)', 'RGBA(176, 116, 175, 1.00)', ],
                     borderWidth: 2
                 }, ]
             },
@@ -578,7 +578,7 @@
                 labels: ["$0-25k", "$25-50k", "$50-75k", "$75-100k", "$100-125k", "$125-150k", "$150-175k", "$175-200k", "$200-225k"],
                 datasets: [{
                     label: 'Arby\'s',
-                    data: [692,
+                    data: [692/ 13170 * 100,
                         6265 / 13170 * 100,
                         4034 / 13170 * 100,
                         1137 / 13170 * 100,

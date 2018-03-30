@@ -12,7 +12,7 @@
     <script src='jquery-3.3.1.js'></script>
 </head>
 
-<body>
+<body class="offset" onLoad="window.scroll(0, 810)">
     <div id="factual">
         <img style="padding-left: 12px; padding-top: 8px; width: 25px;" src="Factual-color.png">
     </div>
@@ -249,6 +249,10 @@
                 document.getElementById("filters").style.opacity = "0";
             }
         });
+        
+                $(document).ready(function(){
+            $(body).removeClass("offset");
+        })
 
         $(window).on("scroll", function() {
             console.log(window.scrollY);
