@@ -41,47 +41,7 @@
         "name": "Big Lots"
   }, {
         "name": "Arby's"
-  }, {
-        "name": "Walgreens"
-  }, {
-        "name": "McDonald's"
-  }, {
-        "name": "CVS Pharmacy"
-  }, {
-        "name": "Starbucks"
-  }, {
-        "name": "Subway"
-  }, {
-        "name": "Walmart"
-  }, {
-        "name": "Lowe's"
-  }, {
-        "name": "Shell"
-  }, {
-        "name": "Redbox"
-  }, {
-        "name": "Taco Bell"
-  }, {
-        "name": "Wendy's"
-  }, {
-        "name": "Target"
-  }, {
-        "name": "Dunkin' Donuts"
-  }, {
-        "name": "KFC"
-  }, {
-        "name": "Burger King"
-  }, {
-        "name": "Kohl's"
-  }, {
-        "name": "Chevron"
-  }, {
-        "name": "Ace Hardware"
-  }, {
-        "name": "Exxon"
-  }, {
-        "name": "Michaels"
-    }],
+  }],
     "links": [{
             "source": 0,
             "target": 20,
@@ -162,87 +122,5 @@
             "source": 19,
             "target": 20,
             "value": 1821
-  },
-        {
-            "source": 20,
-            "target": 21,
-            "value": 15023
-        },
-        {
-            "source": 20,
-            "target": 22,
-            "value": 9470
-        }, {
-            "source": 20,
-            "target": 23,
-            "value": 7608
-        }, {
-            "source": 20,
-            "target": 24,
-            "value": 7084
-        }, {
-            "source": 20,
-            "target": 25,
-            "value": 6520
-        }, {
-            "source": 20,
-            "target": 26,
-            "value": 5303
-        }, {
-            "source": 20,
-            "target": 27,
-            "value": 5020
-        }, {
-            "source": 20,
-            "target": 28,
-            "value": 4900
-        }, {
-            "source": 20,
-            "target": 29,
-            "value": 4337
-        }, {
-            "source": 20,
-            "target": 30,
-            "value": 4240
-        }, {
-            "source": 20,
-            "target": 31,
-            "value": 4197
-        }, {
-            "source": 20,
-            "target": 32,
-            "value": 3085
-        }, {
-            "source": 20,
-            "target": 33,
-            "value": 2477
-        }, {
-            "source": 20,
-            "target": 34,
-            "value": 2388
-        }, {
-            "source": 20,
-            "target": 35,
-            "value": 2342
-        }, {
-            "source": 20,
-            "target": 36,
-            "value": 2153
-        }, {
-            "source": 20,
-            "target": 37,
-            "value": 2137
-        }, {
-            "source": 20,
-            "target": 38,
-            "value": 2124
-        }, {
-            "source": 20,
-            "target": 39,
-            "value": 2120
-        }, {
-            "source": 20,
-            "target": 40,
-            "value": 2088
-        }]
+  }]
 }
