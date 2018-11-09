@@ -1,44 +1,44 @@
 {
     "nodes": [{
-        "name": "CVS Pharmacy"
+        "name": "Fast Food"
   }, {
-        "name": "McDonald's"
+        "name": "American Restaurants"
   }, {
-        "name": "Walmart"
+        "name": "Burgers"
   }, {
-        "name": "Walgreens"
+        "name": "Gas Stations"
   }, {
-        "name": "Lowe's"
+        "name": "Pharmacies"
   }, {
-        "name": "Starbucks"
+        "name": "Sports and Recreation"
   }, {
-        "name": "Shell"
+        "name": "Discount Stores"
   }, {
-        "name": "Rite Aid"
+        "name": "Convenience Stores"
   }, {
-        "name": "Wendy's"
+        "name": "Department Stores"
   }, {
-        "name": "Subway"
+        "name": "Clothing and Accessories"
   }, {
-        "name": "Redbox"
+        "name": "Auto Maintenance and Repair"
   }, {
-        "name": "Wells Fargo Bank"
+        "name": "Beauty Salons and Barbers"
   }, {
-        "name": "Taco Bell"
+        "name": "Banks and Credit Unions"
   }, {
-        "name": "Target"
+        "name": "Cafe, Coffee and Tea Houses"
   }, {
-        "name": "Office Depot"
+        "name": "Hotels and Motels"
   }, {
-        "name": "Ace Hardware"
+        "name": "Food and Beverage Shops"
   }, {
-        "name": "Chick-Fil-A"
+        "name": "Car Parts and Accessories"
   }, {
-        "name": "KFC"
+        "name": "Bars"
   }, {
-        "name": "Advance Auto Parts"
+        "name": "Furniture and Decor"
   }, {
-        "name": "Big Lots"
+        "name": "Pet Supplies and Services"
   }, {
         "name": "Arby's"
   }],
