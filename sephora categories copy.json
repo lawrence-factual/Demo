@@ -420,131 +420,142 @@
                         {
                             "name": "Retail",
                             "value": 153203
+				}, {
+                            "name": "Other",
+                            "children": [{
+                                    "name": "Arts and Crafts",
+                                    "value": 146468
 				},
-                        {
-                            "name": "Arts and Crafts",
-                            "value": 146468
+                                {
+                                    "name": "Office Supplies",
+                                    "value": 138840
 				},
-                        {
-                            "name": "Office Supplies",
-                            "value": 138840
+                                {
+                                    "name": "Music, Video and DVD",
+                                    "value": 118151
 				},
-                        {
-                            "name": "Music, Video and DVD",
-                            "value": 118151
+                                {
+                                    "name": "Florists",
+                                    "value": 100724
 				},
-                        {
-                            "name": "Florists",
-                            "value": 100724
+                                {
+                                    "name": "Hardware Stores",
+                                    "value": 99658
 				},
-                        {
-                            "name": "Hardware Stores",
-                            "value": 99658
+                                {
+                                    "name": "Tobacco",
+                                    "value": 78175
 				},
-                        {
-                            "name": "Tobacco",
-                            "value": 78175
+                                {
+                                    "name": "Wedding and Bridal",
+                                    "value": 68748
 				},
-                        {
-                            "name": "Wedding and Bridal",
-                            "value": 68748
+                                {
+                                    "name": "Warehouses and Wholesale Stores",
+                                    "value": 58205
 				},
-                        {
-                            "name": "Warehouses and Wholesale Stores",
-                            "value": 58205
+                                {
+                                    "name": "Cards and Stationery",
+                                    "value": 55531
 				},
-                        {
-                            "name": "Cards and Stationery",
-                            "value": 55531
+                                {
+                                    "name": "Grooming",
+                                    "value": 55280
+				}, {
+                                    "name": "Other",
+                                    "children": [
+                                        {
+                                            "name": "Luggage",
+                                            "value": 45451
 				},
-                        {
-                            "name": "Grooming",
-                            "value": 55280
+                                        {
+                                            "name": "Antiques",
+                                            "value": 35270
 				},
-                        {
-                            "name": "Luggage",
-                            "value": 45451
+                                        {
+                                            "name": "Bicycles",
+                                            "value": 34105
 				},
-                        {
-                            "name": "Antiques",
-                            "value": 35270
+                                        {
+                                            "name": "Dance and Music",
+                                            "value": 32334
 				},
-                        {
-                            "name": "Bicycles",
-                            "value": 34105
+                                        {
+                                            "name": "Pet Sitting and Boarding",
+                                            "value": 27773
 				},
-                        {
-                            "name": "Dance and Music",
-                            "value": 32334
+                                        {
+                                            "name": "Hobby and Collectibles",
+                                            "value": 23701
 				},
-                        {
-                            "name": "Pet Sitting and Boarding",
-                            "value": 27773
+                                        {
+                                            "name": "Party Supplies",
+                                            "value": 22879
 				},
-                        {
-                            "name": "Hobby and Collectibles",
-                            "value": 23701
+                                        {
+                                            "name": "Vintage and Thrift",
+                                            "value": 22469
 				},
-                        {
-                            "name": "Party Supplies",
-                            "value": 22879
+                                        {
+                                            "name": "Home Appliances",
+                                            "value": 20777
 				},
-                        {
-                            "name": "Vintage and Thrift",
-                            "value": 22469
+                                        {
+                                            "name": "Other",
+                                            "children": [{
+                                                    "name": "Photos and Frames",
+                                                    "value": 20259
 				},
-                        {
-                            "name": "Home Appliances",
-                            "value": 20777
+                                                {
+                                                    "name": "Construction Supplies",
+                                                    "value": 15102
 				},
-                        {
-                            "name": "Photos and Frames",
-                            "value": 20259
+                                                {
+                                                    "name": "Nurseries and Garden Centers",
+                                                    "value": 13345
 				},
-                        {
-                            "name": "Construction Supplies",
-                            "value": 15102
+                                                {
+                                                    "name": "Pawn Shops",
+                                                    "value": 6686
 				},
-                        {
-                            "name": "Nurseries and Garden Centers",
-                            "value": 13345
+                                                {
+                                                    "name": "Flea Markets",
+                                                    "value": 5186
 				},
-                        {
-                            "name": "Pawn Shops",
-                            "value": 6686
+                                                {
+                                                    "name": "Costumes",
+                                                    "value": 3895
 				},
-                        {
-                            "name": "Flea Markets",
-                            "value": 5186
+                                                {
+                                                    "name": "Outlet",
+                                                    "value": 3837
 				},
-                        {
-                            "name": "Costumes",
-                            "value": 3895
+                                                {
+                                                    "name": "Housewares",
+                                                    "value": 3711
 				},
-                        {
-                            "name": "Outlet",
-                            "value": 3837
+                                                {
+                                                    "name": "Auctions",
+                                                    "value": 1781
 				},
-                        {
-                            "name": "Housewares",
-                            "value": 3711
+                                                {
+                                                    "name": "Pets",
+                                                    "value": 1658
 				},
-                        {
-                            "name": "Auctions",
-                            "value": 1781
+                                                {
+                                                    "name": "Newsstands",
+                                                    "value": 1623
 				},
-                        {
-                            "name": "Pets",
-                            "value": 1658
-				},
-                        {
-                            "name": "Newsstands",
-                            "value": 1623
-				},
-                        {
-                            "name": "Adult",
-                            "value": 31
-				}
+                                                {
+                                                    "name": "Adult",
+                                                    "value": 31
+				}]
+                                        }
+                ]
+                                }
+                        ]
+                        }
+
                 ]
                 }
 
