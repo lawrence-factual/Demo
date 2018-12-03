@@ -1,0 +1,9 @@
+{
+  "name": "d3-zoomable-sunburst",
+  "main": "d3-zoomable-sunburst.js",
+  "version": "365.0.0",
+  "author": {
+    "name": "Edwin Park",
+    "url": "https://beta.observablehq.com/@esp1"
+  }
+}

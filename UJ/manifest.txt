@@ -1,4 +1,13 @@
 package-lock.json
+node_modules/@framer/benjamin.logo/tsconfig.json
+node_modules/@framer/benjamin.logo/package.json
+node_modules/@framer/benjamin.logo/metadata/icon.png
+node_modules/@framer/benjamin.logo/metadata/artwork.png
+node_modules/@framer/benjamin.logo/design/document.json
+node_modules/@framer/benjamin.logo/code/canvas.tsx
+node_modules/@framer/benjamin.logo/code/Logo.tsx
+node_modules/@framer/benjamin.logo/build/index.js
+node_modules/@framer/benjamin.logo/README.md
 metadata/icon.png
 metadata/artwork.png
 index.html
