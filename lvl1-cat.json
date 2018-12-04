@@ -29,24 +29,6 @@
 						}
 ]
 				},
-
-        {
-          "name": "Computers and Electronics",
-          "children": [
-            {
-              "name": "Cameras",
-              "value": 11142
-						},
-            {
-              "name": "Mobile Phones",
-              "value": 341595
-						},
-            {
-              "name": "Video Games",
-              "value": 142085
-						}
-]
-				},
         {
           "name": "Supermarkets and Groceries",
           "value": 676310
@@ -57,40 +39,7 @@
 				},
         {
           "name": "Food and Beverage",
-          "children": [
-            {
-              "name": "Beer, Wine and Spirits",
-              "value": 239534
-						},
-            {
-              "name": "Candy Stores",
-              "value": 215452
-						},
-            {
-              "name": "Cheese",
-              "value": 5402
-						},
-            {
-              "name": "Chocolate",
-              "value": 52778
-						},
-            {
-              "name": "Farmers' Markets",
-              "value": 22615
-						},
-            {
-              "name": "Health and Diet Food",
-              "value": 198772
-						},
-            {
-              "name": "Kosher",
-              "value": 0
-						},
-            {
-              "name": "Meat and Seafood",
-              "value": 26592
-						}
-]
+          "value": 761145
 				},
         {
           "name": "Furniture and Decor",
@@ -99,6 +48,10 @@
         {
           "name": "Convenience Stores",
           "value": 411453
+				},
+                {
+          "name": "Computers and Electronics",
+          "value": 494822
 				},
         {
           "name": "Discount Stores",
