@@ -1,326 +1,305 @@
 {
-    "name": "Sephora",
-    "children": [
-        {
-            "name": "Social",
-            "value": 16077978
+  "name": "Sephora",
+  "children": [
+    {
+      "name": "Social",
+      "value": 16077978
 		},
+    {
+      "name": "Retail",
+      "children": [
         {
-            "name": "Retail",
-            "children": [
-                {
-                    "name": "Fashion",
-                    "children": [
-                        {
-                            "name": "Clothing and Accessories",
-                            "value": 4370613
+          "name": "Fashion",
+          "children": [
+            {
+              "name": "Clothing and Accessories",
+              "value": 4370613
 						},
-                        {
-                            "name": "Jewelry and Watches",
-                            "value": 782879
+            {
+              "name": "Jewelry and Watches",
+              "value": 782879
 						},
-                        {
-                            "name": "Shoes",
-                            "value": 1152914
+            {
+              "name": "Shoes",
+              "value": 1152914
 						},
-                        {
-                            "name": "Swimwear",
-                            "value": 1273
+            {
+              "name": "Swimwear",
+              "value": 1273
 						}
 ]
 				},
 
-                {
-                    "name": "Computers and Electronics",
-                    "children": [
-                        {
-                            "name": "Cameras",
-                            "value": 11142
+        {
+          "name": "Computers and Electronics",
+          "children": [
+            {
+              "name": "Cameras",
+              "value": 11142
 						},
-                        {
-                            "name": "Mobile Phones",
-                            "value": 341595
+            {
+              "name": "Mobile Phones",
+              "value": 341595
 						},
-                        {
-                            "name": "Video Games",
-                            "value": 142085
+            {
+              "name": "Video Games",
+              "value": 142085
 						}
 ]
 				},
-                {
-                    "name": "Supermarkets and Groceries",
-                    "value": 676310
+        {
+          "name": "Supermarkets and Groceries",
+          "value": 676310
 				},
-                {
-                    "name": "Department Stores",
-                    "value": 1459370
+        {
+          "name": "Department Stores",
+          "value": 1459370
 				},
-                {
-                    "name": "Food and Beverage",
-                    "children": [
-                        {
-                            "name": "Beer, Wine and Spirits",
-                            "value": 239534
+        {
+          "name": "Food and Beverage",
+          "children": [
+            {
+              "name": "Beer, Wine and Spirits",
+              "value": 239534
 						},
-                        {
-                            "name": "Candy Stores",
-                            "value": 215452
+            {
+              "name": "Candy Stores",
+              "value": 215452
 						},
-                        {
-                            "name": "Cheese",
-                            "value": 5402
+            {
+              "name": "Cheese",
+              "value": 5402
 						},
-                        {
-                            "name": "Chocolate",
-                            "value": 52778
+            {
+              "name": "Chocolate",
+              "value": 52778
 						},
-                        {
-                            "name": "Farmers' Markets",
-                            "value": 22615
+            {
+              "name": "Farmers' Markets",
+              "value": 22615
 						},
-                        {
-                            "name": "Health and Diet Food",
-                            "value": 198772
+            {
+              "name": "Health and Diet Food",
+              "value": 198772
 						},
-                        {
-                            "name": "Kosher",
-                            "value": 0
+            {
+              "name": "Kosher",
+              "value": 0
 						},
-                        {
-                            "name": "Meat and Seafood",
-                            "value": 26592
+            {
+              "name": "Meat and Seafood",
+              "value": 26592
 						}
 ]
 				},
-                {
-                    "name": "Furniture and Decor",
-                    "value": 572034
+        {
+          "name": "Furniture and Decor",
+          "value": 572034
 				},
-                {
-                    "name": "Convenience Stores",
-                    "value": 411453
+        {
+          "name": "Convenience Stores",
+          "value": 411453
 				},
-                {
-                    "name": "Discount Stores",
-                    "value": 407455
+        {
+          "name": "Discount Stores",
+          "value": 407455
 				},
-                {
-                    "name": "Shopping Centers and Malls",
-                    "value": 374875
+        {
+          "name": "Shopping Centers and Malls",
+          "value": 374875
 				},
-                {
-                    "name": "Other",
-                    "children": [
-                        {
-                            "name": "Sporting Goods",
-                            "value": 364852
+        {
+          "name": "Sporting Goods",
+          "value": 364852
 				},
-                        {
-                            "name": "Beauty Products",
-                            "value": 317394
+        {
+          "name": "Beauty Products",
+          "value": 317394
 				},
-                        {
-                            "name": "Gift and Novelty",
-                            "value": 309831
+        {
+          "name": "Gift and Novelty",
+          "value": 309831
 				},
-                        {
-                            "name": "Glasses",
-                            "value": 285545
+        {
+          "name": "Glasses",
+          "value": 285545
 				},
-                        {
-                            "name": "Pet Supplies",
-                            "value": 260841
+        {
+          "name": "Pet Supplies",
+          "value": 260841
 				},
-                        {
-                            "name": "Children",
-                            "value": 231417
+        {
+          "name": "Children",
+          "value": 231417
 				},
-                        {
-                            "name": "Bookstores",
-                            "value": 183108
+        {
+          "name": "Bookstores",
+          "value": 183108
 				},
-                        {
-                            "name": "Toys",
-                            "value": 174773
+        {
+          "name": "Toys",
+          "value": 174773
 				},
-                        {
-                            "name": "Retail",
-                            "value": 153203
+        {
+          "name": "Retail",
+          "value": 153203
 				}, {
-                            "name": "Other",
-                            "children": [{
-                                    "name": "Arts and Crafts",
-                                    "value": 146468
+          "name": "Arts and Crafts",
+          "value": 146468
 				},
-                                {
-                                    "name": "Office Supplies",
-                                    "value": 138840
+        {
+          "name": "Office Supplies",
+          "value": 138840
 				},
-                                {
-                                    "name": "Music, Video and DVD",
-                                    "value": 118151
+        {
+          "name": "Music, Video and DVD",
+          "value": 118151
 				},
-                                {
-                                    "name": "Florists",
-                                    "value": 100724
+        {
+          "name": "Florists",
+          "value": 100724
 				},
-                                {
-                                    "name": "Hardware Stores",
-                                    "value": 99658
+        {
+          "name": "Hardware Stores",
+          "value": 99658
 				},
-                                {
-                                    "name": "Tobacco",
-                                    "value": 78175
+        {
+          "name": "Tobacco",
+          "value": 78175
 				},
-                                {
-                                    "name": "Wedding and Bridal",
-                                    "value": 68748
+        {
+          "name": "Wedding and Bridal",
+          "value": 68748
 				},
-                                {
-                                    "name": "Warehouses and Wholesale Stores",
-                                    "value": 58205
+        {
+          "name": "Warehouses and Wholesale Stores",
+          "value": 58205
 				},
-                                {
-                                    "name": "Cards and Stationery",
-                                    "value": 55531
+        {
+          "name": "Cards and Stationery",
+          "value": 55531
 				},
-                                {
-                                    "name": "Grooming",
-                                    "value": 55280
+        {
+          "name": "Grooming",
+          "value": 55280
 				}, {
-                                    "name": "Other",
-                                    "children": [
-                                        {
-                                            "name": "Luggage",
-                                            "value": 45451
+          "name": "Luggage",
+          "value": 45451
 				},
-                                        {
-                                            "name": "Antiques",
-                                            "value": 35270
+        {
+          "name": "Antiques",
+          "value": 35270
 				},
-                                        {
-                                            "name": "Bicycles",
-                                            "value": 34105
+        {
+          "name": "Bicycles",
+          "value": 34105
 				},
-                                        {
-                                            "name": "Dance and Music",
-                                            "value": 32334
+        {
+          "name": "Dance and Music",
+          "value": 32334
 				},
-                                        {
-                                            "name": "Pet Sitting and Boarding",
-                                            "value": 27773
+        {
+          "name": "Pet Sitting and Boarding",
+          "value": 27773
 				},
-                                        {
-                                            "name": "Hobby and Collectibles",
-                                            "value": 23701
+        {
+          "name": "Hobby and Collectibles",
+          "value": 23701
 				},
-                                        {
-                                            "name": "Party Supplies",
-                                            "value": 22879
+        {
+          "name": "Party Supplies",
+          "value": 22879
 				},
-                                        {
-                                            "name": "Vintage and Thrift",
-                                            "value": 22469
+        {
+          "name": "Vintage and Thrift",
+          "value": 22469
 				},
-                                        {
-                                            "name": "Home Appliances",
-                                            "value": 20777
+        {
+          "name": "Home Appliances",
+          "value": 20777
+				}, {
+          "name": "Photos and Frames",
+          "value": 20259
 				},
-                                        {
-                                            "name": "Other",
-                                            "children": [{
-                                                    "name": "Photos and Frames",
-                                                    "value": 20259
+        {
+          "name": "Construction Supplies",
+          "value": 15102
 				},
-                                                {
-                                                    "name": "Construction Supplies",
-                                                    "value": 15102
+        {
+          "name": "Nurseries and Garden Centers",
+          "value": 13345
 				},
-                                                {
-                                                    "name": "Nurseries and Garden Centers",
-                                                    "value": 13345
+        {
+          "name": "Pawn Shops",
+          "value": 6686
 				},
-                                                {
-                                                    "name": "Pawn Shops",
-                                                    "value": 6686
+        {
+          "name": "Flea Markets",
+          "value": 5186
 				},
-                                                {
-                                                    "name": "Flea Markets",
-                                                    "value": 5186
+        {
+          "name": "Costumes",
+          "value": 3895
 				},
-                                                {
-                                                    "name": "Costumes",
-                                                    "value": 3895
+        {
+          "name": "Outlet",
+          "value": 3837
 				},
-                                                {
-                                                    "name": "Outlet",
-                                                    "value": 3837
+        {
+          "name": "Housewares",
+          "value": 3711
 				},
-                                                {
-                                                    "name": "Housewares",
-                                                    "value": 3711
+        {
+          "name": "Auctions",
+          "value": 1781
 				},
-                                                {
-                                                    "name": "Auctions",
-                                                    "value": 1781
+        {
+          "name": "Pets",
+          "value": 1658
 				},
-                                                {
-                                                    "name": "Pets",
-                                                    "value": 1658
+        {
+          "name": "Newsstands",
+          "value": 1623
 				},
-                                                {
-                                                    "name": "Newsstands",
-                                                    "value": 1623
-				},
-                                                {
-                                                    "name": "Adult",
-                                                    "value": 31
-				}]
-                                        }
-                ]
-                                }
-                        ]
-                        }
+        {
+          "name": "Adult",
+          "value": 31
+				}
 
-                ]
-                }
 
 			]
 		},
-        {
-            "name": "Businesses and Services",
-            "value": 5327204
+    {
+      "name": "Businesses and Services",
+      "value": 5327204
 },
-        {
-            "name": "Healthcare",
-            "value": 2338256
+    {
+      "name": "Healthcare",
+      "value": 2338256
 },
-        {
-            "name": "Community and Government",
-            "value": 1276313
+    {
+      "name": "Community and Government",
+      "value": 1276313
 },
-        {
-            "name": "Transportation",
-            "value": 1696351
+    {
+      "name": "Transportation",
+      "value": 1696351
 		},
-        {
-            "name": "Travel",
-            "value": 1661844
+    {
+      "name": "Travel",
+      "value": 1661844
 		},
-        {
-            "name": "Sports and Recreation",
-            "value": 769584
+    {
+      "name": "Sports and Recreation",
+      "value": 769584
 		},
-        {
-            "name": "Automotive",
-            "value": 517122
+    {
+      "name": "Automotive",
+      "value": 517122
 },
-        {
-            "name": "Landmarks",
-            "value": 312572
+    {
+      "name": "Landmarks",
+      "value": 312572
 }
 ]
 }
-
-
-
