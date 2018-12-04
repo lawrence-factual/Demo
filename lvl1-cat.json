@@ -1,0 +1,45 @@
+{
+  "name": "Sephora",
+  "children": [
+    {
+      "name": "Social",
+      "value": 16077978
+		},
+    {
+      "name": "Retail",
+      "value": 15007760
+		},
+    {
+      "name": "Businesses and Services",
+      "value": 5327204
+},
+    {
+      "name": "Healthcare",
+      "value": 2338256
+},
+    {
+      "name": "Community and Government",
+      "value": 1276313
+},
+    {
+      "name": "Transportation",
+      "value": 1696351
+		},
+    {
+      "name": "Travel",
+      "value": 1661844
+		},
+    {
+      "name": "Sports and Recreation",
+      "value": 769584
+		},
+    {
+      "name": "Automotive",
+      "value": 517122
+},
+    {
+      "name": "Landmarks",
+      "value": 312572
+}
+]
+}
